@@ -1,0 +1,12 @@
+<header class="header">
+    <div class="filename">
+        <div class="toolbar-links">
+            <select ng-model="theme" ng-options="t.name as t.caption for t in themes | orderBy:'caption'" class="theme"></select>
+            <a ng-if="snippet.id" href="/snippets/{{ snippet.id }}/raw" class="raw">Raw Code</a>
+        </div>
+    </div>
+</header>
+
+<pre id="editor" editor="editor" edit="false" theme="theme" mode="mode" code="code"><code>{{ snippet.snippet }}</code></pre>
+
+<footer class="footer">Posted by <a href="http://mavrx.io/">[Mavrx]</a></footer>

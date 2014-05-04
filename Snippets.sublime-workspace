@@ -1,0 +1,2268 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"not",
+				"notify"
+			],
+			[
+				"Re",
+				"RewriteRule"
+			],
+			[
+				"whi",
+				"whitespace"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"url",
+				"urlencode"
+			],
+			[
+				"htm",
+				"htmlspecialchars"
+			],
+			[
+				"html",
+				"htmlentities"
+			],
+			[
+				"dir",
+				"directivelong	Angular.js"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"tb",
+				"table-cell"
+			],
+			[
+				"time",
+				"angular: $timeout"
+			],
+			[
+				"tag",
+				"tag_style"
+			],
+			[
+				"perms",
+				"permissions"
+			],
+			[
+				"perm",
+				"permission"
+			],
+			[
+				"for",
+				"angular.forEach"
+			],
+			[
+				"no",
+				"nowrap"
+			],
+			[
+				"post",
+				"postman"
+			],
+			[
+				"module",
+				"angular.module"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"cur",
+				"cursor"
+			],
+			[
+				"log",
+				"angular: $log.debug"
+			],
+			[
+				"each",
+				"angular.forEach"
+			],
+			[
+				"list-s",
+				"list-style"
+			],
+			[
+				"conte",
+				"contentBorder"
+			],
+			[
+				"hi",
+				"highlightColor"
+			],
+			[
+				"cu",
+				"cursor"
+			],
+			[
+				"hip",
+				"hipchat_defaults"
+			],
+			[
+				"text-",
+				"text-align"
+			],
+			[
+				"ex",
+				"angular.extend"
+			],
+			[
+				"filt",
+				"filter	.filter function"
+			],
+			[
+				"con",
+				"controller	Angular.js"
+			],
+			[
+				"refer",
+				"referenceCodeEnum"
+			],
+			[
+				"forms",
+				"forms"
+			],
+			[
+				"filter",
+				"activeFilter"
+			],
+			[
+				"tr",
+				"transparent"
+			],
+			[
+				"rou",
+				"angular: $routeParams"
+			],
+			[
+				"angul",
+				"angular: children"
+			],
+			[
+				"y",
+				"y"
+			],
+			[
+				"items",
+				"items"
+			],
+			[
+				"is",
+				"isFavorite"
+			],
+			[
+				"click",
+				"clickEvent"
+			],
+			[
+				"Child",
+				"ChildBrowser"
+			],
+			[
+				"Is",
+				"IsAndroid"
+			],
+			[
+				"showFav",
+				"ShowFavorites2"
+			],
+			[
+				"dim",
+				"dimensions"
+			],
+			[
+				"width",
+				"width"
+			],
+			[
+				"sear",
+				"searchFieldAttributes"
+			],
+			[
+				"pro",
+				"property"
+			],
+			[
+				"pare",
+				"parentPagePath"
+			],
+			[
+				"ac",
+				"accent-font-family-alt"
+			],
+			[
+				"base",
+				"base-color"
+			],
+			[
+				"acc",
+				"accent-font-family"
+			],
+			[
+				"bas",
+				"base-color"
+			],
+			[
+				"Sear",
+				"SearchAttributes"
+			],
+			[
+				"Curr",
+				"CurrentModule"
+			],
+			[
+				"old",
+				"oldStyles"
+			],
+			[
+				"cus",
+				"Customizations"
+			],
+			[
+				"ma",
+				"magic-number"
+			],
+			[
+				"H",
+				"HasDeletePermission"
+			],
+			[
+				"show",
+				"showSuccess"
+			],
+			[
+				"Can",
+				"CancelDelete"
+			],
+			[
+				"Clo",
+				"CloseContactOrAccount"
+			],
+			[
+				"ob",
+				"observable"
+			],
+			[
+				"obser",
+				"observableArray"
+			],
+			[
+				"com",
+				"computed"
+			],
+			[
+				"obs",
+				"observableArray"
+			],
+			[
+				"get",
+				"_getAccountById"
+			],
+			[
+				"Sea",
+				"SearchAttributes"
+			],
+			[
+				"lo",
+				"location"
+			],
+			[
+				"or",
+				"orientation"
+			],
+			[
+				"inde",
+				"indexOf"
+			],
+			[
+				"Cli",
+				"ClickEvent"
+			],
+			[
+				"obe",
+				"observableArray"
+			],
+			[
+				"upd",
+				"UpdateCurrentAccount"
+			],
+			[
+				"roo",
+				"rootObject"
+			],
+			[
+				"du",
+				"dummyData"
+			],
+			[
+				"Obser",
+				"observables"
+			],
+			[
+				"view",
+				"viewModel"
+			],
+			[
+				"Vi",
+				"ViewModel"
+			],
+			[
+				"Se",
+				"SecureServer"
+			],
+			[
+				"Id",
+				"Id"
+			],
+			[
+				"transferIn",
+				"transferInfo"
+			],
+			[
+				"trans",
+				"transferInfo"
+			],
+			[
+				"local",
+				"LocalUrl"
+			],
+			[
+				"Presn",
+				"PresentationViewer"
+			],
+			[
+				"pres",
+				"presentation"
+			],
+			[
+				"pre",
+				"presentation"
+			],
+			[
+				"Pre",
+				"PresentationViewer"
+			],
+			[
+				"sca",
+				"scaledProperties"
+			],
+			[
+				"Pr",
+				"PresentationViewer"
+			],
+			[
+				"video",
+				"video"
+			],
+			[
+				"accent",
+				"accent-color"
+			],
+			[
+				"aut",
+				"authorize_net_by_collective_id"
+			],
+			[
+				"fon",
+				"font-family"
+			],
+			[
+				"Has",
+				"HasInternet"
+			],
+			[
+				"accent-",
+				"accent-font-family"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"20px",
+				"20px"
+			],
+			[
+				"acce",
+				"accent-font-family"
+			],
+			[
+				"Cu",
+				"CurrentTransfer"
+			],
+			[
+				"err",
+				"errorCallback"
+			],
+			[
+				"row",
+				"row_array"
+			],
+			[
+				"remove",
+				"remove_query_string"
+			],
+			[
+				"rece",
+				"receipt"
+			],
+			[
+				"rec",
+				"receipt"
+			],
+			[
+				"memb",
+				"member_id"
+			],
+			[
+				"tran",
+				"transaction"
+			],
+			[
+				"authnet",
+				"authnet_result"
+			],
+			[
+				"back",
+				"background-color	zen:css_properties"
+			],
+			[
+				"data",
+				"table_data"
+			],
+			[
+				"js",
+				"json_encode"
+			],
+			[
+				"table",
+				"table_data"
+			],
+			[
+				"toke",
+				"token_table"
+			],
+			[
+				"function",
+				"function_exists"
+			],
+			[
+				"fu",
+				"function_exists"
+			],
+			[
+				"sess",
+				"session_start"
+			],
+			[
+				"session_de",
+				"session_destroy"
+			],
+			[
+				"bre",
+				"breadcrumbs"
+			],
+			[
+				"brea",
+				"breadcrumbs"
+			],
+			[
+				"array_re",
+				"array_reverse"
+			],
+			[
+				"slug",
+				"slug_parts"
+			],
+			[
+				"co",
+				"columns"
+			],
+			[
+				"result",
+				"result_array"
+			],
+			[
+				"tes",
+				"test_segs"
+			],
+			[
+				"index",
+				"index_table"
+			],
+			[
+				"htmlde",
+				"html_entity_decode"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "views/layout.ejs",
+			"settings":
+			{
+				"buffer_size": 1054,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/js/script.js",
+			"settings":
+			{
+				"buffer_size": 3941,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "api/models/Snippet.js",
+			"settings":
+			{
+				"buffer_size": 1279,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 74 files for \"validate\"\n\n/Users/cameron/Sites/snippets.cam/api/models/Snippet.js:\n   30      },\n   31  \n   32:     beforeValidate: function (values, cb) {\n   33          console.log(values.code.length);\n   34          if (_.isArray(values.code)) {\n\n/Users/cameron/Sites/snippets.cam/config/session.js:\n   14  \n   15    // Session secret is automatically generated when your new app is created\n   16:   // Replace at your own risk in production-- you will invalidate the cookies of your users,\n   17    // forcing them to log in again. \n   18    secret: '62539eb6c7d3a9db61adafca8066bb43',\n\n/Users/cameron/Sites/snippets.cam/node_modules/sails/node_modules/waterline/lib/waterline/query/validate.js:\n    2   * Validation\n    3   *\n    4:  * Used in create and update methods validate a model\n    5   * Can also be used independently\n    6   */\n    .\n   11  module.exports = {\n   12  \n   13:   validate: function(values, presentOnly, cb) {\n   14      var self = this;\n   15  \n   ..\n   21      async.series([\n   22  \n   23:       // Run Before Validate Lifecycle Callbacks\n   24        function(cb) {\n   25          var runner = function(item, callback) {\n   ..\n   30          };\n   31  \n   32:         async.eachSeries(self._callbacks.beforeValidate, runner, function(err) {\n   33            if(err) return cb(err);\n   34            cb();\n   ..\n   38        // Run Validation\n   39        function(cb) {\n   40:         self._validator.validate(values, presentOnly === true, function(invalidAttributes) {\n   41  \n   42            // Create validation error here\n   ..\n   51        },\n   52  \n   53:       // Run After Validate Lifecycle Callbacks\n   54        function(cb) {\n   55          var runner = function(item, callback) {\n   ..\n   60          };\n   61  \n   62:         async.eachSeries(self._callbacks.afterValidate, runner, function(err) {\n   63            if(err) return cb(err);\n   64            cb();\n\n9 matches across 3 files\n",
+			"settings":
+			{
+				"buffer_size": 1946,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "Snippets.sublime-project",
+			"settings":
+			{
+				"buffer_size": 341,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "api/controllers/SnippetController.js",
+			"settings":
+			{
+				"buffer_size": 856,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/display.ejs",
+			"settings":
+			{
+				"buffer_size": 581,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/homepage.ejs",
+			"settings":
+			{
+				"buffer_size": 762,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 375.0,
+		"selected_items":
+		[
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"jade",
+				"Set Syntax: Jade"
+			],
+			[
+				"Ghost",
+				"Markdown Preview: Github Flavored Markdown: Export HTML in Sublime Text"
+			],
+			[
+				"htm",
+				"Set Syntax: HTML"
+			],
+			[
+				"lintde",
+				"SublimeLinter: Disable Debug Mode"
+			],
+			[
+				"isntal",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"lint",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"linter",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"scpe",
+				"Scope Hunter: Toggle Instant Scoper"
+			],
+			[
+				"scope",
+				"Scope Hunter: Toggle Instant Scoper"
+			],
+			[
+				"sco",
+				"Scope Hunter: Toggle Instant Scoper"
+			],
+			[
+				"raz",
+				"Set Syntax: Razor"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"mark",
+				"Markdown Preview: Github Flavored Markdown: Preview in Browser"
+			],
+			[
+				"javasc",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"go",
+				"Golden Ratio: Toggle Auto Resize"
+			],
+			[
+				"golen tog",
+				"Golden Ratio: Toggle Auto Resize"
+			],
+			[
+				"golden tog",
+				"Golden Ratio: Toggle Auto Resize"
+			],
+			[
+				"golen",
+				"Golden Ratio: Toggle Auto Resize"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"golden ra",
+				"Golden Ratio: Toggle Auto Resize"
+			],
+			[
+				"gold",
+				"Golden Ratio"
+			],
+			[
+				"markdow",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"prefer lint",
+				"Preferences: SublimeLinter Settings – User"
+			],
+			[
+				"lint seting",
+				"Preferences: SublimeLinter Settings – User"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: sim",
+				"Snippet: Sentinel Image"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 588.0
+	},
+	"console":
+	{
+		"height": 267.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/cameron/Sites/snippets.cam/node_modules/sails/node_modules/waterline/lib/waterline/query/validate.js",
+		"/Users/cameron/Sites/snippets.cam/assets/js/ace-min/mode-xquery.js",
+		"/Users/cameron/Sites/snippets.cam/assets/styles/importer.less",
+		"/Users/cameron/Sites/snippets.cam/config/routes.js",
+		"/Users/cameron/Sites/snippets.cam/tasks/pipeline.js",
+		"/Users/cameron/Sites/snippets.cam/config/models.js",
+		"/Users/cameron/Sites/snippets.cam/node_modules/sails/node_modules/ejs-locals/test/fixtures/parent-include-chain.ejs",
+		"/Users/cameron/Sites/snippets.cam/package.json",
+		"/Users/cameron/Sites/snippets.cam/views/raw.ejs",
+		"/Users/cameron/Sites/snippets.cam/README.md",
+		"/Users/cameron/Sites/snippets.cam/.tmp/localDiskDb.db",
+		"/Users/cameron/Sites/snippets.cam/node_modules/sails/bin/sails-new.js",
+		"/Users/cameron/Sites/snippets.cam/config/session.js",
+		"/Users/cameron/Sites/snippets.cam/node_modules/sails/node_modules/sails-generate/node_modules/sails-generate-views/templates/homepage-orig.ejs",
+		"/Users/cameron/Sites/snippets.cam/views/homepage.ejs",
+		"/Users/cameron/Sites/snippets.cam/config/express.js",
+		"/Users/cameron/Sites/snippets.cam/config/connections.js",
+		"/Users/cameron/Sites/snippets.cam/node_modules/rc/LICENSE.APACHE2",
+		"/Users/cameron/Sites/snippets.cam/config/local.js",
+		"/Users/cameron/Sites/snippets.cam/api/controllers/SnippetsController.js",
+		"/Users/cameron/Sites/snippets.cam/api/models/Snippets.js",
+		"/Users/cameron/Sites/snippets.cam/api/models/Snippet.js",
+		"/Users/cameron/Downloads/javascript.js",
+		"/Users/cameron/Sites/mavrx.cam/src/site/README.md",
+		"/private/etc/apache2/httpd.conf",
+		"/Users/cameron/Dropbox/Application Support/Sublime Text 3/Packages/MavrxShare/MavrxShare.sublime-settings",
+		"/Users/cameron/Dropbox/Application Support/Sublime Text 3/Packages/User/MavrxShare.sublime-settings",
+		"/Users/cameron/Sites/mavrx.cam/src/snippets/ace-min/theme-tomorrow_night_eighties.js",
+		"/Users/cameron/Sites/mavrx.cam/src/snippets/ace-min/snippets/nix.js",
+		"/Users/cameron/Sites/mavrx.cam/public_html/index.php",
+		"/Users/cameron/Sites/mavrx.cam/src/site/gulpfile.js",
+		"/Users/cameron/Sites/mavrx.cam/public_html/droplr/index.php",
+		"/Users/cameron/Sites/mavrx.cam/src/snippets/views/new-snippet.jade",
+		"/Users/cameron/Sites/mavrx.cam/src/snippets/js/ace.js",
+		"/Users/cameron/Sites/mavrx.cam/src/snippets/package.json",
+		"/Users/cameron/Sites/mavrx.cam/src/site/scss/_normalize.scss",
+		"/Users/cameron/Sites/mavrx.cam/src/site/scss/style.scss",
+		"/Users/cameron/Sites/mavrx.cam/src/site/package.json",
+		"/Users/cameron/Sites/mavrx.cam/src/snippets/views/404.jade",
+		"/Users/cameron/Sites/mavrx.cam/src/snippets/copy/.htaccess",
+		"/Users/cameron/Dropbox/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/cameron/Sites/mavrx.cam/public_html/.htaccess",
+		"/Users/cameron/Sites/mavrx.cam/src/snippets/views/display.jade",
+		"/Users/cameron/Sites/mavrx.cam/src/snippets/README.md",
+		"/Users/cameron/Sites/mavrx.cam/Mavrx.sublime-project",
+		"/Users/cameron/Sites/mavrx.cam/src/snippets/config.rb",
+		"/Users/cameron/Sites/mavrx.cam/share/snippets/css/style.css",
+		"/Users/cameron/Sites/mavrx.cam/share/snippets/index.php",
+		"/Users/cameron/Sites/mavrx.cam/share/snippets/display.php",
+		"/Users/cameron/Sites/mavrx.cam/src/site/config.rb",
+		"/Users/cameron/Sites/mavrx.cam/public_html/droplr/.htaccess",
+		"/Users/cameron/Sites/mavrx.cam/src/forms/contact.php",
+		"/Users/cameron/Sites/mavrx.cam/src/js/script.js",
+		"/Users/cameron/Sites/mavrx.cam/src/gulpfile.js",
+		"/Users/cameron/Sites/mavrx.cam/share/snippets/assets/prism.css",
+		"/Users/cameron/Sites/mavrx.cam/src/scss/style.scss",
+		"/Users/cameron/Sites/mavrx.cam/src/config.rb",
+		"/Users/cameron/Sites/mavrx.cam/src/scss/_grid.scss",
+		"/Users/cameron/Sites/mavrx.cam/src/package.json",
+		"/Users/cameron/Sites/mavrx.cam/share/logos/index.html",
+		"/Users/cameron/Sites/mavrx.cam/share/index.html",
+		"/Users/cameron/Sites/mavrx.cam/share/.htaccess",
+		"/Users/cameron/Sites/mavrx.cam/src/scss/_normalize.scss",
+		"/Users/cameron/Sites/mavrx.cam/.gitignore",
+		"/Users/cameron/Sites/mavrx.cam/public_html/img/not-our-footer-logo.svg",
+		"/Users/cameron/Sites/mavrx.cam/src/.gitignore",
+		"/Users/cameron/Sites/mavrx.cam/src/Mavrx.sublime-project",
+		"/Users/cameron/Sites/mavrx.cam/scss/_normalize.scss",
+		"/Users/cameron/Sites/mavrx.cam/scss/style.scss",
+		"/Users/cameron/Sites/mavrx.cam/config.rb",
+		"/Users/cameron/Sites/mavrx.cam/gulpfile.js",
+		"/Users/cameron/Sites/mavrx.cam/_normalize.scss",
+		"/Users/cameron/Sites/cameronspear.cam/blog/content/themes/my-casper/assets/js/index.js",
+		"/Users/cameron/Sites/cameronspear.cam/blog/content/themes/my-casper/default.hbs",
+		"/Users/cameron/Sites/cameronspear.cam/blog/content/themes/my-casper/header1.hbs",
+		"/Users/cameron/Sites/cameronspear.cam/blog/Gruntfile.js",
+		"/Users/cameron/Sites/cameronspear.cam/blog/config.example.js",
+		"/Users/cameron/Sites/cameronspear.cam/blog/LICENSE",
+		"/Users/cameron/Sites/cameronspear.cam/blog/core/server/helpers/index.js",
+		"/Users/cameron/Sites/cameronspear.cam/blog/content/themes/casper/default.hbs",
+		"/Users/cameron/Sites/cameronspear.cam/blog/content/themes/my-casper/post.hbs",
+		"/Users/cameron/Sites/cameronspear.cam/blog/config.js",
+		"/Users/cameron/Sites/cameronspear.cam/public_html/index.php",
+		"/Users/cameron/Sites/cameronspear.cam/static_partials/home.hbs",
+		"/Users/cameron/Sites/cameronspear.cam/blog/content/themes/my-casper/page.hbs",
+		"/Users/cameron/Sites/cameronspear.cam/blog/content/themes/my-casper/index.hbs",
+		"/Users/cameron/Sites/cameronspear.cam/Cameron Spear (Ghost).sublime-project",
+		"/Users/cameron/Sites/cameronspear.cam/blog/node_modules/validator/lib/defaultError.js",
+		"/Users/cameron/Sites/cameronspear.cam/blog/node_modules/when/debug.js",
+		"/Users/cameron/Sites/cameronspear.cam/blog/index.js",
+		"/Users/cameron/Sites/cameronspear.cam/index.php",
+		"/Users/cameron/Sites/cameronspear.cam/index.html",
+		"/Users/cameron/Sites/cameronspear.cam/config.js",
+		"/Volumes/Bowser/AboutTime/ControlCenter/Modules/Platform/GlobalAdmin/ChannelAccounts.cshtml",
+		"/Volumes/Bowser/AboutTime/ControlCenter/content/src/platform/js/controllers/globalAdmin/channelAccounts.js",
+		"/Volumes/Bowser/AboutTime/ControlCenter/Modules/Platform/Account/CreateAccount.cshtml",
+		"/Volumes/Bowser/AboutTime/ControlCenter/content/bower.json",
+		"/Volumes/Bowser/AboutTime/ControlCenter/Modules/Platform/GlobalAdmin/ChannelAccountsPartials/BasicInfo.cshtml",
+		"/Volumes/Bowser/AboutTime/ControlCenter/content/src/platform/js/filters/replace.js",
+		"/Volumes/Bowser/AboutTime/ControlCenter/content/src/platform/js/directives/money.js",
+		"/Volumes/Bowser/AboutTime/ControlCenter/Modules/Platform/GlobalAdmin/ChannelAccountsPartials/BasePricing.cshtml",
+		"/Volumes/Bowser/AboutTime/ControlCenter/content/src/platform/scss/includes/_ui.scss",
+		"/Volumes/Bowser/AboutTime/ControlCenter/content/src/platform/scss/includes/_non-semantic.scss",
+		"/Volumes/Bowser/AboutTime/ControlCenter/content/src/platform/js/app.js",
+		"/Volumes/Bowser/AboutTime/ControlCenter/Modules/Platform/GlobalAdmin/Customers.cshtml",
+		"/Volumes/Bowser/AboutTime/ControlCenter/Modules/Platform/GlobalAdmin/ChannelAccountsPartials/PackageOfferings.cshtml",
+		"/Volumes/Bowser/AboutTime/ControlCenter/Modules/Platform/GlobalAdmin/CustomersPartials/Licenses.cshtml",
+		"/Volumes/Bowser/AboutTime/ControlCenter/content/AboutTime.sublime-project",
+		"/Volumes/Bowser/AboutTime/ControlCenter/content/src/platform/js/controllers/account/admin/admin.js",
+		"/Volumes/Bowser/AboutTime/ControlCenter/Modules/Platform/Admin/LocationsPartials/Restrictions.cshtml",
+		"/Volumes/Bowser/AboutTime/ControlCenter/content/src/platform/js/routes.js",
+		"/Volumes/Bowser/AboutTime/ControlCenter/content/src/platform/scss/includes/_menus.scss",
+		"/Volumes/Bowser/AboutTime/ControlCenter/Modules/Platform/Admin/LocationsPartials/TimePreferences.cshtml",
+		"/Volumes/Bowser/AboutTime/ControlCenter/content/src/platform/scss/app.scss",
+		"/Volumes/Bowser/AboutTime/ControlCenter/Modules/Platform/NYI.cshtml",
+		"/Volumes/Bowser/AboutTime/ControlCenter/Modules/Platform/Admin/LocationsPartials/Media.cshtml",
+		"/Volumes/Bowser/AboutTime/ControlCenter/content/src/platform/js/controllers/globalAdmin/customers.js",
+		"/Volumes/Bowser/AboutTime/ControlCenter/content/src/platform/js/controllers/account/admin/userRoles.js",
+		"/Volumes/Bowser/AboutTime/ControlCenter/content/src/platform/js/models/accountMenu.js",
+		"/Volumes/Bowser/AboutTime/ControlCenter/content/src/platform/js/controllers/account/create.js",
+		"/Volumes/Bowser/AboutTime/ControlCenter/content/src/platform/js/directives/spinner.js",
+		"/Volumes/Bowser/AboutTime/ControlCenter/Modules/Platform/GlobalAdmin/ChannelAccountsPartials/OtherOffers.cshtml",
+		"/Users/cameron/Dropbox/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/Volumes/Bowser/AboutTime/ControlCenter/Modules/Platform/Account/CreateAccountPartials/SelectPackage.cshtml",
+		"/Users/cameron/.bin/mariosync",
+		"/Volumes/Bowser/AboutTime/ControlCenter/Modules/Platform/Admin/LocationsPartials/Productivity.cshtml",
+		"/Volumes/Bowser/AboutTime/ControlCenter/content/ABE-README.md",
+		"/Volumes/Bowser/AboutTime/ControlCenter/Modules/Platform/Account/CreateAccountPartials/PaymentInfo.cshtml"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 99.0,
+		"where_history":
+		[
+			"",
+			"LocationsPartials/*",
+			"",
+			"app/",
+			"",
+			"js/*",
+			"",
+			"Hub.*.js, App.js, *.html",
+			"Hub.*.js, App.js, content/*.html",
+			"Hub.*.js, App.js",
+			"(Hub.*.js|App.js)",
+			"Hub.*",
+			"",
+			"Hub.*",
+			"",
+			"Hub.*.js",
+			"Hub.*",
+			"",
+			"*.js",
+			"",
+			"*.scss",
+			"*.js",
+			"<project>",
+			"",
+			"*.scss",
+			".scss",
+			"",
+			"*.scss",
+			"*.js",
+			"",
+			"*.js",
+			"",
+			"*.js",
+			"",
+			"!*.debug.js",
+			"",
+			"*.php",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"validate",
+			"\"validate\"",
+			"'validate'",
+			"validate",
+			"validate(",
+			"validate",
+			"beforeValidate",
+			"<header class=\"header\">\n    <div class=\"filename\">\n        <div class=\"toolbar-links\">\n            <select ng-model=\"theme\" ng-options=\"t.name as t.caption for t in themes | orderBy:'caption'\" class=\"theme\"></select>\n            <a href=\"/snippets/<%= snippet.id %>/raw\" class=\"raw\">Raw Code</a>\n        </div>\n    </div>\n</header>\n\n<pre ng-init=\"mode = '<%= snippet.language %>'\" id=\"editor\" editor=\"editor\" edit=\"false\" theme=\"theme\" mode=\"mode\" code=\"code\"><code><%= snippet.code %></code></pre>\n\n<footer class=\"footer\">Posted by <a href=\"http://mavrx.io/\">[Mavrx]</a></footer>\n",
+			"%-",
+			"snippet",
+			"unction(",
+			"ion(",
+			"      ",
+			"     ",
+			"    ",
+			"   ",
+			"  ",
+			"json_decode",
+			"file_get_contents",
+			"combineSnippets",
+			"101",
+			"config",
+			"isajax",
+			"json_decode",
+			"isAJAX",
+			"303",
+			"browser",
+			"creation",
+			"showNewSnippet",
+			"nonce",
+			"favorite_color",
+			"htmlentities",
+			"test",
+			"303",
+			"input",
+			"file_put",
+			"_them",
+			"getThe",
+			"ng-init=\"mode = 'REPLACE_LANGUAGE'\"",
+			"scope.mode",
+			"attrs.mode",
+			"console",
+			" a {",
+			"snippet",
+			"m",
+			"mode",
+			"$ext",
+			"modeu",
+			"modeulan",
+			"modeu",
+			"lang",
+			"mode",
+			"new-sn",
+			"themes",
+			"theme",
+			"ThemeOptions",
+			"themeOptions",
+			"REPLACE_ID",
+			"private",
+			"$id",
+			"select",
+			"get",
+			"function ",
+			"clean",
+			"views",
+			"reasonable",
+			"mode",
+			"box",
+			"background",
+			"theme",
+			"#",
+			"$scope",
+			"jade",
+			"file",
+			"str_replace",
+			"$editor",
+			"\"",
+			"highlight",
+			"show404",
+			"ooter",
+			"gutil.env.production",
+			"public_html",
+			"plumber",
+			"notify",
+			"prefix",
+			"autoprefixer",
+			"selection",
+			"heading",
+			"compass",
+			"    ",
+			"public_html",
+			"box-sizing",
+			"box-sizing(content-box)",
+			"include",
+			"public_html",
+			"REDIRECT_URL",
+			"showSnippet",
+			"undent",
+			"saveSnippet",
+			"json_decode",
+			"show404",
+			"$db",
+			"languages",
+			"_POS",
+			"_POST",
+			"show404",
+			"self::AP",
+			"self::ap",
+			"private",
+			"$views",
+			"$API_KEY",
+			"API_KEY",
+			"api_key",
+			"API_KEY",
+			"api_key",
+			"API_KEY",
+			"code",
+			"snippets =",
+			"language",
+			"bind_param",
+			"code",
+			"$codes",
+			"$snippet",
+			"language",
+			"code",
+			"60px",
+			"browserSync",
+			"$views"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": true,
+		"regex": false,
+		"replace_history":
+		[
+			"mode",
+			"'",
+			"  ",
+			"'",
+			"percentDiscount",
+			"'",
+			"",
+			"package.set",
+			"ladda.location",
+			"ListEditorPartials/",
+			"clean:all",
+			"channel",
+			"id=\"listItem_{{listItem.id}}\"",
+			"id=\"listItem.id\" class=\"tbody-stripe\"",
+			"visibility",
+			"            <label class=\"control-label\" for=\"visibility\">Visibility</label>\n            <div class=\"controls\">\n                <label class=\"inline-checkbox-label\">\n                    <input type=\"checkbox\" id=\"visibility\" name=\"visibility\" ng-model=\"selectedListItem.visibility\">\n                    Show\n                </label>\n            </div>\n",
+			"selectedListItem.visibility",
+			"setUpFilter",
+			"setUpAddress",
+			"dummyPerms",
+			"listEditorList",
+			"ListEditorList",
+			"department",
+			"division",
+			"role",
+			"address.setUpI18n",
+			"billingI18n",
+			"i18n",
+			"icon-form",
+			"icon-pencil",
+			"icon-edit",
+			"icon-banana",
+			" ",
+			"employee",
+			"EmployeesCtrl",
+			"dropdown-popover",
+			"$arrow",
+			"customer",
+			"rootScope.ladda.stopAll",
+			"my-account",
+			"'/my-acount/logout/'",
+			"$1('$2')",
+			"forms.$1.editing",
+			"ng-click=\"cancel($1)\"",
+			"ng-click=\"edit($1)\"",
+			"'",
+			"reviewsEditMode",
+			"authenticationEditMode",
+			"restrictionsEditMode",
+			"additionalInfoEditMode",
+			"mainInfoEditMode",
+			"",
+			"-",
+			"secondaryNavColor",
+			"secondary-nav",
+			"::$1",
+			"acount-nav",
+			"has-subnav",
+			"help-popup",
+			"helpPopup",
+			"login-pane",
+			"message",
+			"    ",
+			"labor",
+			"lab!",
+			"labor",
+			"/dist/",
+			"ng",
+			"'",
+			"\"",
+			",\\n$1",
+			"'",
+			"content",
+			"",
+			"LoginCtrl",
+			",\\n$1",
+			"'",
+			"  ",
+			"command",
+			"timeFrame",
+			"selectFile($files, file, selected.id, type)",
+			"selectFile($files, file, id, type",
+			"earnedDate",
+			"    ",
+			"summary: !options.expand",
+			"expand: options.expand",
+			" options.expand: expand",
+			"showAddressHeader",
+			"reports/transactions-report.html",
+			"</button>",
+			"deposit",
+			"batch",
+			"src=\"<?php echo $this->getThemePath(); ?>/img",
+			"image-url('$1')",
+			"project",
+			"agency",
+			"activeFilter: 'true'",
+			"activeFilter: true",
+			"search: '',",
+			"search: true,",
+			"search: false,",
+			" ng-value=\"$1\" ng-model=\"filter.activeFilter\"",
+			"name=\"activeFilter\" ng-value=\"$1\"",
+			"activeFilter: 'true'",
+			"name=\"activeFilter\" ng-value=\"$1\"",
+			"activeFilter: true",
+			"Edition",
+			"$rootScope.selected",
+			"",
+			"$scope.errorHandler",
+			"selected.nationality.id\"",
+			"'OK'",
+			".id",
+			"$scope.$parent.formPart",
+			"setFormPart",
+			"forms.formPart",
+			"    ",
+			"orderBy:'sequence'",
+			"ui.position",
+			"contact",
+			"staff",
+			"division",
+			"agency",
+			"agencies",
+			"agency",
+			"Division",
+			"agencies",
+			"agency"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "views/layout.ejs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1054,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								498,
+								498
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "html",
+							"buffer_scroll_name": "b1059974",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "assets/js/script.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3941,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3143,
+								3143
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "javascript",
+							"buffer_scroll_name": "1b3f3ab1",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1605.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "api/models/Snippet.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1279,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								601,
+								601
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "javascript",
+							"buffer_scroll_name": "26c00ec8",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1946,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										131,
+										139
+									],
+									[
+										467,
+										475
+									],
+									[
+										784,
+										792
+									],
+									[
+										902,
+										910
+									],
+									[
+										1051,
+										1059
+									],
+									[
+										1249,
+										1257
+									],
+									[
+										1443,
+										1451
+									],
+									[
+										1625,
+										1633
+									],
+									[
+										1822,
+										1830
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								1222,
+								1222
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "find results.hidden-tmlanguage",
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 259.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Snippets.sublime-project",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 341,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								341
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "json",
+							"buffer_scroll_name": "4fa571a2",
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "api/controllers/SnippetController.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 856,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								526,
+								526
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "javascript",
+							"buffer_scroll_name": "6833c414",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "views/display.ejs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 581,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								581
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "plain text",
+							"buffer_scroll_name": "9f5f177c",
+							"syntax": "Packages/SublimeLinter/fixed-syntaxes/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "views/homepage.ejs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 762,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								86,
+								86
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "plain text",
+							"buffer_scroll_name": "26a6d44b",
+							"syntax": "Packages/SublimeLinter/fixed-syntaxes/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 132.0
+	},
+	"output.find_results":
+	{
+		"height": 124.0
+	},
+	"output.markdown":
+	{
+		"height": 136.0
+	},
+	"output.scope_viewer":
+	{
+		"height": 136.0
+	},
+	"project": "Snippets.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"snipppr",
+				"Snippets.sublime-project"
+			],
+			[
+				"snip",
+				"api/models/Snippet.js"
+			],
+			[
+				"pip",
+				"tasks/pipeline.js"
+			],
+			[
+				"ra",
+				"views/raw.ejs"
+			],
+			[
+				"lay",
+				"views/layout.ejs"
+			],
+			[
+				"snippcon",
+				"api/controllers/SnippetController.js"
+			],
+			[
+				"hom",
+				"views/homepage.ejs"
+			],
+			[
+				"disej",
+				"views/display.ejs"
+			],
+			[
+				"config/express.js",
+				"config/express.js"
+			],
+			[
+				"layou",
+				"views/layout.ejs"
+			],
+			[
+				"rea",
+				"src/site/README.md"
+			],
+			[
+				"new",
+				"src/snippets/views/new-snippet.jade"
+			],
+			[
+				"gulp",
+				"src/snippets/gulpfile.js"
+			],
+			[
+				"dis",
+				"src/snippets/views/display.jade"
+			],
+			[
+				"index.php",
+				"src/snippets/copy/index.php"
+			],
+			[
+				"snippscss",
+				"src/snippets/scss/style.scss"
+			],
+			[
+				"gul",
+				"src/site/gulpfile.js"
+			],
+			[
+				"pack",
+				"src/site/package.json"
+			],
+			[
+				"404",
+				"src/snippets/views/404.jade"
+			],
+			[
+				"hta",
+				"public_html/.htaccess"
+			],
+			[
+				"gu",
+				"src/site/gulpfile.js"
+			],
+			[
+				"pr",
+				"share/snippets/assets/prism.css"
+			],
+			[
+				"shareind",
+				"share/snippets/index.php"
+			],
+			[
+				"grid",
+				"src/scss/_grid.scss"
+			],
+			[
+				"conif",
+				"src/config.rb"
+			],
+			[
+				"nor",
+				"src/scss/_normalize.scss"
+			],
+			[
+				"gri",
+				"src/scss/_grid.scss"
+			],
+			[
+				"stl",
+				"src/scss/style.scss"
+			],
+			[
+				"con",
+				"config.rb"
+			],
+			[
+				"ind",
+				"public_html/index.php"
+			],
+			[
+				"i",
+				"public_html/index.php"
+			],
+			[
+				"indphp",
+				"public_html/index.php"
+			],
+			[
+				"homhb",
+				"static_partials/home.hbs"
+			],
+			[
+				"defa",
+				"blog/content/themes/casper/default.hbs"
+			],
+			[
+				"oth",
+				"Platform/GlobalAdmin/ChannelAccountsPartials/OtherOffers.cshtml"
+			],
+			[
+				"channac",
+				"content/src/platform/js/controllers/globalAdmin/channelAccounts.js"
+			],
+			[
+				"basepr",
+				"Platform/GlobalAdmin/ChannelAccountsPartials/BasePricing.cshtml"
+			],
+			[
+				"channjs",
+				"content/src/platform/js/controllers/globalAdmin/channelAccounts.js"
+			],
+			[
+				"packof",
+				"Platform/GlobalAdmin/ChannelAccountsPartials/PackageOfferings.cshtml"
+			],
+			[
+				"channbas",
+				"Platform/GlobalAdmin/ChannelAccountsPartials/BasicInfo.cshtml"
+			],
+			[
+				"app",
+				"content/src/platform/js/app.js"
+			],
+			[
+				"bow",
+				"content/bower.json"
+			],
+			[
+				"base",
+				"Platform/GlobalAdmin/ChannelAccountsPartials/BasePricing.cshtml"
+			],
+			[
+				"webapi",
+				"content/src/platform/js/services/webapi.js"
+			],
+			[
+				"mon",
+				"content/src/platform/js/directives/money.js"
+			],
+			[
+				"packo",
+				"Platform/GlobalAdmin/ChannelAccountsPartials/PackageOfferings.cshtml"
+			],
+			[
+				"ui",
+				"content/src/platform/scss/includes/_ui.scss"
+			],
+			[
+				"non",
+				"content/src/platform/scss/includes/_non-semantic.scss"
+			],
+			[
+				"customlci",
+				"Platform/GlobalAdmin/CustomersPartials/Licenses.cshtml"
+			],
+			[
+				"customjs",
+				"content/src/platform/js/controllers/globalAdmin/customers.js"
+			],
+			[
+				"custjs",
+				"content/src/platform/js/controllers/globalAdmin/customers.js"
+			],
+			[
+				"uis",
+				"content/src/platform/scss/includes/_ui.scss"
+			],
+			[
+				"packaoff",
+				"Platform/GlobalAdmin/ChannelAccountsPartials/PackageOfferings.cshtml"
+			],
+			[
+				"chan",
+				"content/src/platform/js/controllers/globalAdmin/channelAccounts.js"
+			],
+			[
+				"channelbasi",
+				"Platform/GlobalAdmin/ChannelAccountsPartials/BasicInfo.cshtml"
+			],
+			[
+				"ab",
+				"content/ABE-README.md"
+			],
+			[
+				"paymentinfo",
+				"Platform/Account/CreateAccountPartials/PaymentInfo.cshtml"
+			],
+			[
+				"crejs",
+				"content/src/platform/js/controllers/account/create.js"
+			],
+			[
+				"selep",
+				"Platform/Account/CreateAccountPartials/SelectPackage.cshtml"
+			],
+			[
+				"customhtm",
+				"Platform/GlobalAdmin/Customers.cshtml"
+			],
+			[
+				"licne",
+				"Platform/GlobalAdmin/CustomersPartials/Licenses.cshtml"
+			],
+			[
+				"cre",
+				"Platform/Account/CreateAccount.cshtml"
+			],
+			[
+				"lic",
+				"Platform/GlobalAdmin/CustomersPartials/Licenses.cshtml"
+			],
+			[
+				"inf",
+				"Platform/Admin/LocationsPartials/Info.cshtml"
+			],
+			[
+				"weater",
+				"Platform/Admin/LocationsPartials/Weather.cshtml"
+			],
+			[
+				"locjs",
+				"content/src/platform/js/controllers/account/admin/locations.js"
+			],
+			[
+				"tim",
+				"Platform/Admin/LocationsPartials/TimePreferences.cshtml"
+			],
+			[
+				"in",
+				"Platform/Admin/LocationsPartials/Info.cshtml"
+			],
+			[
+				"mei",
+				"Platform/Admin/LocationsPartials/Media.cshtml"
+			],
+			[
+				"loc",
+				"Platform/Admin/Locations.cshtml"
+			],
+			[
+				"nons",
+				"content/src/platform/scss/includes/_non-semantic.scss"
+			],
+			[
+				"prod",
+				"Platform/Admin/LocationsPartials/Productivity.cshtml"
+			],
+			[
+				"me",
+				"Platform/Admin/LocationsPartials/Media.cshtml"
+			],
+			[
+				"map",
+				"Platform/Admin/LocationsPartials/Map.cshtml"
+			],
+			[
+				"re",
+				"Platform/Admin/LocationsPartials/Restrictions.cshtml"
+			],
+			[
+				"restri",
+				"Platform/Admin/LocationsPartials/Restrictions.cshtml"
+			],
+			[
+				"listrest",
+				"Platform/Admin/ListEditorPartials/GroupRestrictions.cshtml"
+			],
+			[
+				"listloca",
+				"Platform/Admin/ListEditorPartials/PayrollFactor.cshtml"
+			],
+			[
+				"nonse",
+				"content/src/platform/scss/includes/_non-semantic.scss"
+			],
+			[
+				"mapsht",
+				"Platform/Admin/LocationsPartials/Map.cshtml"
+			],
+			[
+				"basp",
+				"Platform/GlobalAdmin/ChannelAccountsPartials/BasePricing.cshtml"
+			],
+			[
+				"accmen",
+				"content/src/platform/js/models/accountMenu.js"
+			],
+			[
+				"admmen",
+				"content/src/platform/js/models/mainMenu.js"
+			],
+			[
+				"admi",
+				"content/src/platform/js/controllers/account/admin/admin.js"
+			],
+			[
+				"packaof",
+				"Platform/GlobalAdmin/ChannelAccountsPartials/PackageOfferings.cshtml"
+			],
+			[
+				"uiscs",
+				"content/src/platform/scss/includes/_ui.scss"
+			],
+			[
+				"basic",
+				"Platform/GlobalAdmin/ChannelAccountsPartials/BasicInfo.cshtml"
+			],
+			[
+				"grun",
+				"content/Gruntfile.js"
+			],
+			[
+				"chanc",
+				"Platform/GlobalAdmin/ChannelAccounts.cshtml"
+			],
+			[
+				"routjs",
+				"content/src/platform/js/routes.js"
+			],
+			[
+				"accountmen",
+				"content/src/platform/js/models/accountMenu.js"
+			],
+			[
+				"mainm",
+				"content/src/platform/js/models/mainMenu.js"
+			],
+			[
+				"menu",
+				"content/src/platform/js/controllers/menu.js"
+			],
+			[
+				"foc",
+				"src/js/directives/focus.js"
+			],
+			[
+				"empjs",
+				"src/js/controllers/account/employees.js"
+			],
+			[
+				"emp",
+				"src/views/account/admin/employees.html"
+			],
+			[
+				"iconscs",
+				"src/scss/includes/_icons.scss"
+			],
+			[
+				"channel",
+				"src/js/controllers/global-admin/channel-accounts.js"
+			],
+			[
+				"appjs",
+				"src/js/app.js"
+			],
+			[
+				"stat",
+				"src/js/static.js"
+			],
+			[
+				"help",
+				"src/js/services/helpers.js"
+			],
+			[
+				"empht",
+				"src/views/account/admin/employees.html"
+			],
+			[
+				"bower",
+				"bower.json"
+			],
+			[
+				"enu",
+				"src/js/filters/enum.js"
+			],
+			[
+				"payroljs",
+				"src/js/controllers/account/admin/listEditor/payrollFactor.js"
+			],
+			[
+				"payro",
+				"src/views/account/admin/list-editor/payroll-factor.html"
+			],
+			[
+				"shifjs",
+				"src/js/controllers/account/admin/listEditor/shift.js"
+			],
+			[
+				"layouscs",
+				"src/scss/includes/_layout.scss"
+			],
+			[
+				"payco",
+				"src/js/controllers/account/admin/listEditor/payCode.js"
+			],
+			[
+				"sorta",
+				"src/js/directives/sortable.js"
+			],
+			[
+				"la",
+				"src/scss/includes/_layout.scss"
+			],
+			[
+				"listeht",
+				"src/views/account/admin/list-editor.html"
+			],
+			[
+				"helpjs",
+				"src/js/services/helpers.js"
+			],
+			[
+				"user-ro",
+				"src/views/account/admin/user-roles.html"
+			],
+			[
+				"useror",
+				"src/views/account/admin/list-editor/group-restrictions.html"
+			],
+			[
+				"grou",
+				"src/views/account/admin/list-editor/group-restrictions.html"
+			],
+			[
+				"listed",
+				"src/views/account/admin/list-editor.html"
+			],
+			[
+				"listejs",
+				"src/js/controllers/account/admin/listEditor.js"
+			],
+			[
+				"liste",
+				"src/js/controllers/account/admin/listEditor.js"
+			],
+			[
+				"ui.scs",
+				"src/scss/includes/_ui.scss"
+			],
+			[
+				"tris",
+				"src/js/directives/triState.js"
+			],
+			[
+				"",
+				"src/views/account/admin/user-roles.html"
+			],
+			[
+				"userroljs",
+				"src/js/controllers/account/admin/userRoles.js"
+			],
+			[
+				"role",
+				"src/views/account/admin/user-roles.html"
+			],
+			[
+				"customht",
+				"src/views/account/admin/customers.html"
+			],
+			[
+				"user-roht",
+				"src/views/account/admin/user-roles.html"
+			],
+			[
+				"a",
+				"src/js/app.js"
+			],
+			[
+				"we",
+				"src/js/services/webapi.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"pla",
+				"~/Sites/proximic/planner_ui/src/Planner UI.sublime-project"
+			],
+			[
+				"boos",
+				"~/Sites/cameronspear.cam/public_html/downloads/bootstrap-hover-dropdown/Bootstrap Hover Dropdown.sublime-project"
+			],
+			[
+				"abou",
+				"/Volumes/Bowser/AboutTime/ControlCenter/content/AboutTime.sublime-project"
+			],
+			[
+				"plan",
+				"~/Sites/proximic/planner_ui/src/Planner UI.sublime-project"
+			],
+			[
+				"mat",
+				"~/Sites/matchbooklab.cam/Matchbook Lab.sublime-project"
+			],
+			[
+				"mill",
+				"~/Sites/millenniumsport.cam/Millennium Sport Technologies.sublime-project"
+			],
+			[
+				"htm",
+				"~/Sites/cameronspear.cam/public_html/downloads/bootstrap-hover-dropdown/Bootstrap Hover Dropdown.sublime-project"
+			],
+			[
+				"cam",
+				"~/Sites/cameronspear.cam/Cameron Spear (Ghost).sublime-project"
+			],
+			[
+				"about",
+				"/Volumes/Bowser/AboutTime/ControlCenter/content/AboutTime.sublime-workspace"
+			],
+			[
+				"ghost",
+				"~/Sites/cameronspear.cam/Cameron Spear (Ghost).sublime-project"
+			],
+			[
+				"ghos",
+				"~/Sites/cameronspear.cam/Cameron Spear (Ghost).sublime-project"
+			],
+			[
+				"abo",
+				"/Volumes/Bowser/AboutTime/ControlCenter/content/AboutTime.sublime-project"
+			],
+			[
+				"mil",
+				"~/Sites/millenniumsport.cam/Millennium Sport Technologies.sublime-project"
+			],
+			[
+				"",
+				"/Volumes/Bowser/AboutTime/ControlCenter/Content/AboutTime.sublime-project"
+			],
+			[
+				"abouttim",
+				"/Users/cameron/Sites/abouttime.cam/ControlCenter/content/AboutTime.sublime-project"
+			],
+			[
+				"matc",
+				"/Users/cameron/Sites/matchbooklab.cam/Matchbook Lab.sublime-project"
+			],
+			[
+				"gor",
+				"/Users/cameron/Sites/github.cam/SurgeTron/SurgeTron.sublime-project"
+			],
+			[
+				"conf",
+				"/Users/cameron/Projects/Server Confs.sublime-project"
+			],
+			[
+				"con",
+				"/Users/cameron/Projects/Server Confs.sublime-project"
+			],
+			[
+				"pau",
+				"/Users/cameron/Sites/paulbmack.cam/Paul B. Mack.sublime-project"
+			],
+			[
+				"stim",
+				"/Users/cameron/Sites/stimola.cam/Stimola.sublime-project"
+			],
+			[
+				"lan",
+				"/Users/cameron/Sites/plantdetectives.cam/Plant Detectives.sublime-project"
+			],
+			[
+				"pa",
+				"/Users/cameron/Sites/paulbmack.cam/Paul B. Mack.sublime-project"
+			],
+			[
+				"3way",
+				"/Users/cameron/Sites/3way.cam/3way.sublime-project"
+			],
+			[
+				"3",
+				"/Users/cameron/Sites/3way.cam/3way.sublime-project"
+			],
+			[
+				"tron",
+				"/Users/cameron/Dropbox/Matchbook Lab/Sites/github.cam/SurgeTron/SurgeTron.sublime-project"
+			],
+			[
+				"orm",
+				"/Users/cameron/Dropbox/Matchbook Lab/Sites/orm.cam/Sequelize.sublime-project"
+			],
+			[
+				"seq",
+				"/Users/cameron/Dropbox/Matchbook Lab/Sites/sequelize.cam/Sequelize.sublime-project"
+			],
+			[
+				"stimol",
+				"/Users/cameron/Projects/Stimola.sublime-project"
+			],
+			[
+				"stima",
+				"/Users/cameron/Projects/Stimola.sublime-project"
+			],
+			[
+				"st",
+				"/Users/cameron/Projects/Stimola.sublime-project"
+			],
+			[
+				"hub",
+				"/Users/cameron/Projects/SurgeHub.sublime-project"
+			],
+			[
+				"kr",
+				"/Users/cameron/Projects/KR Filters.sublime-project"
+			],
+			[
+				"krf",
+				"/Users/cameron/Projects/KR Filters.sublime-project"
+			],
+			[
+				"KR",
+				"/Users/cameron/Projects/KR Filters.sublime-project"
+			],
+			[
+				"kir",
+				"/Users/cameron/Projects/KR Filters.sublime-project"
+			],
+			[
+				"mana",
+				"/Users/cameron/Projects/Filters Manager.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 174.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
