@@ -1,0 +1,14 @@
+<header class="header">
+    <div class="filename">
+        <div class="toolbar-links">
+            <select ng-model="theme" ng-options="t.name as t.caption for t in themes | orderBy:'caption'" class="theme"></select>
+            <select ng-model="mode" ng-options="m.name as m.caption for m in modes | orderBy:'caption'" class="theme">
+                <option value="">-- Language --</option>
+            </select>
+            <button ng-click="detect()" class="detect">Detect</button>
+            <button ng-click="save()" class="save">Save</button>
+        </div>
+    </div>
+</header>
+
+<pre id="editor" editor="snippet" theme="theme" mode="mode" code="code"><code></code></pre>
