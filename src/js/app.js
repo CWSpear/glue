@@ -1,4 +1,4 @@
-angular.module('snippets', ['restangular'])
+angular.module('snippets', ['restangular', 'ngRoute'])
 
 .config(function ($httpProvider, RestangularProvider) {
     RestangularProvider.setBaseUrl('/api');
