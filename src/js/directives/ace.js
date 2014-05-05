@@ -1,7 +1,7 @@
 /* jshint esnext: true */
 angular.module('snippets')
 
-.directive('editor', (modelist) => {
+.directive('editor', (modelist, $timeout) => {
     // this first line is supposed to replace the next 3
     // but it wasn't working for me unless I did all 3
     // ace.config.set('basePath', '/js/ace/');
@@ -41,8 +41,11 @@ angular.module('snippets')
             }, 10 * 1000);
 
             scope.editor.getSession().on('change', function  () {
-                scope.$apply(() => scope.code = scope.editor.getSession().getValue());
-                saveCodeLocally(angular.copy(scope.code));
+                if (!edit) return;
+                $timeout(() => {
+                    scope.code = scope.editor.getSession().getValue();
+                    saveCodeLocally(angular.copy(scope.code));
+                });
             });
 
             if (!edit) {

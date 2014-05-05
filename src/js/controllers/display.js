@@ -5,6 +5,7 @@ angular.module('snippets')
     Restangular.one('snippets', $routeParams.id).get().then(snippet => {
         $scope.snippet = snippet;
         $scope.$broadcast('ace:updateCode', snippet.snippet);
+        $scope.mode = snippet.language;
     });
 
     $scope.theme = localStorage.getItem('theme') || 'tomorrow';

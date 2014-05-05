@@ -6,6 +6,7 @@
  */
 var uuid = require('node-uuid');
 var _ = require('lodash');
+var modelist = require('../services/modelist');
 
 module.exports = {
 
@@ -20,15 +21,18 @@ module.exports = {
             required: true,
             defaultsTo: function () { return uuid.v4(); }
         },
-
         snippet: 'text',
-
-        language: 'string',
-        filename: 'string' // do we need/want this...?
+        language: 'string', // used for Ace
+        filename: 'string',
     },
 
     beforeValidate: function (values, cb) {
         // if we pass in an array to snippets, concat them here
+        if (values.snippets && _.isArray(values.snippets) && values.snippets.length === 1) {
+            values.snippet = values.snippets[0];
+            delete values.snippets;
+        } 
+
         if (values.snippets && _.isArray(values.snippets)) {
             var count = 0;
             var code = '';
@@ -41,6 +45,11 @@ module.exports = {
         } else {
             values.snippet = _undent(values.snippet);
         }
+
+        if (!values.filename) values.filename = 'unknown.txt';
+
+        var modeObj = modelist.getModeForPath(values.filename);
+        values.language = modeObj.name;
 
         cb(null, values);
     }

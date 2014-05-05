@@ -42,7 +42,7 @@ gulp.task('styles', function () {
     .pipe(plumber(onError))
     .pipe(sass({
       outputStyle: gutil.env.production ? 'compressed' : 'nested',
-      // sourceComments: 'map',
+      // sourceComments: 'map', // won't work with autoprefixer
     }))
     .pipe(autoprefixer('last 1 version'))
     .pipe(gutil.env.production ? rev() : gutil.noop())

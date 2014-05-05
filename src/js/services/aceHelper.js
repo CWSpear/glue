@@ -1,7 +1,7 @@
 /* jshint esnext: true */
 angular.module('snippets')
 
-.factory('aceHelper', () => {
+.factory('aceHelper', (modelist) => {
     return {
         detect: (code) => {
             console.error('aceHelper.detect(code) is NYI (it always returns javascript for now)');
