@@ -520,68 +520,50 @@
 	"buffers":
 	[
 		{
-			"file": "views/layout.ejs",
+			"file": "gulpfile.js",
 			"settings":
 			{
-				"buffer_size": 1054,
+				"buffer_size": 5417,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "assets/js/script.js",
+			"file": "src/scss/style.scss",
 			"settings":
 			{
-				"buffer_size": 3941,
+				"buffer_size": 5180,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "api/models/Snippet.js",
+			"file": "assets/index.html",
 			"settings":
 			{
-				"buffer_size": 1279,
+				"buffer_size": 2409,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "Searching 74 files for \"validate\"\n\n/Users/cameron/Sites/snippets.cam/api/models/Snippet.js:\n   30      },\n   31  \n   32:     beforeValidate: function (values, cb) {\n   33          console.log(values.code.length);\n   34          if (_.isArray(values.code)) {\n\n/Users/cameron/Sites/snippets.cam/config/session.js:\n   14  \n   15    // Session secret is automatically generated when your new app is created\n   16:   // Replace at your own risk in production-- you will invalidate the cookies of your users,\n   17    // forcing them to log in again. \n   18    secret: '62539eb6c7d3a9db61adafca8066bb43',\n\n/Users/cameron/Sites/snippets.cam/node_modules/sails/node_modules/waterline/lib/waterline/query/validate.js:\n    2   * Validation\n    3   *\n    4:  * Used in create and update methods validate a model\n    5   * Can also be used independently\n    6   */\n    .\n   11  module.exports = {\n   12  \n   13:   validate: function(values, presentOnly, cb) {\n   14      var self = this;\n   15  \n   ..\n   21      async.series([\n   22  \n   23:       // Run Before Validate Lifecycle Callbacks\n   24        function(cb) {\n   25          var runner = function(item, callback) {\n   ..\n   30          };\n   31  \n   32:         async.eachSeries(self._callbacks.beforeValidate, runner, function(err) {\n   33            if(err) return cb(err);\n   34            cb();\n   ..\n   38        // Run Validation\n   39        function(cb) {\n   40:         self._validator.validate(values, presentOnly === true, function(invalidAttributes) {\n   41  \n   42            // Create validation error here\n   ..\n   51        },\n   52  \n   53:       // Run After Validate Lifecycle Callbacks\n   54        function(cb) {\n   55          var runner = function(item, callback) {\n   ..\n   60          };\n   61  \n   62:         async.eachSeries(self._callbacks.afterValidate, runner, function(err) {\n   63            if(err) return cb(err);\n   64            cb();\n\n9 matches across 3 files\n",
+			"file": "config/routes.js",
 			"settings":
 			{
-				"buffer_size": 1946,
-				"line_ending": "Unix",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "Snippets.sublime-project",
-			"settings":
-			{
-				"buffer_size": 341,
+				"buffer_size": 1743,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "api/controllers/SnippetController.js",
+			"file": "src/index.html",
 			"settings":
 			{
-				"buffer_size": 856,
+				"buffer_size": 1691,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "views/display.ejs",
+			"file": "Gruntfile.js",
 			"settings":
 			{
-				"buffer_size": 581,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "views/homepage.ejs",
-			"settings":
-			{
-				"buffer_size": 762,
+				"buffer_size": 75,
 				"line_ending": "Unix"
 			}
 		}
@@ -750,28 +732,48 @@
 	},
 	"file_history":
 	[
+		"/Users/cameron/Sites/snippets.cam/src/scss/_grid.scss",
+		"/Users/cameron/Sites/snippets.cam/src/robots.txt",
+		"/Users/cameron/Sites/snippets.cam/assets/index.html",
+		"/Users/cameron/Sites/snippets.cam/.gitignore",
+		"/Users/cameron/Sites/snippets.cam/package.json",
+		"/Users/cameron/Sites/snippets.cam/views/homepage.ejs",
+		"/Users/cameron/Sites/snippets.cam/src/index.html",
+		"/Users/cameron/Sites/snippets.cam/bower.json",
+		"/Users/cameron/Sites/snippets.cam/gulpfile.js",
+		"/Users/cameron/Sites/snippets.cam/config/routes.js",
+		"/Users/cameron/Sites/snippets.cam/views/layout.ejs",
+		"/Users/cameron/Sites/snippets.cam/api/controllers/SnippetController.js",
+		"/Users/cameron/Sites/snippets.cam/src/scss/style.scss",
+		"/Users/cameron/Sites/snippets.cam/views/display.ejs",
+		"/Users/cameron/Sites/snippets.cam/tasks/config/scss.js",
+		"/Users/cameron/Sites/snippets.cam/tasks/config/less.js",
+		"/Users/cameron/Sites/snippets.cam/assets/css/importer.scss",
+		"/Users/cameron/Sites/snippets.cam/tasks/register/syncAssets.js",
+		"/Users/cameron/Sites/snippets.cam/tasks/register/compileAssets.js",
+		"/Users/cameron/Sites/snippets.cam/assets/js/script.js",
+		"/Users/cameron/Sites/snippets.cam/api/models/Snippet.js",
+		"/Users/cameron/Sites/snippets.cam/tasks/pipeline.js",
+		"/Users/cameron/Sites/snippets.cam/Gruntfile.js",
+		"/Users/cameron/Sites/snippets.cam/config/local.js",
+		"/Users/cameron/Sites/snippets.cam/assets/robots.txt",
+		"/Users/cameron/Sites/snippets.cam/README.md",
+		"/Users/cameron/Sites/snippets.cam/Snippets.sublime-project",
 		"/Users/cameron/Sites/snippets.cam/node_modules/sails/node_modules/waterline/lib/waterline/query/validate.js",
 		"/Users/cameron/Sites/snippets.cam/assets/js/ace-min/mode-xquery.js",
 		"/Users/cameron/Sites/snippets.cam/assets/styles/importer.less",
-		"/Users/cameron/Sites/snippets.cam/config/routes.js",
-		"/Users/cameron/Sites/snippets.cam/tasks/pipeline.js",
 		"/Users/cameron/Sites/snippets.cam/config/models.js",
 		"/Users/cameron/Sites/snippets.cam/node_modules/sails/node_modules/ejs-locals/test/fixtures/parent-include-chain.ejs",
-		"/Users/cameron/Sites/snippets.cam/package.json",
 		"/Users/cameron/Sites/snippets.cam/views/raw.ejs",
-		"/Users/cameron/Sites/snippets.cam/README.md",
 		"/Users/cameron/Sites/snippets.cam/.tmp/localDiskDb.db",
 		"/Users/cameron/Sites/snippets.cam/node_modules/sails/bin/sails-new.js",
 		"/Users/cameron/Sites/snippets.cam/config/session.js",
 		"/Users/cameron/Sites/snippets.cam/node_modules/sails/node_modules/sails-generate/node_modules/sails-generate-views/templates/homepage-orig.ejs",
-		"/Users/cameron/Sites/snippets.cam/views/homepage.ejs",
 		"/Users/cameron/Sites/snippets.cam/config/express.js",
 		"/Users/cameron/Sites/snippets.cam/config/connections.js",
 		"/Users/cameron/Sites/snippets.cam/node_modules/rc/LICENSE.APACHE2",
-		"/Users/cameron/Sites/snippets.cam/config/local.js",
 		"/Users/cameron/Sites/snippets.cam/api/controllers/SnippetsController.js",
 		"/Users/cameron/Sites/snippets.cam/api/models/Snippets.js",
-		"/Users/cameron/Sites/snippets.cam/api/models/Snippet.js",
 		"/Users/cameron/Downloads/javascript.js",
 		"/Users/cameron/Sites/mavrx.cam/src/site/README.md",
 		"/private/etc/apache2/httpd.conf",
@@ -857,31 +859,11 @@
 		"/Volumes/Bowser/AboutTime/ControlCenter/Modules/Platform/GlobalAdmin/Customers.cshtml",
 		"/Volumes/Bowser/AboutTime/ControlCenter/Modules/Platform/GlobalAdmin/ChannelAccountsPartials/PackageOfferings.cshtml",
 		"/Volumes/Bowser/AboutTime/ControlCenter/Modules/Platform/GlobalAdmin/CustomersPartials/Licenses.cshtml",
-		"/Volumes/Bowser/AboutTime/ControlCenter/content/AboutTime.sublime-project",
-		"/Volumes/Bowser/AboutTime/ControlCenter/content/src/platform/js/controllers/account/admin/admin.js",
-		"/Volumes/Bowser/AboutTime/ControlCenter/Modules/Platform/Admin/LocationsPartials/Restrictions.cshtml",
-		"/Volumes/Bowser/AboutTime/ControlCenter/content/src/platform/js/routes.js",
-		"/Volumes/Bowser/AboutTime/ControlCenter/content/src/platform/scss/includes/_menus.scss",
-		"/Volumes/Bowser/AboutTime/ControlCenter/Modules/Platform/Admin/LocationsPartials/TimePreferences.cshtml",
-		"/Volumes/Bowser/AboutTime/ControlCenter/content/src/platform/scss/app.scss",
-		"/Volumes/Bowser/AboutTime/ControlCenter/Modules/Platform/NYI.cshtml",
-		"/Volumes/Bowser/AboutTime/ControlCenter/Modules/Platform/Admin/LocationsPartials/Media.cshtml",
-		"/Volumes/Bowser/AboutTime/ControlCenter/content/src/platform/js/controllers/globalAdmin/customers.js",
-		"/Volumes/Bowser/AboutTime/ControlCenter/content/src/platform/js/controllers/account/admin/userRoles.js",
-		"/Volumes/Bowser/AboutTime/ControlCenter/content/src/platform/js/models/accountMenu.js",
-		"/Volumes/Bowser/AboutTime/ControlCenter/content/src/platform/js/controllers/account/create.js",
-		"/Volumes/Bowser/AboutTime/ControlCenter/content/src/platform/js/directives/spinner.js",
-		"/Volumes/Bowser/AboutTime/ControlCenter/Modules/Platform/GlobalAdmin/ChannelAccountsPartials/OtherOffers.cshtml",
-		"/Users/cameron/Dropbox/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
-		"/Volumes/Bowser/AboutTime/ControlCenter/Modules/Platform/Account/CreateAccountPartials/SelectPackage.cshtml",
-		"/Users/cameron/.bin/mariosync",
-		"/Volumes/Bowser/AboutTime/ControlCenter/Modules/Platform/Admin/LocationsPartials/Productivity.cshtml",
-		"/Volumes/Bowser/AboutTime/ControlCenter/content/ABE-README.md",
-		"/Volumes/Bowser/AboutTime/ControlCenter/Modules/Platform/Account/CreateAccountPartials/PaymentInfo.cshtml"
+		"/Volumes/Bowser/AboutTime/ControlCenter/content/AboutTime.sublime-project"
 	],
 	"find":
 	{
-		"height": 28.0
+		"height": 36.0
 	},
 	"find_in_files":
 	{
@@ -933,6 +915,37 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"index.html",
+			"192.168.1.11",
+			"browserSync.reload",
+			"BrowserSync",
+			"includeBrowserSync",
+			"browserSync",
+			"views",
+			"template",
+			"grunt",
+			"latest",
+			"~",
+			"ace",
+			"jade",
+			"index",
+			"><",
+			"scss",
+			"{\n      errorHandler: onError\n    }",
+			"src: '*",
+			"styles",
+			"less:",
+			"styles",
+			"console",
+			"snippet.code",
+			".code",
+			"snippet.code",
+			"values.snippet",
+			"_undent",
+			"strlen",
+			"$",
+			"values.code",
+			"|",
 			"validate",
 			"\"validate\"",
 			"'validate'",
@@ -1029,38 +1042,7 @@
 			"include",
 			"public_html",
 			"REDIRECT_URL",
-			"showSnippet",
-			"undent",
-			"saveSnippet",
-			"json_decode",
-			"show404",
-			"$db",
-			"languages",
-			"_POS",
-			"_POST",
-			"show404",
-			"self::AP",
-			"self::ap",
-			"private",
-			"$views",
-			"$API_KEY",
-			"API_KEY",
-			"api_key",
-			"API_KEY",
-			"api_key",
-			"API_KEY",
-			"code",
-			"snippets =",
-			"language",
-			"bind_param",
-			"code",
-			"$codes",
-			"$snippet",
-			"language",
-			"code",
-			"60px",
-			"browserSync",
-			"$views"
+			"showSnippet"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -1068,6 +1050,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			">\n<",
 			"mode",
 			"'",
 			"  ",
@@ -1194,8 +1177,7 @@
 			"agencies",
 			"agency",
 			"Division",
-			"agencies",
-			"agency"
+			"agencies"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1206,239 +1188,63 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "views/layout.ejs",
+					"file": "gulpfile.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1054,
+						"buffer_size": 5417,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								498,
-								498
-							]
-						],
-						"settings":
-						{
-							"bs_sintax": "html",
-							"buffer_scroll_name": "b1059974",
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "assets/js/script.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3941,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3143,
-								3143
+								5313,
+								5313
 							]
 						],
 						"settings":
 						{
 							"bs_sintax": "javascript",
-							"buffer_scroll_name": "1b3f3ab1",
+							"buffer_scroll_name": "8d023aa8",
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1605.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "api/models/Snippet.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1279,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								601,
-								601
-							]
-						],
-						"settings":
-						{
-							"bs_sintax": "javascript",
-							"buffer_scroll_name": "26c00ec8",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1946,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										131,
-										139
-									],
-									[
-										467,
-										475
-									],
-									[
-										784,
-										792
-									],
-									[
-										902,
-										910
-									],
-									[
-										1051,
-										1059
-									],
-									[
-										1249,
-										1257
-									],
-									[
-										1443,
-										1451
-									],
-									[
-										1625,
-										1633
-									],
-									[
-										1822,
-										1830
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								1222,
-								1222
-							]
-						],
-						"settings":
-						{
-							"bs_sintax": "find results.hidden-tmlanguage",
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 259.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "Snippets.sublime-project",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 341,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								341
-							]
-						],
-						"settings":
-						{
-							"bs_sintax": "json",
-							"buffer_scroll_name": "4fa571a2",
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3421.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "api/controllers/SnippetController.js",
+					"buffer": 1,
+					"file": "src/scss/style.scss",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 856,
+						"buffer_size": 5180,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								526,
-								526
+								274,
+								274
 							]
 						],
 						"settings":
 						{
-							"bs_sintax": "javascript",
-							"buffer_scroll_name": "6833c414",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"bs_sintax": "scss",
+							"buffer_scroll_name": "63e94d50",
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
@@ -1450,67 +1256,131 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "views/display.ejs",
+					"buffer": 2,
+					"file": "assets/index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 581,
+						"buffer_size": 2409,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								581
+								2188,
+								2188
 							]
 						],
 						"settings":
 						{
-							"bs_sintax": "plain text",
-							"buffer_scroll_name": "9f5f177c",
-							"syntax": "Packages/SublimeLinter/fixed-syntaxes/HTML/HTML.tmLanguage",
+							"bs_sintax": "html",
+							"buffer_scroll_name": "6b8f679f",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
+						"translation.y": 341.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "config/routes.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1743,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1429,
+								1539
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "javascript",
+							"buffer_scroll_name": "4b1582e2",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1691,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1661,
+								1661
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "html",
+							"buffer_scroll_name": "ffdd24d7",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 221.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "views/homepage.ejs",
+					"buffer": 5,
+					"file": "Gruntfile.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 762,
+						"buffer_size": 75,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								86,
-								86
+								71,
+								71
 							]
 						],
 						"settings":
 						{
-							"bs_sintax": "plain text",
-							"buffer_scroll_name": "26a6d44b",
-							"syntax": "Packages/SublimeLinter/fixed-syntaxes/HTML/HTML.tmLanguage",
-							"tab_size": 4,
+							"bs_sintax": "javascript",
+							"buffer_scroll_name": "10465e48",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
@@ -1566,7 +1436,7 @@
 	"project": "Snippets.sublime-project",
 	"replace":
 	{
-		"height": 52.0
+		"height": 106.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1574,6 +1444,74 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"rout",
+				"config/routes.js"
+			],
+			[
+				"grun",
+				"Gruntfile.js"
+			],
+			[
+				"srind",
+				"src/index.html"
+			],
+			[
+				"ind",
+				"assets/index.html"
+			],
+			[
+				"gul",
+				"gulpfile.js"
+			],
+			[
+				"index",
+				"assets/index.html"
+			],
+			[
+				"pac",
+				"package.json"
+			],
+			[
+				"git",
+				".gitignore"
+			],
+			[
+				"bow",
+				"bower.json"
+			],
+			[
+				"inde",
+				"assets/index.html"
+			],
+			[
+				"lay",
+				"views/layout.ejs"
+			],
+			[
+				"home",
+				"views/homepage.ejs"
+			],
+			[
+				"pack",
+				"package.json"
+			],
+			[
+				"routejs",
+				"config/routes.js"
+			],
+			[
+				"lessjs",
+				"tasks/config/less.js"
+			],
+			[
+				"scssjs",
+				"tasks/config/scss.js"
+			],
+			[
+				"route",
+				"config/routes.js"
+			],
 			[
 				"snipppr",
 				"Snippets.sublime-project"
@@ -1589,10 +1527,6 @@
 			[
 				"ra",
 				"views/raw.ejs"
-			],
-			[
-				"lay",
-				"views/layout.ejs"
 			],
 			[
 				"snippcon",
@@ -1639,14 +1573,6 @@
 				"src/snippets/scss/style.scss"
 			],
 			[
-				"gul",
-				"src/site/gulpfile.js"
-			],
-			[
-				"pack",
-				"src/site/package.json"
-			],
-			[
 				"404",
 				"src/snippets/views/404.jade"
 			],
@@ -1691,10 +1617,6 @@
 				"config.rb"
 			],
 			[
-				"ind",
-				"public_html/index.php"
-			],
-			[
 				"i",
 				"public_html/index.php"
 			],
@@ -1737,10 +1659,6 @@
 			[
 				"app",
 				"content/src/platform/js/app.js"
-			],
-			[
-				"bow",
-				"content/bower.json"
 			],
 			[
 				"base",
@@ -1923,10 +1841,6 @@
 				"Platform/GlobalAdmin/ChannelAccountsPartials/BasicInfo.cshtml"
 			],
 			[
-				"grun",
-				"content/Gruntfile.js"
-			],
-			[
 				"chanc",
 				"Platform/GlobalAdmin/ChannelAccounts.cshtml"
 			],
@@ -2041,50 +1955,6 @@
 			[
 				"listed",
 				"src/views/account/admin/list-editor.html"
-			],
-			[
-				"listejs",
-				"src/js/controllers/account/admin/listEditor.js"
-			],
-			[
-				"liste",
-				"src/js/controllers/account/admin/listEditor.js"
-			],
-			[
-				"ui.scs",
-				"src/scss/includes/_ui.scss"
-			],
-			[
-				"tris",
-				"src/js/directives/triState.js"
-			],
-			[
-				"",
-				"src/views/account/admin/user-roles.html"
-			],
-			[
-				"userroljs",
-				"src/js/controllers/account/admin/userRoles.js"
-			],
-			[
-				"role",
-				"src/views/account/admin/user-roles.html"
-			],
-			[
-				"customht",
-				"src/views/account/admin/customers.html"
-			],
-			[
-				"user-roht",
-				"src/views/account/admin/user-roles.html"
-			],
-			[
-				"a",
-				"src/js/app.js"
-			],
-			[
-				"we",
-				"src/js/services/webapi.js"
 			]
 		],
 		"width": 0.0
@@ -2094,6 +1964,10 @@
 		"height": 500.0,
 		"selected_items":
 		[
+			[
+				"about",
+				"/Volumes/Bowser/AboutTime/ControlCenter/content/AboutTime.sublime-project"
+			],
 			[
 				"pla",
 				"~/Sites/proximic/planner_ui/src/Planner UI.sublime-project"
@@ -2125,10 +1999,6 @@
 			[
 				"cam",
 				"~/Sites/cameronspear.cam/Cameron Spear (Ghost).sublime-project"
-			],
-			[
-				"about",
-				"/Volumes/Bowser/AboutTime/ControlCenter/content/AboutTime.sublime-workspace"
 			],
 			[
 				"ghost",

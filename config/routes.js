@@ -26,6 +26,8 @@ module.exports.routes = {
   // default view engine) your home page.
   // 
   // (Alternatively, remove this and add an `index.html` file in your `assets` directory)
+
+  
   // '/': {
   //   view: 'homepage'
   // },
@@ -44,15 +46,6 @@ module.exports.routes = {
   //   controller: 'snippet',
   //   action: 'raw'
   // },
-
-
-  // Custom routes here...
-  // angular routing
-  'get /*': { 
-    view: 'index',
-    skipRegex: /^\/(?:js|javascript|css|styles|img|images)/
-  }
-
 
   // If a request to a URL doesn't match any of the custom routes above, it is matched 
   // against Sails route blueprints.  See `config/blueprints.js` for configuration options

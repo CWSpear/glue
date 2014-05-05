@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="snippets">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Mavrx Snippet Share</title>
+
+    <base href="/">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- endinject -->
+</head>
+<body ng-controller="MainCtrl">
+    <header class="header">
+        <div class="filename">
+            <div class="toolbar-links">
+                <select ng-model="theme" ng-options="t.name as t.caption for t in themes | orderBy:'caption'" class="theme"></select>
+                <select ng-model="mode" ng-options="m.name as m.caption for m in modes | orderBy:'caption'" class="theme">
+                    <option value="">-- Language --</option>
+                </select>
+                <button ng-click="detect()" class="detect">Detect</button>
+                <button ng-click="save()" class="save">Save</button>
+            </div>
+        </div>
+    </header>
+
+    <pre id="editor" editor="snippet" theme="theme" mode="mode" code="code"><code></code></pre>
+
+    <footer class="footer">Posted by <a href="http://mavrx.io/">[Mavrx]</a></footer>
+  
+    <!-- build:js(src) /js/vendor.js-->
+    <!-- bower -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- inject:js -->
+    <!-- endinject -->
+
+    <script src='//localhost:3000/socket.io/socket.io.js'></script>
+    <script>var ___socket___ = io.connect('http://localhost:3000');</script>
+    <script src='//localhost:3001/client/browser-sync-client.js'></script>
+</body>
+</html>
