@@ -27,6 +27,7 @@ if (_.contains(gutil.env._, 'build')) {
 var scripts = [
   src + 'js/app.js',
   src + 'js/**/*.js',
+  '!' + src + 'js/dependencies/*.js',
 ];
 
 // end config
@@ -86,6 +87,7 @@ gulp.task('templates', function () {
 gulp.task('scripts', ['index', 'bower'], function () {
   return gulp.src(scripts)
     .pipe(plumber(onError))
+    .pipe(traceur({ sourceMap: false })) // !gutil.env.production }))
     .pipe(gutil.env.production ? ngmin() : gutil.noop())
     .pipe(gutil.env.production ? concat('script.js') : gutil.noop())
     .pipe(gutil.env.production ? uglify() : gutil.noop())
