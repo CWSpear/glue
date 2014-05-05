@@ -55,10 +55,12 @@ angular.module('snippets')
                 scope.editor.session.setOption("useWorker", false);
             }
 
-            scope.$watch('code', (newCode, oldCode) => { 
-                if (newCode == oldCode) return;
-                scope.editor.getSession().setValue(newCode);
-            });
+            // causes infinite loop
+            // scope.$watch('code', (newCode, oldCode) => { 
+            //     if (newCode == oldCode) return;
+            //     scope.editor.getSession().setValue(newCode);
+            // });
+            scope.$on('ace:updateCode', (event, newCode) => scope.editor.getSession().setValue(newCode));
 
             // valid (of course)
             function setTheme(theme) {

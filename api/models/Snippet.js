@@ -62,7 +62,7 @@ function _undent (code) {
         part = part.replace("\t", "    ");
         var matches = part.match(/( *)/);
         return matches && matches[1] ? matches[1] : '';
-    }).compact();
+    }).reject(function (ws) { return ws === false; });
 
     // find the shortest amount of whitespace amongst all the line
     var shortest = whitespace.reduce(function (shortest, ws) {
