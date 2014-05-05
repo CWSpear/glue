@@ -24,8 +24,6 @@ if (_.contains(gutil.env._, 'build')) {
   includeBrowserSync = false;
 }
 
-var jadeLocals = { includeBrowserSync: includeBrowserSync, time: new Date().getTime() };
-
 var scripts = [
   src + 'js/app.js',
   src + 'js/**/*.js',
@@ -66,13 +64,21 @@ gulp.task('copy', function () {
     .pipe(browsersync.reload({ stream:true }));
 });
 
-var jadeOpts = {
-  locals: jadeLocals,
-  pretty: !gutil.env.production
-};
+// these files are require'd, so don't need to be linked, but do need to be copied
+gulp.task('ace', ['usemin'], function () {
+  return gulp.src([
+      'mode-*',
+      'theme-*',
+      'worker-*',
+    ], { 
+      // note: NO src
+      cwd: 'bower_components/ace-builds/src-min/' 
+    })
+    .pipe(gulp.dest(dest + 'js/ace/'));
+});
 
 gulp.task('templates', function () {
-  gulp.src([src + 'views/**/*.html'])
+  return gulp.src([src + 'views/**/*.html'])
     .pipe(gulp.dest(dest + 'views/'))
     .pipe(browsersync.reload({ stream:true }));
 });
@@ -115,10 +121,10 @@ gulp.task('bower', ['index'], function () {
     .pipe(gulp.dest(dest));
 });
 
-gulp.task('usemin', ['bower', 'scripts'], function () {
+gulp.task('usemin', ['bower', 'scripts', 'styles'], function () {
   if (!gutil.env.production) return;
 
-  gulp.src(dest + 'index.html')
+  return gulp.src(dest + 'index.html')
     .pipe(usemin({
       js: [uglify(), rev()]
     }))
@@ -191,7 +197,7 @@ gulp.task('default', function () {
 
       gulp.watch(src + 'scss/**/*.scss', ['styles']);
       gulp.watch(src + 'js/**/*.js', ['scripts']);
-      gulp.watch(src + 'views/**/*.jade', ['templates']);
+      gulp.watch(src + 'views/**/*.html', ['templates']);
       gulp.watch([
         src + 'copy/**/*', 
         src + 'img/**/*.{png,svg,gif,jpg}'
@@ -215,4 +221,4 @@ gulp.task('default', function () {
   });
 });
 
-gulp.task('run', ['copy', 'styles', 'templates', 'scripts', 'bower', 'usemin']);
+gulp.task('run', ['copy', 'styles', 'templates', 'scripts', 'bower', 'usemin', 'ace']);

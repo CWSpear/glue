@@ -6,6 +6,14 @@ angular.module('snippets', ['restangular'])
 })
 
 .directive('editor', function (modelist) {
+    // this first line is supposed to replace the next 3
+    // but it wasn't working for me unless I did all 3
+    // ace.config.set('basePath', '/js/ace/');
+
+    ace.config.set('themePath', '/js/ace/');
+    ace.config.set('modePath', '/js/ace/');
+    ace.config.set('workerPath', '/js/ace/');
+
     return {
         scope: { editor: '=', theme: '=', mode: '=', code: '=' },
         link: function (scope, elem, attrs) {
