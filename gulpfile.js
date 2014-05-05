@@ -40,8 +40,9 @@ var onError = function (err) {
 gulp.task('styles', function () {
   return gulp.src(src + 'scss/style.scss')
     .pipe(plumber(onError))
-    .pipe(rubysass({
-      style: gutil.env.production ? 'compressed' : 'nested',
+    .pipe(sass({
+      outputStyle: gutil.env.production ? 'compressed' : 'nested',
+      // sourceComments: 'map',
     }))
     .pipe(autoprefixer('last 1 version'))
     .pipe(gutil.env.production ? rev() : gutil.noop())
