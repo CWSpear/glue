@@ -13,15 +13,19 @@ module.exports = {
     attributes: {
         id: {
             type: 'string',
-            // uuidv4: true,
             primaryKey: true,
             unique: true,
             required: true,
-            defaultsTo: function () { return uuid.v4(); }
+            // uuidv4: true,
+            defaultsTo: function () { 
+                // return uuid.v4();
+                return uuid.v4().slice(0, 7);
+            }
         },
         snippet: 'text',
         language: 'string', // used for Ace, based on the modelist
         filename: 'string',
+        apiKey: 'string',
     },
 
     beforeValidate: function (values, cb) {
