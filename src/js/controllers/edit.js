@@ -14,15 +14,18 @@ angular.module('glue')
         $scope.$broadcast('ace:code');
 
         $timeout(() => {
-            if (!$scope.mode) $scope.mode = aceHelper.detect($scope.code);
-            var name = $scope.mode;
-            var ext = modelist.modesByName[name].extensions.split('|')[0];
+            var language = false, filename = false;
+            if ($scope.mode) {
+                language = $scope.mode;
+                var ext = modelist.modesByName[language].extensions.split('|')[0];
+                filename = `${language}.${ext}`;
+            }
 
             snippetsModel.post({
                 snippet: $scope.code,
                 // snippets: [$scope.code, $scope.code],
-                filename: `${name}.${ext}`,
-                language: $scope.mode,
+                filename: filename,
+                language: language,
                 favorite_color: $scope.favorite_color,
             }).then(snippet => {
                 $scope.$broadcast('ace:save');

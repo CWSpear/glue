@@ -5,6 +5,7 @@
   "description": "Throw some code into the air and see what sticks.",
   "keywords": [],
   "dependencies": {
+    "highlight.js": "^8.0.0",
     "lodash": "^2.4.1",
     "node-uuid": "^1.4.1",
     "rc": "~0.3.3",
