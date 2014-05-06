@@ -6,7 +6,6 @@
  */
 module.exports = {
     create: function(req, res) {
-        // TODO: test apiKey
         Snippet.create(req.body).exec(function (err, result) {
             if (err) {
                 // Handle Error
