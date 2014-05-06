@@ -83,6 +83,9 @@ angular.module('glue')
                 saveCodeLocally('');
                 saveModeLocally('');
             });
+            scope.$on('ace:code', (event) => { 
+                scope.code = scope.editor.getSession().getValue();
+            });
             scope.$on('ace:clear', (event) => {
                 saveCodeLocally('');
                 saveModeLocally('');

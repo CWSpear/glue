@@ -11,6 +11,8 @@ angular.module('glue')
     $scope.themes = themelist.themes;
 
     $scope.save = () => {
+        $scope.$broadcast('ace:code');
+
         if (!$scope.mode) $scope.mode = aceHelper.detect($scope.code);
         var name = $scope.mode;
         var ext = modelist.modesByName[name].extensions.split('|')[0];
