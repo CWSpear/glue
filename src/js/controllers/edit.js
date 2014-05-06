@@ -1,7 +1,7 @@
 /* jshint esnext: true */
 angular.module('glue')
 
-.controller('EditCtrl', ($rootScope, $scope, modelist, themelist, Restangular, $location, SNIPPETS_URI, aceHelper) => {
+.controller('EditCtrl', ($rootScope, $scope, modelist, themelist, Restangular, $location, SNIPPETS_URI, aceHelper, $timeout) => {
     var snippetsModel = Restangular.all('snippets');
 
     $scope.theme = localStorage.getItem('theme') || 'tomorrow';
@@ -13,19 +13,21 @@ angular.module('glue')
     $scope.save = () => {
         $scope.$broadcast('ace:code');
 
-        if (!$scope.mode) $scope.mode = aceHelper.detect($scope.code);
-        var name = $scope.mode;
-        var ext = modelist.modesByName[name].extensions.split('|')[0];
+        $timeout(() => {
+            if (!$scope.mode) $scope.mode = aceHelper.detect($scope.code);
+            var name = $scope.mode;
+            var ext = modelist.modesByName[name].extensions.split('|')[0];
 
-        snippetsModel.post({
-            snippet: $scope.code,
-            // snippets: [$scope.code, $scope.code],
-            filename: `${name}.${ext}`,
-            language: $scope.mode,
-            favorite_color: $scope.favorite_color,
-        }).then(snippet => {
-            $scope.$broadcast('ace:save');
-            $location.path(`${SNIPPETS_URI}${snippet.id}`);
+            snippetsModel.post({
+                snippet: $scope.code,
+                // snippets: [$scope.code, $scope.code],
+                filename: `${name}.${ext}`,
+                language: $scope.mode,
+                favorite_color: $scope.favorite_color,
+            }).then(snippet => {
+                $scope.$broadcast('ace:save');
+                $location.path(`${SNIPPETS_URI}${snippet.id}`);
+            });
         });
     };
 
