@@ -1,5 +1,7 @@
 <header class="header">
     <div class="filename">
+        {{ snippet.filename }}
+        <!-- <a href="/">New Snippet</a> -->
         <div class="toolbar-links">
             <select ng-model="theme" ng-options="t.name as t.caption for t in themes | orderBy:'caption'" class="theme"></select>
             <a ng-click="rawCode(snippet.id)" class="raw">Raw Code</a>
@@ -8,5 +10,3 @@
 </header>
 
 <pre id="editor" editor="editor" edit="false" theme="theme" mode="mode" code="snippet.snippet"><code></code></pre>
-
-<footer class="footer">Posted by <a href="http://mavrx.io/">[Mavrx]</a></footer>

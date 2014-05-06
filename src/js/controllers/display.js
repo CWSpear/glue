@@ -12,4 +12,8 @@ angular.module('snippets')
     $scope.$watch('theme', (theme) => localStorage.setItem('theme', theme));
 
     $scope.themes = themelist.themes;
+
+    $scope.rawCode = (id) => {
+        window.location.href = `/s/${id}/raw`;
+    };
 });

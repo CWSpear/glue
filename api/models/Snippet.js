@@ -10,12 +10,10 @@ var modelist = require('../services/modelist');
 
 module.exports = {
 
-    adapter: 'mysql',
-
     attributes: {
         id: {
             type: 'string',
-            uuidv4: true,
+            // uuidv4: true,
             primaryKey: true,
             unique: true,
             required: true,
