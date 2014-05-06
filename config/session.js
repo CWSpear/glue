@@ -13,7 +13,7 @@
 module.exports.session = {
 
   // Session secret is automatically generated when your new app is created
-  // Replace at your own risk in production-- you will invalidate the cookies of your users,
+  // Replace at your own risk in production--you will invalidate the cookies of your users,
   // forcing them to log in again. 
   secret: '62539eb6c7d3a9db61adafca8066bb43',
 
@@ -42,21 +42,16 @@ module.exports.session = {
   // prefix: 'sess:'
 
 
-  // Uncomment the following lines to use your Mongo adapter as a session store
-  // adapter: 'mongo',
-  //
-  // host: 'localhost',
-  // port: 27017,
-  // db: 'sails',
-  // collection: 'sessions',
-  //
+  adapter: 'mongo',
+  
+  host: 'localhost',
+  port: 27017,
+  db: 'glue',
+  collection: 'sessions',
+  
   // Optional Values:
-  //
-  // # Note: url will override other connection settings
-  // url: 'mongodb://user:pass@host:port/database/collection',
-  //
-  // username: '',
-  // password: '',
+  user: 'admin',
+  password: '',
   // auto_reconnect: false,
   // ssl: false,
   // stringify: true

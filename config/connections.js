@@ -28,7 +28,7 @@ module.exports.connections = {
     adapter: 'sails-mysql',
     user: 'root',
     password: '',
-    database: 'snippets',
+    database: 'glue',
     host: '127.0.0.1'
   },
 
@@ -38,7 +38,7 @@ module.exports.connections = {
     port      : 27017,
     user      : 'admin',
     password  : '',
-    database  : 'snippets'
+    database  : 'glue'
   },
 
   // use any other adapters provided by Waterline: https://github.com/balderdashy/waterline
