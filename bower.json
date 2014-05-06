@@ -1,10 +1,10 @@
 {
-  "name": "snippets.cam",
-  "version": "0.0.0",
+  "name": "Glue",
+  "version": "0.2.0",
   "authors": [
-    "Cameron Spear <cameronspear@gmail.com>"
+    "Mavrx <cameron@mavrx.io>"
   ],
-  "description": "Snippets",
+  "description": "Throw some code into the air and see what sticks.",
   "main": "js/app.js",
   "license": "MIT",
   "private": true,
