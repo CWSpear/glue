@@ -15,11 +15,10 @@ It's possible the app may be made into an `npm` package, but for now, clone the 
 
 ```bash
 # make sure Sails is up to date; currently 0.10 is in beta
-npm install -g sails@beta
-npm install
+npm install # this will install sails 0.10.x
 bower install
 gulp build
-sails lift # or "node app"
+node app # or if you have sails installed globally: "sails lift"
 open http://localhost:1337 # at least in Unix
 ```
 
