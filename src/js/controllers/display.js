@@ -21,21 +21,21 @@ angular.module('glue')
         $location.path(SNIPPETS_URI);
     };
 
-    var newShortcut = ['command+n', 'ctrl+n'];
-    Mousetrap.bind(newShortcut, (event) => {
-        $scope.newSnippet();
-        // stop all the things!
-        return false;
-    });
+    // var newShortcut = ['command+n', 'ctrl+n'];
+    // Mousetrap.bind(newShortcut, (event) => {
+    //     $scope.newSnippet();
+    //     // stop all the things!
+    //     return false;
+    // });
 
-    var forkShortcut = ['command+r', 'ctrl+r'];
-    Mousetrap.bind(forkShortcut, (event) => {
-        $scope.fork($scope.snippet.snippet, $scope.snippet.language);
-        // stop all the things!
-        event.preventDefault();
-    });
+    // var forkShortcut = ['command+r', 'ctrl+r'];
+    // Mousetrap.bind(forkShortcut, (event) => {
+    //     $scope.fork($scope.snippet.snippet, $scope.snippet.language);
+    //     // stop all the things!
+    //     event.preventDefault();
+    // });
 
-    // unbind Mousetrap on exit
-    $scope.$on('$destroy', () => Mousetrap.unbind(newShortcut));
-    $scope.$on('$destroy', () => Mousetrap.unbind(forkShortcut));
+    // // unbind Mousetrap on exit
+    // $scope.$on('$destroy', () => Mousetrap.unbind(newShortcut));
+    // $scope.$on('$destroy', () => Mousetrap.unbind(forkShortcut));
 });
