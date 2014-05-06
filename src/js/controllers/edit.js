@@ -37,13 +37,13 @@ angular.module('glue')
     };
 
     // save on cmd-S
-    var saveShortcut = ['command+s', 'ctrl+s'];
-    Mousetrap.bind(saveShortcut, (event) => {
-        $scope.save();
-        // stop all the things!
-        return false;
-    });
+    // var saveShortcut = ['command+s', 'ctrl+s'];
+    // Mousetrap.bind(saveShortcut, (event) => {
+    //     $scope.save();
+    //     // stop all the things!
+    //     return false;
+    // });
 
-    // unbind Mousetrap on exit
-    $scope.$on('$destroy', () => Mousetrap.unbind(saveShortcut));
+    // // unbind Mousetrap on exit
+    // $scope.$on('$destroy', () => Mousetrap.unbind(saveShortcut));
 });
