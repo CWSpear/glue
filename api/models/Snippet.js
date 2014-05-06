@@ -10,7 +10,6 @@ var modelist = require('../services/modelist');
 var hljs = require('highlight.js');
 
 module.exports = {
-
     attributes: {
         id: {
             type: 'string',
