@@ -1,5 +1,5 @@
 /* jshint esnext: true */
-angular.module('snippets')
+angular.module('glue')
 
 .directive('editor', (modelist, $timeout) => {
     // this first line is supposed to replace the next 3
@@ -31,39 +31,63 @@ angular.module('snippets')
 
             if (scope.editor.getSession().getValue() === '') {
                 var code = localStorage.getItem('code') || '';
+                var mode = localStorage.getItem('mode') || '';
                 scope.editor.getSession().setValue(code);
                 scope.code = code;
+                scope.mode = mode;
             }
 
-            var saveCodeLocally = _.throttle((codeToSave) => {
+            var saveCodeLocally = (codeToSave) => {
                 localStorage.setItem('code', codeToSave);
-                console.log('[Saved in localStorage]');
-            }, 10 * 1000);
+                saveModeLocally(scope.mode);
+            };
+            var canSaveThrottled = true;
+            var saveCodeLocallyThrottled = _.throttle(() => {
+                if (!canSaveThrottled) return;
+                $timeout(() => {
+                    scope.code = scope.editor.getSession().getValue();
+                    saveCodeLocally(angular.copy(scope.code), scope.mode);
+                });
+            }, 3 * 1000);
+
+            var saveModeLocally = (modeToSave) => {
+                localStorage.setItem('mode', modeToSave);
+            };
+
+            if (!scope.code) {
+                saveModeLocally(scope.mode = '');
+            }
 
             scope.editor.getSession().on('change', function  () {
                 if (!edit) return;
-                $timeout(() => {
-                    scope.code = scope.editor.getSession().getValue();
-                    saveCodeLocally(angular.copy(scope.code));
-                });
+                saveCodeLocallyThrottled();
             });
 
             if (!edit) {
                 scope.editor.setReadOnly(true);
                 scope.editor.setHighlightActiveLine(false);
                 scope.editor.setHighlightGutterLine(false);
-                // scope.editor.gotoLine(1000);
 
                 // turn off linting
                 scope.editor.session.setOption("useWorker", false);
             }
 
-            // causes infinite loop
-            // scope.$watch('code', (newCode, oldCode) => { 
-            //     if (newCode == oldCode) return;
-            //     scope.editor.getSession().setValue(newCode);
-            // });
-            scope.$on('ace:updateCode', (event, newCode) => scope.editor.getSession().setValue(newCode));
+
+            scope.$on('ace:update', (event, newCode) => scope.editor.getSession().setValue(newCode));
+            scope.$on('ace:persist', (event, persitCode, persistMode) => { 
+                saveCodeLocally(persitCode);
+                saveModeLocally(persistMode);
+            });
+            scope.$on('ace:save', (event) => { 
+                canSaveThrottled = false;
+                saveCodeLocally('');
+                saveModeLocally('');
+            });
+            scope.$on('ace:clear', (event) => {
+                saveCodeLocally('');
+                saveModeLocally('');
+            });
+
 
             // valid (of course)
             function setTheme(theme) {
@@ -73,6 +97,7 @@ angular.module('snippets')
 
             function setMode(mode) {
                 if (!mode) return;
+                saveModeLocally(mode);
                 scope.editor.getSession().setMode({ path: `ace/mode/${mode}`, inline: true });
             }
         }

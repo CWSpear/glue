@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="snippets">
+<html lang="en" ng-app="glue">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,8 +15,6 @@
 </head>
 <body>
     <div class="view-wrapper" ng-view></div>
-
-    <footer class="footer">Posted by <a href="http://mavrx.io/">[Mavrx]</a></footer>
   
     <!-- build:js(src) /js/vendor.js-->
     <!-- bower -->
@@ -26,8 +24,6 @@
     <!-- inject:js -->
     <!-- endinject -->
 
-    <script src='//localhost:3000/socket.io/socket.io.js'></script>
-    <script>var ___socket___ = io.connect('http://localhost:3000');</script>
-    <script src='//localhost:3001/client/browser-sync-client.js'></script>
+    <!-- browser-sync -->
 </body>
 </html>

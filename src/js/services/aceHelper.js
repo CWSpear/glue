@@ -1,5 +1,5 @@
 /* jshint esnext: true */
-angular.module('snippets')
+angular.module('glue')
 
 .factory('aceHelper', (modelist) => {
     return {

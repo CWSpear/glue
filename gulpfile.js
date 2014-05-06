@@ -58,7 +58,7 @@ gulp.task('styles', function () {
 
 gulp.task('copy', function () {
   // apparently gulp ignores dotfiles with globs
-  gulp.src(src + 'copy/**/*', { dot: true })
+  gulp.src([src + 'copy/**/*', src + 'favicon.ico'], { dot: true })
     .pipe(gulp.dest(dest));
 
   gulp.src(src + 'img/**/*.{png,svg,gif,jpg}')
@@ -85,7 +85,7 @@ gulp.task('templates', function () {
     .pipe(browsersync.reload({ stream:true }));
 });
 
-gulp.task('scripts', ['index', 'bower'], function () {
+gulp.task('scripts', _.union(['index', 'bower'], gutil.env.production ? ['styles'] : []), function () {
   return gulp.src(scripts)
     .pipe(plumber(onError))
     .pipe(traceur({ sourceMap: false })) // !gutil.env.production }))
@@ -103,7 +103,7 @@ gulp.task('scripts', ['index', 'bower'], function () {
     .pipe(browsersync.reload({ stream:true }));
 });
 
-gulp.task('bower', ['index'], function () {
+gulp.task('bower', _.union(['index'], gutil.env.production ? ['styles'] : []), function () {
   if (!gutil.env.production)
     bowerfiles().pipe(gulp.dest(dest + 'bower_components/'));
 
@@ -121,6 +121,7 @@ gulp.task('bower', ['index'], function () {
         }
       }
     }))
+    .pipe(replace('<!-- browser-sync -->', "<script>angular.module('glue').constant('debug', " + !gutil.env.production + ");<"+"/script>"))
     .pipe(gulp.dest(dest));
 });
 
