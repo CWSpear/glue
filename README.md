@@ -14,7 +14,6 @@ This application was built with Sails `0.10.x` in mind.
 It's possible the app may be made into an `npm` package, but for now, clone the repo and `cd` into the cloned directory, then:
 
 ```bash
-# make sure Sails is up to date; currently 0.10 is in beta
 npm install # this will install sails 0.10.x locally
 bower install
 gulp build
