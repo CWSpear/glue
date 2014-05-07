@@ -64,21 +64,31 @@ module.exports = {
             values.snippet = _undent(values.snippet);
         }
 
-        // if there is no filename, we try and detect the language being used
-        // (this will be replaced by MLearn.js's implementation of detection)
-        var language = false;
-        if (!values.filename || values.filename === 'false') {
-            language = hljs.highlightAuto(values.snippet).language;
-            var ext = modelist.modesByName[language].extensions.split('|')[0];
-            values.filename = 'glue.' + ext;
-        }
+        try {
+            // if there is no filename, we try and detect the language being used
+            // (this will be replaced by MLearn.js's implementation of detection)
+            var language = false;
+            if (!values.filename || values.filename === 'false') {
+                language = hljs.highlightAuto(values.snippet).language;
+                var mode = modelist.modesByName[language];
+                if (mode) {
+                    var ext = mode.extensions.split('|')[0];
+                    values.filename = 'glue.' + ext;
+                } else {
+                    values.filename = 'glue.txt';
+                }
+            }
 
-        if (language) {
-            values.language = language;
-        } else {
-            // based on the filename, get the language mode that Ace will use
-            var modeObj = modelist.getModeForPath(values.filename);
-            values.language = modeObj.name;
+            if (language) {
+                values.language = language;
+            } else {
+                // based on the filename, get the language mode that Ace will use
+                var modeObj = modelist.getModeForPath(values.filename);
+                values.language = modeObj.name;
+            }            
+        } catch (err) {
+            console.error(err);
+            throw err;
         }
 
         cb(null, values);
