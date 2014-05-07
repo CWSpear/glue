@@ -8,7 +8,9 @@
 module.exports = {
     create: function(req, res) {
         var snippet = req.body;
+        // user = user via API key || auth'd user || default user
         snippet.user = req.user.id;
+        // console.log('Saving as ' + req.user.name);
         Snippet.create(snippet).exec(function (err, result) {
             if (err) {
                 // Handle Error

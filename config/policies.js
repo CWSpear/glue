@@ -22,15 +22,17 @@ module.exports.policies = {
         raw: true,
 
         find: true,
-        create:  'apiKey',
-        update:  'apiKey',
-        destroy: 'apiKey',
+        // both passport and apiKey may change current req.user!
+        create:  ['passport', 'apiKey'],
+        update:  ['passport', 'apiKey'],
+        destroy: ['passport', 'apiKey'],
     },
 
     UserController: {
         // no public access
         '*': false,
 
+        // passport sets req.user!
         findAll: ['passport', 'auth'],
         update:  ['passport', 'auth'],
         destroy: ['passport', 'auth'],
