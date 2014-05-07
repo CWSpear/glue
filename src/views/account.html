@@ -1,1 +1,17 @@
-<a href="/auth/github" class="btn">Sign In with GitHub</a>
+<div class="container center">
+    <div ng-show="user.id">
+        <img class="avatar-large" ng-src="{{ user.avatar }}" alt="{{ user.name }}">
+        <div>
+            <strong>{{ user.name }}</strong>
+        </div>
+        <a href="/logout" class="btn">Logout</a>
+
+        <div>
+            <strong>API Key</strong>
+        </div>
+        <div>
+            {{ user.apiKey }}
+        </div>
+    </div>
+    <a href="/auth/github" class="btn">{{ !user.id ? 'Sign In' : 'Re-up' }} with GitHub</a>
+</div>

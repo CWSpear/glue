@@ -1,6 +1,7 @@
 var passport = require('passport')
   , path     = require('path')
-  , url      = require('url');
+  , url      = require('url')
+  , _        = require('lodash');
 
 /**
  * Passport Service
@@ -79,14 +80,18 @@ passport.connect = function (req, query, profile, next) {
   if (profile.hasOwnProperty('username')) {
     user.username = profile.username;
   }
+
+  // these two may only work with GitHub
   // If the profile object contains a avatar_url, add it to the user.
-  if (profile.hasOwnProperty('avatar_url')) {
-    user.avatar = profile.avatar_url;
+  if ((profile || {})._json.hasOwnProperty('avatar_url')) {
+    user.avatar = profile._json.avatar_url;
   }
   // If the profile object contains a name, add it to the user.
-  if (profile.hasOwnProperty('name')) {
-    user.name = profile.name;
+  if ((profile || {})._json.hasOwnProperty('name')) {
+    user.name = profile._json.name;
   }
+
+  console.log(user);
 
   // If neither an email or a username was available in the profile, we don't
   // have a way of identifying the user in the future. Throw an error and let
@@ -153,15 +158,13 @@ passport.connect = function (req, query, profile, next) {
       // Scenario: They want to get the info (again) from their other account
       // Action:   Save the new info
       else {
-        console.log(typeof User.findOne);
         User.findOne(passport.user, function (err, curUser) {
           // If a user wasn't found, bail out
           if (err) return next(err);
 
-          console.log(typeof curUser.save);
-
-          // update user
-          curUser.save(user, next);
+          // update user with new props
+          _.merge(curUser, user);
+          curUser.save(next);
         });
       }
     }

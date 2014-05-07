@@ -29,9 +29,9 @@ angular.module('glue', ['restangular', 'ngRoute'])
             connectScript = document.createElement('script'),
             body = document.body;
 
-        socketScript.src = url + ':3000/socket.io/socket.io.js';
-        connectScript.innerHTML = "var ___socket___ = io.connect('" + url + ":3000');";
-        browserSyncScript.src = url + ':3001/client/browser-sync-client.js';
+        socketScript.src = url + ':8888/socket.io/socket.io.js';
+        connectScript.innerHTML = "var ___socket___ = io.connect('" + url + ":8888');";
+        browserSyncScript.src = url + ':8889/client/browser-sync-client.js';
 
         body.insertBefore(socketScript, null);
 

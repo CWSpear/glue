@@ -210,6 +210,7 @@ gulp.task('default', function () {
       gulp.watch(src + 'index.html', ['index', 'scripts', 'bower']);
 
       var bs = browsersync.init(null, {
+        ports: { min: 8888, max: 8890 },
         ghostMode: {
           clicks: false,
           links: false,
