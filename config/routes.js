@@ -26,17 +26,6 @@ module.exports.routes = {
         action: 'raw',
     },
 
-    // '/auth/github/': {
-    //     controller: 'user',
-    //     action: 'githubAuth',
-    // },
-
-    // // github callback
-    // '/auth/github/callback/': {
-    //     controller: 'user',
-    //     action: 'githubCallback',
-    // }
-
     // passport routes
     'get /login': 'AuthController.login',
     'get /logout': 'AuthController.logout',

@@ -1,13 +1,13 @@
 module.exports = function hasApiKey (req, res, next) {
     var apiKey = req.body.apiKey;
-    var nonce  = req.body.nonce;
 
     // if we have neither, let's just stop them now
-    if (!apiKey && !nonce)
-        return res.forbidden('Please register an API Key.');
+    if (!apiKey)
+        return res.forbidden('Please register for an API Key.');
 
-    // if we don't have an API key (but have a nonce), we don't need to validate here
-    if (!apiKey) return next();
-
-    next();
+    User.findOne({ apiKey: apiKey }, function (err, user) {
+        if (err || !(user || {}).id) return res.forbidden('Invalid/expired API Key.');
+        req.user = user;
+        next();
+    });
 };

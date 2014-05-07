@@ -26,7 +26,7 @@ angular.module('glue')
                 // snippets: [$scope.code, $scope.code],
                 filename: filename,
                 language: language,
-                favorite_color: $scope.favorite_color,
+                apiKey: '872f5f4795204718b2377169e8bd1b4a'
             }).then(snippet => {
                 $scope.$broadcast('ace:save');
                 $location.path(`${SNIPPETS_URI}${snippet.id}`);

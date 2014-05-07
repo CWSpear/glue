@@ -6,12 +6,16 @@
         </div>
         <div>
             <a href="/logout" class="btn">Logout</a>
+            <a href="/logout" class="btn btn-danger">Delete</a>
         </div>
         <div>
             <strong>API Key</strong>
         </div>
         <div>
             {{ user.apiKey }}
+        </div>
+        <div>
+            <a ng-click="regenerateApiKey()" class="btn">Regenerate API Key</a>
         </div>
     </div>
     <a href="/auth/github" class="btn">{{ !user.id ? 'Sign In' : 'Re-up' }} with GitHub</a>

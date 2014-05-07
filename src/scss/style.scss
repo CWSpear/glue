@@ -1,3 +1,4 @@
+@import url('//fonts.googleapis.com/css?family=Open+Sans:400italic,400,700');
 @import url('//fonts.googleapis.com/css?family=Droid+Sans+Mono');
 @import "normalize";
 
@@ -57,7 +58,8 @@ html, body {
     margin: 0;
     min-height: 100vh;
     min-width: $min-width;
-    overflow: hidden;
+    // overflow: hidden;
+    font-family: 'Open Sans';
 }
 
 .header {
@@ -111,6 +113,16 @@ html, body {
     }
 }
 
+@mixin color-button($color) {
+    background: lighten($color, 10%);
+    box-shadow: 0 3px 0 darken($color, 2%);
+
+    &:hover, &:focus {
+        background: lighten($color, 15%);
+        box-shadow: 0 3px 0 lighten($color, 2%);
+    }
+}
+
 .btn {
     border: 0 none;
     margin: 10px 0;
@@ -118,24 +130,27 @@ html, body {
     padding: 4px 10px;
     color: white;
     text-decoration: none;
-    background: lighten($btn-color, 10%);
     border-radius: 2px;
     transition: background 0.2s ease-out,
                 box-shadow 0.05s ease-out,
                 transform 0.05s ease-out;
-    box-shadow: 0 3px 0 darken($btn-color, 2%);
+
+    @include color-button($btn-color);
 
     &:hover, &:focus {
         color: white;
         outline: 0;
         text-decoration: none;
-        background: lighten($btn-color, 15%);
-        box-shadow: 0 3px 0 lighten($btn-color, 2%);
     }
 
     &:active {
         box-shadow: none;
         transform: translateY(3px);
+    }
+
+
+    &.btn-danger {
+        @include color-button(#b04127);
     }
 
     &:disabled, &.disabled, &[disabled] {

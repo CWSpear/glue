@@ -25,9 +25,8 @@ module.exports = {
             type: 'string',
             unique: true,
             required: true,
-            uuidv4: true,
             defaultsTo: function () { 
-                return uuid.v4();
+                return uuid.v4().replace(/-/g, '');
             },
         },
 
@@ -43,15 +42,20 @@ module.exports = {
         email: {
             type: 'email',
             unique: true,
-            // required: true,
+            required: true,
         },
 
         avatar: {
-            type: 'string'
+            type: 'string',
         },
 
         passports: { 
             collection: 'Passport',
+            via: 'user',
+        },
+
+        snippets: { 
+            collection: 'Snippet',
             via: 'user',
         },
     }

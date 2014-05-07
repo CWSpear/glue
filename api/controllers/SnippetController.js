@@ -7,9 +7,12 @@
 
 module.exports = {
     create: function(req, res) {
-        Snippet.create(req.body).exec(function (err, result) {
+        var snippet = req.body;
+        snippet.user = req.user.id;
+        Snippet.create(snippet).exec(function (err, result) {
             if (err) {
                 // Handle Error
+                throw err;
             }
 
             if (req.body.redirect)

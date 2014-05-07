@@ -23,7 +23,7 @@ module.exports.policies = {
 
         find: true,
         create:  'apiKey',
-        edit:    'apiKey',
+        update:  'apiKey',
         destroy: 'apiKey',
     },
 
@@ -32,7 +32,7 @@ module.exports.policies = {
         '*': false,
 
         findAll: ['passport', 'auth'],
-        edit:    ['passport', 'auth'],
+        update:  ['passport', 'auth'],
         destroy: ['passport', 'auth'],
         find:    ['passport', 'auth'],
     },

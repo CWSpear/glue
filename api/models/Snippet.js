@@ -27,7 +27,11 @@ module.exports = {
         snippet: 'text',
         language: 'string', // used for Ace, based on the modelist
         filename: 'string',
-        apiKey: 'string',
+
+        user: { 
+            model: 'User',
+            required: true,
+        },
     },
 
     beforeValidate: function (values, cb) {
