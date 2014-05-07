@@ -8,6 +8,8 @@
     "highlight.js": "^8.0.0",
     "lodash": "^2.4.1",
     "node-uuid": "^1.4.1",
+    "passport": "^0.2.0",
+    "passport-github": "^0.1.5",
     "rc": "~0.3.3",
     "sails": "~0.10.0-rc5",
     "sails-mongo": "^0.10.0-rc4",

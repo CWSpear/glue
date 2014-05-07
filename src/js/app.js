@@ -15,6 +15,9 @@ angular.module('glue', ['restangular', 'ngRoute'])
     }).when('/s/:id', {
         controller: 'DisplayCtrl',
         templateUrl: `${VIEWS_URI}display.html`,
+    }).when('/account/', {
+        controller: 'AccountCtrl',
+        templateUrl: `${VIEWS_URI}account.html`,
     }).otherwise({ redirectTo: '/' });
 
     if (debug) {

@@ -21,13 +21,24 @@
 
 module.exports.routes = {
 
-  '/s/:id/raw': {
-    controller: 'snippet',
-    action: 'raw'
-  },
+    '/s/:id/raw': {
+        controller: 'snippet',
+        action: 'raw',
+    },
 
-  // If a request to a URL doesn't match any of the custom routes above, it is matched 
-  // against Sails route blueprints.  See `config/blueprints.js` for configuration options
-  // and examples.
+    '/auth/github/': {
+        controller: 'user',
+        action: 'githubAuth',
+    },
+
+    // github callback
+    '/auth/github/callback/': {
+        controller: 'user',
+        action: 'githubCallback',
+    }
+
+    // If a request to a URL doesn't match any of the custom routes above, it is matched 
+    // against Sails route blueprints.  See `config/blueprints.js` for configuration options
+    // and examples.
 
 };

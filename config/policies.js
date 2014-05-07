@@ -14,7 +14,7 @@
 
 module.exports.policies = {
         
-    '*': false,
+    '*': [ passport.initialize(), passport.session(), false ],
 
     SnippetController: {
         '*': false,
@@ -22,14 +22,20 @@ module.exports.policies = {
         raw: true,
 
         find: true,
-        create:  ['apiKey', 'nonce'],
-        edit:    ['apiKey', 'nonce'],
-        destroy: ['apiKey', 'nonce'],
+        create:  'apiKey',
+        edit:    'apiKey',
+        destroy: 'apiKey',
     },
 
     UserController: {
         // no public access
-        '*': false, 
+        '*': false,
+        edit: 'github',
+        destroy: 'github',
+        find: 'github',
+
+        githubAuth: true,
+        githubCallback: true,
     },
 
     ApiKeyController: {
