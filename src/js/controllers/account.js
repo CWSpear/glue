@@ -1,7 +1,7 @@
 /* jshint esnext: true */
 angular.module('glue')
 
-.controller('AccountCtrl', ($scope, Restangular, request) => {
+.controller('AccountCtrl', ($scope, Restangular, request, $location) => {
     Restangular.one('users').get().then(user => $scope.user = user);
 
     $scope.regenerateApiKey = () => {
@@ -11,6 +11,17 @@ angular.module('glue')
         $scope.user.put().catch(function () {
             // put old key back if this request fails
             $scope.user.apiKey = oldKey;
+            // TODO: error message
+        });
+    };
+
+    $scope.deleteAccount = () => {
+        $scope.user.remove().then(function () {
+            $location.path('/');
+            // TODO: success message
+        }, function () {
+            console.error('did not delete');
+            // TODO: error message
         });
     };
 });

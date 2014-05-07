@@ -86,7 +86,7 @@ html, body {
     top: auto;
     bottom: 0;
 
-    .toolbar-left, .toolbar-right {
+    .credits, .filename {
         line-height: 50px;
     }
 }
@@ -100,7 +100,8 @@ html, body {
     line-height: 20px;
 
     > * {
-        margin-right: 5px;
+        display: inline-block;
+        margin-right: 5px !important;
     }
 }
 
@@ -109,7 +110,8 @@ html, body {
     line-height: 20px;
 
     > * {
-        margin-left: 5px;
+        display: inline-block;
+        margin-left: 5px !important;
     }
 }
 
@@ -136,6 +138,7 @@ html, body {
                 transform 0.05s ease-out;
 
     @include color-button($btn-color);
+    &.btn-danger { @include color-button(#b04127); }
 
     &:hover, &:focus {
         color: white;
@@ -144,13 +147,8 @@ html, body {
     }
 
     &:active {
-        box-shadow: none;
+        box-shadow: none !important;
         transform: translateY(3px);
-    }
-
-
-    &.btn-danger {
-        @include color-button(#b04127);
     }
 
     &:disabled, &.disabled, &[disabled] {
@@ -168,7 +166,8 @@ html, body {
 }
 
 .container {
-    margin: 50px auto;
+    margin: 0 auto;
+    padding: 100px 0;
     width: 560px;
 }
 

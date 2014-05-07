@@ -13,6 +13,21 @@ module.exports = {
             return res.send(user);
         });
     },
+
+    // TODO: optimize this with some async love
+    destroy: function (req, res) {
+        // delete all their snippets and passports, too
+        User.destroy(req.user.id).exec(function (err) {
+            if (err) throw err;
+            Snippet.destroy({ user: req.user.id }, function (err) {
+                if (err) throw err;
+                Passport.destroy({ user: req.user.id }, function (err) {
+                    if (err) throw err;
+                    return res.ok();
+                });
+            });
+        });
+    },
 };
 
 setTimeout(function () {

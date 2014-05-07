@@ -1,7 +1,7 @@
 <div class="view-wrapper">
     <header class="header">
         <div class="toolbar-left">
-            <a class="btn" href="/#/">New</a>        
+            <a class="btn" href="/#/">New</a>
             <a class="btn" ng-click="fork(snippet.snippet, snippet.language)">Fork</a>        
         </div>
         <div class="toolbar-right">
@@ -17,7 +17,8 @@
             Posted by <a href="http://mavrx.io/">[Mavrx]</a>
         </div>
         <div class="toolbar-right">
-            Filename: {{ snippet.filename }}
+            <div class="filename">Filename: {{ snippet.filename }}</div>
+            <a href="/#/account/" class="btn">Account</a>
         </div>
     </footer>
 </div>
