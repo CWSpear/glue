@@ -8,7 +8,7 @@ angular.module('glue')
             return 'javascript';
             // return hljs.highlightAuto(code).language;
             // console.log('autodetect', hljs.highlightAuto(code));
-            // $http.post('/snippets/?detect=1', { code: code }).then(function (result) {
+            // $http.post('/snippets/?detect=1', { code: code }).then((result) => {
             //     var mode = result.data[0];
             //     console.log(mode);
             //     var modeObj = modelist.getModeForPath(mode);

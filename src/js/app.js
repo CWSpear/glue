@@ -3,6 +3,7 @@ angular.module('glue', ['restangular', 'ngRoute'])
 
 .constant('SNIPPETS_URI', '/s/')
 .constant('VIEWS_URI',    '/views/')
+.constant('PARTIALS_URI', '/views/partials/')
 
 .config(($httpProvider, RestangularProvider, $routeProvider, VIEWS_URI, $locationProvider, debug) => {
     RestangularProvider.setBaseUrl('/api');
@@ -35,9 +36,14 @@ angular.module('glue', ['restangular', 'ngRoute'])
 
         body.insertBefore(socketScript, null);
 
-        socketScript.onload = function () {
+        socketScript.onload = () => {
             body.insertBefore(connectScript, null);
             body.insertBefore(browserSyncScript, null);
         };
     }
+})
+
+.run(($rootScope, PARTIALS_URI, Restangular) => {
+    Restangular.one('users').get().then(user => $rootScope.user = user);
+    $rootScope.footerPartial = `${PARTIALS_URI}footer.html`;
 });

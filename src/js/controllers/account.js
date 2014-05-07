@@ -1,25 +1,33 @@
 /* jshint esnext: true */
 angular.module('glue')
 
-.controller('AccountCtrl', ($scope, Restangular, request, $location) => {
-    Restangular.one('users').get().then(user => $scope.user = user);
-
+.controller('AccountCtrl', ($scope, $rootScope, request, $location) => {
     $scope.regenerateApiKey = () => {
-        var oldKey = $scope.user.apiKey;
+        var oldKey = $rootScope.user.apiKey;
         // update in UI "NOW" for "faster UI"
-        $scope.user.apiKey = uuid.v4().replace(/-/g, '');
-        $scope.user.put().catch(function () {
+        $rootScope.user.apiKey = uuid.v4().replace(/-/g, '');
+        $rootScope.user.put().catch(() => {
             // put old key back if this request fails
-            $scope.user.apiKey = oldKey;
+            $rootScope.user.apiKey = oldKey;
+            // TODO: error message
+        });
+    };
+
+    $scope.logout = () => {
+        request.get('/logout').then(() => {
+            $rootScope.user = {};
+            $location.path('/');
+        }, () => {
+            console.error('did not logout');
             // TODO: error message
         });
     };
 
     $scope.deleteAccount = () => {
-        $scope.user.remove().then(function () {
+        $rootScope.user.remove().then(() => {
             $location.path('/');
             // TODO: success message
-        }, function () {
+        }, () => {
             console.error('did not delete');
             // TODO: error message
         });

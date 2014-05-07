@@ -58,7 +58,7 @@ angular.module('glue')
                 saveModeLocally(scope.mode = '');
             }
 
-            scope.editor.getSession().on('change', function  () {
+            scope.editor.getSession().on('change', () => {
                 if (!edit) return;
                 saveCodeLocallyThrottled();
             });

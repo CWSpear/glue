@@ -1,0 +1,10 @@
+<footer class="footer">
+    <div class="credits toolbar-left">
+        Posted by <a href="http://mavrx.io/">[Mavrx]</a>
+    </div>
+    <div class="toolbar-right">
+        <div ng-show="snippet.filename" class="filename">Filename: {{ snippet.filename }}</div>
+        <a ng-show="user.id" href="/#/account/" class="btn">Account</a>
+        <a ng-hide="user.id" href="/auth/github" class="btn">Login with GitHub</a>
+    </div>
+</footer>
