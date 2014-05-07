@@ -12,6 +12,7 @@ module.exports = {
     
     attributes: {
         id: {
+            primaryKey: true,
             type: 'string',
             unique: true,
             required: true,
@@ -30,28 +31,28 @@ module.exports = {
             },
         },
 
-        firstName: {
+        name: {
             type: 'string',
-            // required: true,
         },
 
-        lastName: {
+        username: {
             type: 'string',
-            // required: true,
+            unique: true,
         },
 
         email: {
             type: 'email',
+            unique: true,
             // required: true,
         },
 
-        githubId: {
-            type: 'string',
-            required: true,
+        avatar: {
+            type: 'string'
         },
 
-        fullName: function () {
-            return this.firstName + ' ' + this.lastName;
+        passports: { 
+            collection: 'Passport',
+            via: 'user',
         },
     }
 };

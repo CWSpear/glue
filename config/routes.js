@@ -26,16 +26,28 @@ module.exports.routes = {
         action: 'raw',
     },
 
-    '/auth/github/': {
-        controller: 'user',
-        action: 'githubAuth',
-    },
+    // '/auth/github/': {
+    //     controller: 'user',
+    //     action: 'githubAuth',
+    // },
 
-    // github callback
-    '/auth/github/callback/': {
-        controller: 'user',
-        action: 'githubCallback',
-    }
+    // // github callback
+    // '/auth/github/callback/': {
+    //     controller: 'user',
+    //     action: 'githubCallback',
+    // }
+
+    // passport routes
+    'get /login': 'AuthController.login',
+    'get /logout': 'AuthController.logout',
+    'get /register': 'AuthController.register',
+
+    'post /auth/local': 'AuthController.callback',
+    'post /auth/local/:action': 'AuthController.callback',
+
+    'get /auth/:provider': 'AuthController.provider',
+    'get /auth/:provider/callback': 'AuthController.callback',
+
 
     // If a request to a URL doesn't match any of the custom routes above, it is matched 
     // against Sails route blueprints.  See `config/blueprints.js` for configuration options

@@ -2,10 +2,11 @@
 angular.module('glue')
 
 .controller('AccountCtrl', ($scope, Restangular, request) => {
-    $scope.github = () => {
-        console.log('test');
-        request.get('/account/login/').then(response => {
-            console.log(response);
-        });
-    };
+    // Restangular.one('users').get().then(user => {
+    //     console.log('user', user);
+    // });
+
+    request.get('/api/users').then(user => {
+        console.log('user', user);
+    });
 });

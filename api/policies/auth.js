@@ -1,12 +1,9 @@
 /**
- * GitHub Authentication
+ * Passport Authentication
  */
 
 module.exports = function(req, res, next) {
-
-    var authenticated = doSomething();
-
-    if (authenticated) {
+    if (req.isAuthenticated()) {
         return next();
     }
 
