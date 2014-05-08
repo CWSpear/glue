@@ -19,7 +19,7 @@ var destAbsPath = path.resolve(dest);
 var npmConfig = require('./package.json');
 var includeBrowserSync = true;
 
-if (_.contains(gutil.env._, 'build')) { 
+if (_.contains(gutil.env._, 'build')) {
   if (!gutil.env.production) gutil.env.production = true;
   includeBrowserSync = false;
 }
@@ -39,7 +39,11 @@ var onError = function (err) {
 
 gulp.task('styles', function () {
   return gulp.src(src + 'scss/style.scss')
-    .pipe(plumber(onError))
+    .pipe(plumber(function () {
+      onError();
+      // needed to keep gulp-sass going
+      this.emit('end');
+    }))
     .pipe(sass({
       outputStyle: gutil.env.production ? 'compressed' : 'nested',
       // sourceComments: 'map', // won't work with autoprefixer
@@ -72,9 +76,10 @@ gulp.task('ace', ['usemin'], function () {
       'mode-*',
       'theme-*',
       'worker-*',
-    ], { 
+      'ext-*',
+    ], {
       // note: NO src
-      cwd: 'bower_components/ace-builds/src-min/' 
+      cwd: 'bower_components/ace-builds/src-min/'
     })
     .pipe(gulp.dest(dest + 'js/ace/'));
 });
@@ -136,7 +141,7 @@ gulp.task('usemin', ['bower', 'scripts', 'styles'], function () {
 });
 
 gulp.task('index', function () {
-  // returning makes task synchronous 
+  // returning makes task synchronous
   // if something else depends on it
   return gulp.src(src + 'index.html')
     .pipe(gulp.dest(dest));
@@ -183,7 +188,7 @@ var prereqs = function () {
     rimrafDeferred.promise,
     bowerDeferred.promise,
     npmDeferred.promise
-  ]);    
+  ]);
 };
 
 gulp.task('build', function () {
@@ -203,13 +208,14 @@ gulp.task('default', function () {
       gulp.watch(src + 'js/**/*.js', ['scripts']);
       gulp.watch(src + 'views/**/*.html', ['templates']);
       gulp.watch([
-        src + 'copy/**/*', 
+        src + 'copy/**/*',
         src + 'img/**/*.{png,svg,gif,jpg}'
       ], { dot: true }, ['copy']);
 
       gulp.watch(src + 'index.html', ['index', 'scripts', 'bower']);
 
       var bs = browsersync.init(null, {
+        ports: { min: 8888, max: 8890 },
         ghostMode: {
           clicks: false,
           links: false,

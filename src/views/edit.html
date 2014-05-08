@@ -1,21 +1,19 @@
-<header class="header">
-    <div class="toolbar-left">
-        <a class="btn" ng-disabled="!code" ng-click="clear()">New</a>
-    </div>
-    <div class="toolbar-right">
-        <select ng-model="theme" ng-options="t.name as t.caption for t in themes | orderBy:'caption'" class="theme"></select>
-        <select ng-model="mode" ng-options="m.name as m.caption for m in modes | orderBy:'caption'" class="theme">
-            <option value="">-- Language --</option>
-        </select>
-        <!-- <button ng-click="detect()" class="btn">Detect</button> -->
-        <button ng-click="save()" class="btn">Save</button>
-    </div>
-</header>
+<div class="view-wrapper">
+    <header class="header">
+        <div class="toolbar-left">
+            <a class="btn" ng-disabled="!code" ng-click="clear()">New</a>
+        </div>
+        <div class="toolbar-right">
+            <select ng-model="aceConfig.theme" ng-options="t.name as t.caption for t in themes | orderBy:'caption'" class="theme"></select>
+            <select ng-model="aceConfig.mode" ng-options="m.name as m.caption for m in modes | orderBy:'caption'" class="mode">
+                <option value="">-- Language --</option>
+            </select>
+            <!-- <button ng-click="detect()" class="btn">Detect</button> -->
+            <button ng-click="save()" ng-disabled="!code" class="btn">Save</button>
+        </div>
+    </header>
 
-<pre id="editor" editor="snippet" theme="theme" mode="mode" code="code"><code></code></pre>
+    <div id="editor" ui-ace="aceConfig" ng-model="code" on-save="save()"></div>
 
-<footer class="footer">
-    <div class="credits toolbar-left">
-        Posted by <a href="http://mavrx.io/">[Mavrx]</a>
-    </div>
-</footer>
+    <div ng-include="footerPartial"></div>
+</div>

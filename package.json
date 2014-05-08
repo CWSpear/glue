@@ -5,13 +5,23 @@
   "description": "Throw some code into the air and see what sticks.",
   "keywords": [],
   "dependencies": {
+    "bcrypt": "^0.7.8",
     "highlight.js": "^8.0.0",
     "lodash": "^2.4.1",
     "node-uuid": "^1.4.1",
+    "octonode": "^0.6.2",
+    "passport": "^0.2.0",
+    "passport-facebook": "^1.0.3",
+    "passport-github": "^0.1.5",
+    "passport-google": "^0.3.0",
+    "passport-local": "^1.0.0",
+    "passport-twitter": "^1.0.2",
     "rc": "~0.3.3",
     "sails": "~0.10.0-rc5",
+    "sails-generate-auth": "^0.1.4",
     "sails-mongo": "^0.10.0-rc4",
-    "sails-mysql": "^0.10.0-rc5"
+    "sails-mysql": "^0.10.0-rc5",
+    "validator": "^3.11.2"
   },
   "scripts": {
     "start": "node app.js",

@@ -1,0 +1,28 @@
+<div class="container center">
+    <header class="header">
+        <div class="toolbar-left">
+            <a class="btn" href="/#/">&laquo; Back</a>
+        </div>
+    </header>
+
+    <div ng-show="user.id" class="account-page">
+        <img class="avatar-large" ng-src="{{ user.avatar }}" alt="{{ user.name }}">
+        <div>
+            <strong>{{ user.name }}</strong>
+        </div>
+        <div>
+            <a ng-click="logout()" class="btn">Logout</a>
+            <a ng-click="deleteAccount()" class="btn btn-danger">Delete</a>
+        </div>
+        <div>
+            <strong>API Key</strong>
+        </div>
+        <div>
+            {{ user.apiKey }}
+        </div>
+        <div>
+            <a ng-click="regenerateApiKey()" class="btn">Regenerate API Key</a>
+        </div>
+    </div>
+    <a href="/auth/github" class="btn">{{ !user.id ? 'Sign In' : 'Re-up' }} with GitHub</a>
+</div>

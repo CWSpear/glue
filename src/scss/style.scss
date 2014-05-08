@@ -1,3 +1,4 @@
+@import url('//fonts.googleapis.com/css?family=Open+Sans:400italic,400,700');
 @import url('//fonts.googleapis.com/css?family=Droid+Sans+Mono');
 @import "normalize";
 
@@ -57,17 +58,17 @@ html, body {
     margin: 0;
     min-height: 100vh;
     min-width: $min-width;
-    overflow: hidden;
+    // overflow: hidden;
+    font-family: 'Open Sans';
 }
 
-.header {
+.header, .footer {
     position: fixed;
     min-width: $min-width;
     top: 0;
     left: 0;
     height: 50px;
-    line-height: 50px;
-    padding: 0 20px;
+    padding: 10px 20px;
     width: 100%;
     // background: $btn-color;
     background: rgba(white, 0.5);
@@ -75,18 +76,35 @@ html, body {
     z-index: 10;
     box-shadow: 0 0 1px rgba(black, 0.5);
 
-    // filter: blur(5px);
+    .btn {
+        padding-top: 0;
+        padding-bottom: 0;
+        line-height: 30px;
+    }
+
+    select {
+        line-height: 26px;
+        height: 26px;
+        border: 1px solid #ccc;
+        padding: 0;
+    }
+
+    .bar-middle {
+        line-height: 30px;
+    }
 }
 
 .footer {
-    @extend .header;
-
     top: auto;
     bottom: 0;
+}
 
-    .toolbar-left, .toolbar-right {
-        line-height: 50px;
-    }
+.mini-avatar {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    padding: 0;
+    vertical-align: top;
 }
 
 .detect {
@@ -95,53 +113,85 @@ html, body {
 
 .toolbar-left {
     float: left;
-    line-height: 20px;
 
     > * {
-        margin-right: 5px;
+        display: inline-block;
+        margin-right: 5px !important;
     }
 }
 
 .toolbar-right {
     float: right;
-    line-height: 20px;
 
     > * {
-        margin-left: 5px;
+        display: inline-block;
+        margin-left: 5px !important;
+    }
+}
+
+@mixin color-button($color) {
+    background: lighten($color, 10%);
+    box-shadow: 0 3px 0 darken($color, 2%);
+
+    &:hover, &:focus {
+        background: lighten($color, 15%);
+        box-shadow: 0 3px 0 lighten($color, 2%);
     }
 }
 
 .btn {
     border: 0 none;
-    margin-top: 10px;
     display: inline-block;
     padding: 4px 10px;
     color: white;
     text-decoration: none;
-    background: lighten($btn-color, 10%);
     border-radius: 2px;
+    transform: translateY(-3px);
     transition: background 0.2s ease-out,
                 box-shadow 0.05s ease-out,
                 transform 0.05s ease-out;
-    box-shadow: 0 3px 0 darken($btn-color, 2%);
+
+    @include color-button($btn-color);
+    &.btn-danger { @include color-button(#b04127); }
 
     &:hover, &:focus {
         color: white;
         outline: 0;
         text-decoration: none;
-        background: lighten($btn-color, 15%);
-        box-shadow: 0 3px 0 lighten($btn-color, 2%);
     }
 
     &:active {
-        box-shadow: none;
-        transform: translateY(3px);
+        box-shadow: none !important;
+        transform: translateY(0);
     }
 
     &:disabled, &.disabled, &[disabled] {
-        transform: translateY(3px);
+        transform: translateY(0);
         background: lightgrey;
         box-shadow: none;
         cursor: not-allowed;
+    }
+}
+
+// Account
+// -------------------------
+.center {
+    text-align: center;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 100px 0;
+    width: 560px;
+}
+
+.avatar-large {
+    width: 200px;
+    display: inline-block;
+}
+
+.account-page {
+    .btn {
+        margin: 10px 0;
     }
 }

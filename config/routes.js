@@ -21,13 +21,25 @@
 
 module.exports.routes = {
 
-  '/s/:id/raw': {
-    controller: 'snippet',
-    action: 'raw'
-  },
+    '/s/:id/raw': {
+        controller: 'snippet',
+        action: 'raw',
+    },
 
-  // If a request to a URL doesn't match any of the custom routes above, it is matched 
-  // against Sails route blueprints.  See `config/blueprints.js` for configuration options
-  // and examples.
+    // passport routes
+    'get /login': 'AuthController.login',
+    'get /logout': 'AuthController.logout',
+    'get /register': 'AuthController.register',
+
+    'post /auth/local': 'AuthController.callback',
+    'post /auth/local/:action': 'AuthController.callback',
+
+    'get /auth/:provider': 'AuthController.provider',
+    'get /auth/:provider/callback': 'AuthController.callback',
+
+
+    // If a request to a URL doesn't match any of the custom routes above, it is matched 
+    // against Sails route blueprints.  See `config/blueprints.js` for configuration options
+    // and examples.
 
 };
