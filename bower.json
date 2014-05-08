@@ -21,7 +21,6 @@
     "ace-builds": "^1.1.3",
     "lodash": "^2.4.1",
     "restangular": "^1.4.0",
-    "mousetrap": "~1.4.6",
     "node-uuid": "~1.4.1"
   },
   "overrides": {

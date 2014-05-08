@@ -1,9 +1,14 @@
 /* jshint esnext: true */
-angular.module('glue', ['restangular', 'ngRoute'])
+angular.module('glue', ['restangular', 'ngRoute', 'ui.ace'])
 
 .constant('SNIPPETS_URI', '/s/')
 .constant('VIEWS_URI',    '/views/')
 .constant('PARTIALS_URI', '/views/partials/')
+
+.constant('storagePrefix', 'glue')
+
+.factory('modelist',  () => ace.require('ace/ext/modelist'))
+.factory('themelist', () => ace.require('ace/ext/themelist'))
 
 .config(($httpProvider, RestangularProvider, $routeProvider, VIEWS_URI, $locationProvider, debug) => {
     RestangularProvider.setBaseUrl('/api');
@@ -43,7 +48,17 @@ angular.module('glue', ['restangular', 'ngRoute'])
     }
 })
 
-.run(($rootScope, PARTIALS_URI, Restangular) => {
+.run(($rootScope, PARTIALS_URI, Restangular, modelist, themelist, storage) => {
+    $rootScope.aceConfig = { 
+        theme: storage('theme') || 'tomorrow',
+        mode: null,
+    };
+
+    $rootScope.$watch('aceConfig.theme', theme => storage('theme', theme));
+
+    $rootScope.modes  = modelist.modes;
+    $rootScope.themes = themelist.themes;
+
     Restangular.one('users').get().then(user => $rootScope.user = user);
     $rootScope.footerPartial = `${PARTIALS_URI}footer.html`;
 });

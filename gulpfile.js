@@ -76,6 +76,7 @@ gulp.task('ace', ['usemin'], function () {
       'mode-*',
       'theme-*',
       'worker-*',
+      'ext-*',
     ], {
       // note: NO src
       cwd: 'bower_components/ace-builds/src-min/'

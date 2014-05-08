@@ -12,7 +12,7 @@ angular.module('glue')
             //     var mode = result.data[0];
             //     console.log(mode);
             //     var modeObj = modelist.getModeForPath(mode);
-            //     $scope.mode = modeObj.name;
+            //     $scope.aceConfig.mode = modeObj.name;
             // });
         }
     };
