@@ -29,6 +29,7 @@ module.exports.passport = {
     name: 'GitHub',
     protocol: 'oauth2',
     strategy: require('passport-github').Strategy,
+    usePortInCallback: process.env.NODE_ENV !== 'production',
     options: {
       clientID: credentials.github.clientID,
       clientSecret: credentials.github.clientSecret,

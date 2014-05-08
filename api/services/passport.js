@@ -291,15 +291,19 @@ passport.loadStrategies = function (req) {
 
       Strategy = strategies[key].strategy;
 
+      // assumes port 80 for production
+      var parts = url.parse(req.baseUrl);
+      var baseUrl = parts.protocol + '//' + (strategies[key].usePortInCallback ? parts.host : parts.hostname);
+
       switch (protocol) {
         case 'oauth':
         case 'oauth2':
-          options.callbackURL = url.resolve(req.baseUrl, callback);
+          options.callbackURL = url.resolve(baseUrl, callback);
           break;
 
         case 'openid':
-          options.returnURL = url.resolve(req.baseUrl, callback);
-          options.realm     = req.baseUrl;
+          options.returnURL = url.resolve(baseUrl, callback);
+          options.realm     = baseUrl;
           options.profile   = true;
           break;
       }
