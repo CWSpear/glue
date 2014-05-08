@@ -1,9 +1,11 @@
 <footer class="footer">
     <div class="credits toolbar-left">
-        Posted by <a href="http://mavrx.io/">[Mavrx]</a>
+        <div class="bar-middle">Glue by <a href="http://mavrx.io/">[Mavrx]</a></div>
     </div>
     <div class="toolbar-right">
-        <div ng-show="snippet.filename" class="filename">Filename: {{ snippet.filename }}</div>
+        <div ng-show="snippet.filename" class="filename bar-middle">Filename: {{ snippet.filename }}</div>
+
+        <img ng-src="{{ user.avatar }}" alt="{{ user.name }}" class="mini-avatar">
         <a ng-show="user.id" href="/#/account/" class="btn">Account</a>
         <a ng-hide="user.id" href="/auth/github" class="btn">Login with GitHub</a>
     </div>
