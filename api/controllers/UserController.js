@@ -9,7 +9,7 @@ var passport = require('passport');
 
 module.exports = {
     find: function (req, res) {
-        User.findOne(req.user.id).exec(function (err, user) {
+        User.findOne(req.user.id).populate('snippets').exec(function (err, user) {
             return res.send(user);
         });
     },

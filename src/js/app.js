@@ -59,6 +59,6 @@ angular.module('glue', ['restangular', 'ngRoute', 'ui.ace'])
     $rootScope.modes  = modelist.modes;
     $rootScope.themes = themelist.themes;
 
-    Restangular.one('users').get().then(user => $rootScope.user = user);
+    $rootScope.ensureUser = Restangular.one('users').get().then(user => $rootScope.user = user);
     $rootScope.footerPartial = `${PARTIALS_URI}footer.html`;
 });

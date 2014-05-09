@@ -23,6 +23,13 @@
         <div>
             <a ng-click="regenerateApiKey()" class="btn">Regenerate API Key</a>
         </div>
+
+        <div ng-hide="true">
+            <strong>Snippets</strong>
+        </div>
+        <div ng-hide="true" ng-repeat="snippet in snippets">
+            <a ng-href="/#/s/{{ snippet.id }}">{{ snippet.filename }}</a>
+        </div>
     </div>
-    <a href="/auth/github" class="btn">{{ !user.id ? 'Sign In' : 'Re-up' }} with GitHub</a>
+    <a ng-hide="user.id" href="/auth/github" class="btn">{{ !user.id ? 'Sign In' : 'Re-up' }} with GitHub</a>
 </div>

@@ -33,10 +33,11 @@ module.exports.policies = {
         '*': false,
 
         // passport sets req.user!
-        findAll: ['passport', 'auth'],
-        update:  ['passport', 'auth'],
-        destroy: ['passport', 'auth'],
-        find:    ['passport', 'auth'],
+        findAll:  ['passport', 'auth'],
+        update:   ['passport', 'auth'],
+        destroy:  ['passport', 'auth'],
+        find:     ['passport', 'auth'],
+        populate: ['passport', 'auth'],
     },
 
     AuthController: {
