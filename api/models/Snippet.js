@@ -101,20 +101,21 @@ function _undent (code) {
     if (!code) return '';
 
     // we only want to trim the newlines and not the spaces like .trim'd do
-    code = code.replace(/^\n+|\n+$/, '');
+    // we also want to convert tabs to spaces. Yes. We do.
+    code = code.replace(/^\n+|\n+$/, '').replace(/\t/g, '    ');
     var parts = code.split("\n");
-    whitespace = [];
 
     // get an array of the whitespace at the start of each line
-    var whitespace = _(parts).map(function(part, index) {
+    var shortest = _(parts)
+    .map(function(part, index) {
         if (part.trim() === '') return false;
-        part = part.replace("\t", "    ");
         var matches = part.match(/( *)/);
         return matches && matches[1] ? matches[1] : '';
-    }).reject(function (ws) { return ws === false; });
-
-    // find the shortest amount of whitespace amongst all the line
-    var shortest = whitespace.reduce(function (shortest, ws) {
+    })
+    .reject(function (ws) { 
+        return ws === false; 
+    })
+    .reduce(function (shortest, ws) {
         if (shortest === null) shortest = ws.length;
         return Math.min(shortest, ws.length);
     }, null);
