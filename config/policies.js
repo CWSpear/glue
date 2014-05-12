@@ -29,15 +29,10 @@ module.exports.policies = {
     },
 
     UserController: {
-        // no public access
-        '*': false,
-
         // passport sets req.user!
-        findAll:  ['passport', 'auth'],
-        update:   ['passport', 'auth'],
-        destroy:  ['passport', 'auth'],
-        find:     ['passport', 'auth'],
-        populate: ['passport', 'auth'],
+        // findAll will NEVER return all users (see UserController),
+        // so it's safe to give access to
+        '*': ['passport', 'auth'],
     },
 
     AuthController: {
