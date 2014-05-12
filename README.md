@@ -23,6 +23,7 @@ open http://localhost:1337 # at least in Unix
 
 ## Docs & API
 **POSTing Snippets**
+`POST /api/snippets`
 
 ```javascript
 {
