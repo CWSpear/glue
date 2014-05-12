@@ -22,10 +22,38 @@ open http://localhost:1337 # at least in Unix
 ```
 
 ## Docs & API
-Documentation and Application Programming Interface Forthcoming.
+**POSTing Snippets**
+
+```javascript
+{
+    // You can either pass in an array of code snippets in `snippets`
+    // or a single snippets in `snippet`. If both are present, then
+    // `snippet` is preferred over `snippets`.
+    // snippets: 'array',
+    snippet: 'text',
+
+    // If you pass in an *optional* filename, it will use this to help
+    // detect syntax highlighting.
+    filename: 'string',
+
+    // You can pass in the tab size for spaces (tabs are converted to 4
+    // spaces automatically). This is *optional* as Glue will try and
+    // determine the tab size based on your code.
+    tabSize: 'integer',
+
+    // You need an API key to POST snippets programattically. Sign up
+    // at http://glue.mavrx.io/#/account/ for an API key.
+    apiKey: 'string',
+
+    // Some plugins prefer to be redirected to the URL rather than having
+    // the snippet model returned. Set this to true for that to happen.
+    redirect: 'boolean',
+}
+```
 
 ## TODO
-* Lock down the API. Only allow access to people with an API key, limit the number of requests per X time period so that we don't get people abusing the API.
-* Create a page that issues/manages accounts/API keys.
-* Create lots of plugins that integrate it! (Sublime version is all but done and works great for pasting code out of your editor) (I realize this depends on getting the API finished)
-* Integrate with [MLearn.js](https://github.com/surgeforward/MLearn.js/) to auto-detect the language being used if you can't determine it by other means.
+* [ ] ~~Lock down the API. Only allow access to people with an API key,~~ limit the number of requests per X time period so that we don't get people abusing the API.
+* [x] Create a page that issues/manages accounts/API keys.
+* [ ] Create lots of plugins that integrate it! (~~Sublime version is all but done and works great for pasting code out of your editor) (I realize this depends on getting the API finished)~~ For example: [Sublime's plugin](https://github.com/surgeforward/glue-sublime-plugin)
+* [ ] Integrate with [MLearn.js](https://github.com/surgeforward/MLearn.js/) to auto-detect the language being used if you can't determine it by other means.
+* [ ] More and/or better testing!

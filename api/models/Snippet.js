@@ -20,6 +20,7 @@ module.exports = {
             // uuidv4: true,
             defaultsTo: function () { 
                 // return uuid.v4();
+                // increase chance of collision for shorter URL
                 return uuid.v4().slice(0, 7);
             }
         },
@@ -28,7 +29,6 @@ module.exports = {
         language: 'string', // used for Ace, based on the modelist
         filename: 'string',
 
-        // snippet specific settings
         tabSize: 'integer',
 
         user: { 
