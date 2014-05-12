@@ -23,6 +23,23 @@ node app # or if you have sails installed globally: "sails lift"
 open http://localhost:1337 # at least in Unix
 ```
 
+## Server
+You can use whatever you want for serving this, but I like not to have ports in my URLs, so I use Nginx running on port 80 as a reverse proxy to my webapp. Here's a typical config:
+
+```conf
+# Mavrx Glue Snippet Sharing Site
+server {
+    listen 80;
+    server_name glue.mavrx.io; # change to your (sub)domain
+
+    location / {
+        proxy_set_header    Host $host; # This isn't strictly needed
+        proxy_pass          http://127.0.0.1:1337; # Change port if not using default
+        proxy_buffering     off; # I don't actually know what this means
+    }
+}
+```
+
 ## Docs & API
 **POSTing Snippets**
 `POST /api/snippets`
@@ -37,7 +54,7 @@ open http://localhost:1337 # at least in Unix
 
     // If you pass in an *optional* filename, it will use this to help
     // detect syntax highlighting.
-    filename: 'string', // optional, but helps with syntax highlighting 
+    filename: 'string', // optional, but helps with syntax highlighting
 
     // You can pass in the tab size for spaces (tabs are converted to 4
     // spaces automatically). This is *optional* as Glue will try and
