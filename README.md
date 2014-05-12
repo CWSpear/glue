@@ -3,7 +3,9 @@
 
 Glue is an open-source and self-hosted MEAN application for pasting and sharing snippets.
 
-May add more features. Who knows?
+There is also a me-hosted version that is available as a demo and for public use: http://glue.mavrx.io/. Feel free to use it and start sharing snippets today.
+
+May add more features. Who knows? Definitely going to clean stuff up and continue to make UI/UX improvements, etc.
 
 ## Technologies
 This is a [SailsJS](http://sailsjs.org/) app built on top of the MEAN stack. You can use any database that Sails' ORM, [Waterline](https://github.com/balderdashy/waterline) supports. The Mavrx Glue site is using MongoDB.
