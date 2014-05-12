@@ -4,10 +4,9 @@
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/#!documentation/models
  */
-var uuid = require('node-uuid');
-var _ = require('lodash');
-var modelist = require('../services/modelist');
-var hljs = require('highlight.js');
+var uuid     = require('node-uuid');
+var _        = require('lodash');
+var hljs     = require('highlight.js');
 
 module.exports = {
     schema: true,
@@ -24,9 +23,14 @@ module.exports = {
                 return uuid.v4().slice(0, 7);
             }
         },
+
         snippet: 'text',
         language: 'string', // used for Ace, based on the modelist
         filename: 'string',
+
+        // snippet specific settings (using JSON type as these don't
+        // need to be indexable and we can add more latter, easily)
+        settings: 'json',
 
         user: { 
             model: 'User',
@@ -55,13 +59,13 @@ module.exports = {
             var count = 0;
             var code = '';
             values.snippets.forEach(function (snippet, i) {
-                snippet = _undent(snippet);
+                snippet = Helpers.undent(snippet);
                 count = i + 1;
                 code += "// Selection " + count + ":\n\n" + snippet + "\n\n\n";
             });
             values.snippet = code.trim();
         } else {
-            values.snippet = _undent(values.snippet);
+            values.snippet = Helpers.undent(values.snippet);
         }
 
         try {
@@ -70,7 +74,7 @@ module.exports = {
             var language = false;
             if (!values.filename || values.filename === 'false') {
                 language = hljs.highlightAuto(values.snippet).language;
-                var mode = modelist.modesByName[language];
+                var mode = Modelist.modesByName[language];
                 if (mode) {
                     var ext = mode.extensions.split('|')[0];
                     values.filename = 'glue.' + ext;
@@ -83,7 +87,7 @@ module.exports = {
                 values.language = language;
             } else {
                 // based on the filename, get the language mode that Ace will use
-                var modeObj = modelist.getModeForPath(values.filename);
+                var modeObj = Modelist.getModeForPath(values.filename);
                 values.language = modeObj.name;
             }            
         } catch (err) {
@@ -91,43 +95,11 @@ module.exports = {
             throw err;
         }
 
+        // snippet specific settings
+        values.settings = _.merge({
+            tabLength: Helpers.guessTabLength(values.snippet)
+        }, values.settings || {});
+
         cb(null, values);
     }
 };
-
-// Helper Funcions
-// -------------------------
-function _undent (code) {
-    if (!code) return '';
-
-    // we only want to trim the newlines and not the spaces like .trim'd do
-    // we also want to convert tabs to spaces. Yes. We do.
-    code = code.replace(/^\n+|\n+$/, '').replace(/\t/g, '    ');
-    var parts = code.split("\n");
-
-    // get an array of the whitespace at the start of each line
-    var shortest = _(parts)
-    .map(function(part, index) {
-        if (part.trim() === '') return false;
-        var matches = part.match(/( *)/);
-        return matches && matches[1] ? matches[1] : '';
-    })
-    .reject(function (ws) { 
-        return ws === false; 
-    })
-    .reduce(function (shortest, ws) {
-        if (shortest === null) shortest = ws.length;
-        return Math.min(shortest, ws.length);
-    }, null);
-
-    // remove the LCD of whitespace from the start of each line
-    if (shortest !== null && shortest > 0) {
-        parts = _.map(parts, function(part) {
-            return part.slice(shortest);
-        });
-
-        code = parts.join("\n");
-    }
-
-    return code;
-}
