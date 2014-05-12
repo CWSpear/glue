@@ -12,8 +12,8 @@
             var matches = line.match(/^( *)/);
             return matches && matches[1] ? matches[1] : false;
           })
-          .reject(function (ws) { 
-            return ws === false; 
+          .reject(function (ws) {
+            return ws === false;
           })
           .reduce(function (shortest, ws) {
             if (shortest === null) shortest = ws.length;
