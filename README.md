@@ -26,7 +26,7 @@ open http://localhost:1337 # at least in Unix
 ## Server
 You can use whatever you want for serving this, but I like not to have ports in my URLs, so I use Nginx running on port 80 as a reverse proxy to my webapp. Here's a typical config:
 
-```conf
+```nginx
 # Mavrx Glue Snippet Sharing Site
 server {
     listen 80;
