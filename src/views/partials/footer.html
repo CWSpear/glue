@@ -5,6 +5,8 @@
     <div class="toolbar-right">
         <div ng-show="snippet.filename" class="filename bar-middle">Filename: {{ snippet.filename }}</div>
 
+        <span class="bar-middle">Theme:</span>
+        <select ng-model="aceConfig.theme" ng-options="t.name as t.caption for t in themes | orderBy:'caption'" class="theme"></select>
         <img ng-show="user.id" ng-src="{{ user.avatar }}" alt="{{ user.name }}" class="mini-avatar">
         <a ng-show="user.id" href="/#/account/" class="btn">Account</a>
         <a ng-hide="user.id" href="/auth/github" class="btn">Login with GitHub</a>

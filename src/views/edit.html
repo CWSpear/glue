@@ -4,7 +4,6 @@
             <a class="btn" ng-disabled="!code" ng-click="clear()">New</a>
         </div>
         <div class="toolbar-right">
-            <select ng-model="aceConfig.theme" ng-options="t.name as t.caption for t in themes | orderBy:'caption'" class="theme"></select>
             <select ng-model="aceConfig.mode" ng-options="m.name as m.caption for m in modes | orderBy:'caption'" class="mode">
                 <option value="">-- Language --</option>
             </select>

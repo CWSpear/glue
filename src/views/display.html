@@ -5,7 +5,6 @@
             <a class="btn" ng-click="fork(snippet.snippet, snippet.language)">Fork</a>        
         </div>
         <div class="toolbar-right">
-            <select ng-model="aceConfig.theme" ng-options="t.name as t.caption for t in themes | orderBy:'caption'" class="theme"></select>
             <a ng-click="rawCode(snippet.id)" class="btn">Raw Code</a>
         </div>
     </header>
