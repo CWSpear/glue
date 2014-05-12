@@ -6,7 +6,7 @@ var fixture = function (f) {
 };
 
 describe('Helpers', function () {
-  var Helpers = require('../api/services/helpers');
+  var Helpers = require('../api/services/Helpers');
 
   describe('undent', function () {
     it('should undent spaces', function () {
