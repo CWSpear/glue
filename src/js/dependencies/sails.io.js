@@ -5,14 +5,14 @@ var io="undefined"==typeof module?{}:module.exports;(function(){(function(a,b){v
  * sails.io.js
  * ------------------------------------------------------------------------
  * JavaScript Client (SDK) for communicating with Sails.
- * 
+ *
  * Note that this script is completely optional, but it is handy if you're
  * using WebSockets from the browser to talk to your Sails server.
- * 
+ *
  * For tips and documentation, visit:
  * http://sailsjs.org/#!documentation/reference/BrowserSDK/BrowserSDK.html
  * ------------------------------------------------------------------------
- * 
+ *
  * This file allows you to send and receive socket.io messages to & from Sails
  * by simulating a REST client interface on top of socket.io. It models its API
  * after the $.ajax pattern from jQuery you might already be familiar with.
@@ -150,7 +150,7 @@ var io="undefined"==typeof module?{}:module.exports;(function(){(function(a,b){v
 
       return function log () {
         var args = Array.prototype.slice.call(arguments);
-        
+
         // All logs are disabled when `io.sails.environment = 'production'`.
         if (io.sails.environment === 'production') return;
 
@@ -294,7 +294,7 @@ var io="undefined"==typeof module?{}:module.exports;(function(){(function(a,b){v
 
 
 
-    // We'll be adding methods to `io.SocketNamespace.prototype`, the prototype for the 
+    // We'll be adding methods to `io.SocketNamespace.prototype`, the prototype for the
     // Socket instance returned when the browser connects with `io.connect()`
     var Socket = io.SocketNamespace;
 
@@ -469,11 +469,11 @@ var io="undefined"==typeof module?{}:module.exports;(function(){(function(a,b){v
 
 
     // `requestQueues` and `sockets`
-    // 
+    //
     // Used to simplify app-level connection logic-- i.e. so you don't
-    // have to wait for the socket to be connected to start trying to 
+    // have to wait for the socket to be connected to start trying to
     // synchronize data.
-    // 
+    //
     // It supports use across multiple sockets, and ends up looking
     // something like:
     // {
@@ -497,10 +497,10 @@ var io="undefined"==typeof module?{}:module.exports;(function(){(function(a,b){v
 
       // The environment we're running in.
       // (logs are not displayed when this is set to 'production')
-      // 
+      //
       // Defaults to development unless this script was fetched from a URL
       // that ends in `*.min.js` or '#production' (may also be manually overridden.)
-      // 
+      //
       environment: urlThisScriptWasFetchedFrom.match(/(\#production|\.min\.js)/) ? 'production' : 'development'
     };
 
@@ -529,7 +529,7 @@ var io="undefined"==typeof module?{}:module.exports;(function(){(function(a,b){v
       // the connection request to the server:
       if (typeof opts.query !== 'string') opts.query = SDK_INFO.versionString;
       else opts.query += '&' + SDK_INFO.versionString;
-      
+
       return io.sails._origConnectFn(url, opts);
 
     };
@@ -537,13 +537,13 @@ var io="undefined"==typeof module?{}:module.exports;(function(){(function(a,b){v
 
 
     // io.socket
-    // 
+    //
     // The eager instance of Socket which will automatically try to connect
     // using the host that this js file was served from.
-    // 
+    //
     // This can be disabled or configured by setting `io.socket.options` within the
     // first cycle of the event loop.
-    // 
+    //
 
     // In the mean time, this eager socket will be defined as a TmpSocket
     // so that events bound by the user before the first cycle of the event
@@ -620,7 +620,7 @@ var io="undefined"==typeof module?{}:module.exports;(function(){(function(a,b){v
         }
       }
       else goAheadAndActuallyConnect();
-      
+
       // Start connecting after the current cycle of the event loop
       // has completed.
       // consolog('Auto-connecting `io.socket` to Sails... (requests will be queued in the mean-time)');
@@ -685,11 +685,11 @@ var io="undefined"==typeof module?{}:module.exports;(function(){(function(a,b){v
            * usually due to a missing or invalid cookie)
            */
           io.socket.on('error', function failedToConnect(err) {
-            
+
             // TODO:
             // handle failed connections due to failed authorization
             // in a smarter way (probably can listen for a different event)
-            
+
             consolog(
              'Failed to connect socket (probably due to failed authorization on server)',
              'Error:', err

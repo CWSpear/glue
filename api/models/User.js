@@ -9,7 +9,7 @@ var uuid = require('node-uuid');
 
 module.exports = {
     schema: true,
-    
+
     attributes: {
         id: {
             primaryKey: true,
@@ -17,7 +17,7 @@ module.exports = {
             unique: true,
             required: true,
             uuidv4: true,
-            defaultsTo: function () { 
+            defaultsTo: function () {
                 return uuid.v4();
             },
         },
@@ -25,7 +25,7 @@ module.exports = {
             type: 'string',
             unique: true,
             required: true,
-            defaultsTo: function () { 
+            defaultsTo: function () {
                 return uuid.v4().replace(/-/g, '');
             },
         },
@@ -49,12 +49,12 @@ module.exports = {
             type: 'string',
         },
 
-        passports: { 
+        passports: {
             collection: 'Passport',
             via: 'user',
         },
 
-        snippets: { 
+        snippets: {
             collection: 'Snippet',
             via: 'user',
         },

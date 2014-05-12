@@ -49,7 +49,7 @@ angular.module('glue', ['restangular', 'ngRoute', 'ui.ace'])
 })
 
 .run(($rootScope, PARTIALS_URI, Restangular, modelist, themelist, storage) => {
-    $rootScope.aceConfig = { 
+    $rootScope.aceConfig = {
         theme: storage('theme') || 'tomorrow',
         mode: null,
     };

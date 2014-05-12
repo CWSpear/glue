@@ -18,7 +18,7 @@ module.exports = {
             unique: true,
             required: true,
             // uuidv4: true,
-            defaultsTo: function () { 
+            defaultsTo: function () {
                 // return uuid.v4();
                 // increase chance of collision for shorter URL
                 return uuid.v4().slice(0, 7);
@@ -31,7 +31,7 @@ module.exports = {
 
         tabSize: 'integer',
 
-        user: { 
+        user: {
             model: 'User',
             required: true,
         },
@@ -88,7 +88,7 @@ module.exports = {
                 // based on the filename, get the language mode that Ace will use
                 var modeObj = Modelist.getModeForPath(values.filename);
                 values.language = modeObj.name;
-            }            
+            }
         } catch (err) {
             console.error(err);
             throw err;

@@ -19,8 +19,8 @@ module.exports = {
             // if there were no matches, whitespace is ''
             return matches && matches[1] ? matches[1] : '';
         })
-        .reject(function (ws) { 
-            return ws === false; 
+        .reject(function (ws) {
+            return ws === false;
         })
         .reduce(function (shortest, ws) {
             if (shortest === null) shortest = ws.length;
@@ -39,7 +39,7 @@ module.exports = {
         return code;
     },
 
-    // this should be called with code that has NOT been 
+    // this should be called with code that has NOT been
     // through undent, but should still work either way
     guessTabSize: function (code) {
         var lines = code.split("\n");

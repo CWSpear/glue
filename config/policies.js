@@ -13,7 +13,7 @@
 
 
 module.exports.policies = {
-        
+
     '*': false,
 
     SnippetController: {

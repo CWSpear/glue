@@ -13,7 +13,7 @@ setTimeout(function () {
     User.findOne(defaultUser.id, function (err, user) {
         if (err || !(user || {}).id) {
             User.create(defaultUser, function (err) {
-                if (err) throw err;     
+                if (err) throw err;
             });
         }
     });
