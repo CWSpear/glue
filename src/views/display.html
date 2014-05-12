@@ -5,6 +5,7 @@
             <a class="btn" ng-click="fork(snippet.snippet, snippet.language)">Fork</a>
         </div>
         <div class="toolbar-right">
+            <span class="filename bar-middle">Filename: <strong>{{ snippet.filename }}</strong></span>
             <a ng-click="rawCode(snippet.id)" class="btn">Raw Code</a>
         </div>
     </header>

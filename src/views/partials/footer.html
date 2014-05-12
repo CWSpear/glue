@@ -3,8 +3,6 @@
         <div class="bar-middle">Glue by <a href="http://mavrx.io/">[Mavrx]</a></div>
     </div>
     <div class="toolbar-right">
-        <div ng-show="snippet.filename" class="filename bar-middle">Filename: {{ snippet.filename }}</div>
-
         <span class="bar-middle">Theme:</span>
         <select ng-model="aceConfig.theme" ng-options="t.name as t.caption for t in themes | orderBy:'caption'" class="theme"></select>
         <img ng-show="user.id" ng-src="{{ user.avatar }}" alt="{{ user.name }}" class="mini-avatar">
