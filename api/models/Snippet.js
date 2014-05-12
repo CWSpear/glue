@@ -28,9 +28,8 @@ module.exports = {
         language: 'string', // used for Ace, based on the modelist
         filename: 'string',
 
-        // snippet specific settings (using JSON type as these don't
-        // need to be indexable and we can add more latter, easily)
-        settings: 'json',
+        // snippet specific settings
+        tabLength: 'integer',
 
         user: { 
             model: 'User',
@@ -96,9 +95,10 @@ module.exports = {
         }
 
         // snippet specific settings
-        values.settings = _.merge({
+        values = _.merge({
             tabLength: Helpers.guessTabLength(values.snippet)
-        }, values.settings || {});
+            // done this way in anticpation for more settings...
+        }, values);
 
         cb(null, values);
     }
