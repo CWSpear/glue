@@ -24,6 +24,7 @@
     "validator": "^3.12.0"
   },
   "scripts": {
+    "test": "./node_modules/.bin/mocha",
     "start": "node app.js",
     "debug": "node debug app.js"
   },
@@ -56,6 +57,7 @@
     "gulp-usemin": "^0.3.3",
     "gulp-util": "^2.2.14",
     "lodash": "^2.4.1",
+    "mocha": "^1.18.2",
     "q": "^1.0.1",
     "rimraf": "^2.2.6",
     "terminal-notifier": "^0.1.2",
