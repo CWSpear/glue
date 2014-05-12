@@ -29,8 +29,8 @@ open http://localhost:1337 # at least in Unix
     // You can either pass in an array of code snippets in `snippets`
     // or a single snippets in `snippet`. If both are present, then
     // `snippet` is preferred over `snippets`.
-    // snippets: 'array',
     snippet: 'text',
+    // snippets: 'array',
 
     // If you pass in an *optional* filename, it will use this to help
     // detect syntax highlighting.
