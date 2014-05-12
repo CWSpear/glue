@@ -98,8 +98,6 @@ module.exports = {
         if (!values.tabSize)
             values.tabSize = Helpers.guessTabSize(values.snippet);
 
-        console.log(values, values.tabSize);
-
         cb(null, values);
     }
 };

@@ -21,13 +21,14 @@ module.exports.policies = {
 
         raw: true,
         findAll: false,
-        find: true,
+        findOne: true,
+
         // both passport and apiKey may change current req.user!
         create:  ['passport', 'apiKey'],
         update:  ['passport', 'apiKey'],
         destroy: ['passport', 'apiKey'],
         // need to be fully auth'd to see user info (access via populate)
-        populate: ['passport', 'auth'],
+        populate: false,
     },
 
     UserController: {
