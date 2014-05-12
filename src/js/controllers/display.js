@@ -1,10 +1,11 @@
 /* jshint esnext: true */
 angular.module('glue')
 
-.controller('DisplayCtrl', ($scope, $routeParams, themelist, Restangular, $location, SNIPPETS_URI, aceHelper, flash) => {
+.controller('DisplayCtrl', ($scope, $rootScope, $routeParams, themelist, Restangular, $location, SNIPPETS_URI, aceHelper, flash) => {
     Restangular.one('snippets', $routeParams.id).get().then(snippet => {
         $scope.snippet = snippet;
-        $scope.aceConfig.mode = $scope.snippet.language;
+        $rootScope.aceConfig.mode = $scope.snippet.language;
+        $rootScope.aceConfig.tabSize = $scope.snippet.tabSize || 4;
     });
 
     $scope.rawCode = (id) => {

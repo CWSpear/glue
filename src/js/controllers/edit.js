@@ -9,6 +9,9 @@ angular.module('glue')
     $scope.$watch('code', code => storage('code', code));
     $scope.$watch('aceConfig.mode', mode => storage('mode', mode));
 
+    // TODO make this configurable
+    $rootScope.aceConfig.tabSize = 4;
+
     $scope.save = () => {
         var language = false, filename = false;
         if ($rootScope.aceConfig.mode) {

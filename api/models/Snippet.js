@@ -29,7 +29,7 @@ module.exports = {
         filename: 'string',
 
         // snippet specific settings
-        tabLength: 'integer',
+        tabSize: 'integer',
 
         user: { 
             model: 'User',
@@ -94,11 +94,11 @@ module.exports = {
             throw err;
         }
 
-        // snippet specific settings
-        values = _.merge({
-            tabLength: Helpers.guessTabLength(values.snippet)
-            // done this way in anticpation for more settings...
-        }, values);
+        // snippet tab length
+        if (!values.tabSize)
+            values.tabSize = Helpers.guessTabSize(values.snippet);
+
+        console.log(values, values.tabSize);
 
         cb(null, values);
     }

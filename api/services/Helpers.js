@@ -41,7 +41,7 @@ module.exports = {
 
     // this should be called with code that has NOT been 
     // through undent, but should still work either way
-    guessTabLength: function (code) {
+    guessTabSize: function (code) {
         var lines = code.split("\n");
 
         var usesTabs = _.any(lines, function (line) {

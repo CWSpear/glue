@@ -84,6 +84,9 @@
       if (angular.isString(opts.mode)) {
         session.setMode('ace/mode/' + opts.mode);
       }
+      if (angular.isDefined(opts.tabSize)) {
+        session.setTabSize(opts.tabSize);
+      }
     };
 
     return {

@@ -27,19 +27,19 @@ describe('Helpers', function () {
     });
   });
 
-  describe('guessTabLength', function () {
+  describe('guessTabSize', function () {
     it('should always return 4 for files with tabs', function () {
-      assert.equal(Helpers.guessTabLength(fixture('undent-1tabs4tabs-before')),   4, '[#guessTabLength: Tabs (1)]');
-      assert.equal(Helpers.guessTabLength(fixture('undent-0tabs4tabs-expected')), 4, '[#guessTabLength: Tabs (2)]');
-      assert.equal(Helpers.guessTabLength(fixture('undent-4tabs2tabs-before')),   4, '[#guessTabLength: Tabs (3)]');
-      assert.equal(Helpers.guessTabLength(fixture('undent-0tabs2tabs-expected')), 4, '[#guessTabLength: Tabs (4)]');
+      assert.equal(Helpers.guessTabSize(fixture('undent-1tabs4tabs-before')),   4, '[#guessTabSize: Tabs (1)]');
+      assert.equal(Helpers.guessTabSize(fixture('undent-0tabs4tabs-expected')), 4, '[#guessTabSize: Tabs (2)]');
+      assert.equal(Helpers.guessTabSize(fixture('undent-4tabs2tabs-before')),   4, '[#guessTabSize: Tabs (3)]');
+      assert.equal(Helpers.guessTabSize(fixture('undent-0tabs2tabs-expected')), 4, '[#guessTabSize: Tabs (4)]');
     });
 
     it('should guess tab length for files with spaces', function () {
-      assert.equal(Helpers.guessTabLength(fixture('undent-1tabs4spaces-before')),   4, '[#guessTabLength: 4 Spaces (1)]');
-      assert.equal(Helpers.guessTabLength(fixture('undent-0tabs4spaces-expected')), 4, '[#guessTabLength: 4 Spaces (2)]');
-      assert.equal(Helpers.guessTabLength(fixture('undent-4tabs2spaces-before')),   2, '[#guessTabLength: 2 Spaces (1)]');
-      assert.equal(Helpers.guessTabLength(fixture('undent-0tabs2spaces-expected')), 2, '[#guessTabLength: 2 Spaces (2)]');
+      assert.equal(Helpers.guessTabSize(fixture('undent-1tabs4spaces-before')),   4, '[#guessTabSize: 4 Spaces (1)]');
+      assert.equal(Helpers.guessTabSize(fixture('undent-0tabs4spaces-expected')), 4, '[#guessTabSize: 4 Spaces (2)]');
+      assert.equal(Helpers.guessTabSize(fixture('undent-4tabs2spaces-before')),   2, '[#guessTabSize: 2 Spaces (1)]');
+      assert.equal(Helpers.guessTabSize(fixture('undent-0tabs2spaces-expected')), 2, '[#guessTabSize: 2 Spaces (2)]');
     });
   });
 });
