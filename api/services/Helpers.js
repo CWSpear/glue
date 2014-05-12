@@ -51,16 +51,19 @@ module.exports = {
         if (usesTabs) return 4;
 
         var guessLengths = [8, 4, 3, 2];
-        return _(lines).map(function (line) {
+        var guess = _(lines).map(function (line) {
             var matches = line.match(/^( *)/);
             return matches && matches[1] ? matches[1].length : 0;
         }).reject(function (wsLen) {
-            return wsLen <= 0;
+            return wsLen <= 1;
         }).map(function (wsLen) {
             return _.reduce(guessLengths, function (runningGuess, guess) {
                 if (wsLen % guess === 0 && !runningGuess) runningGuess = guess;
                 return runningGuess;
-            }, false) || 2;
+            }, false);
         }).min().value();
+
+        if (!guess || guess === Infinity) return 2;
+        return guess;
     },
 };

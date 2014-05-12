@@ -41,5 +41,9 @@ describe('Helpers', function () {
       assert.equal(Helpers.guessTabSize(fixture('undent-4tabs2spaces-before')),   2, '[#guessTabSize: 2 Spaces (1)]');
       assert.equal(Helpers.guessTabSize(fixture('undent-0tabs2spaces-expected')), 2, '[#guessTabSize: 2 Spaces (2)]');
     });
+
+    it('should handle files with no spaces/tabs (defaulting to 2)', function () {
+      assert.equal(Helpers.guessTabSize(fixture('one-liner')), 2, '[#guessTabSize: One Liner]');
+    });
   });
 });
