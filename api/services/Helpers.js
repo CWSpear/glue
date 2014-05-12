@@ -13,9 +13,11 @@ module.exports = {
 
         // get an array of the whitespace at the start of each line
         var shortest = _(lines).map(function (line) {
+            // skip lines with no code
             if (line.trim() === '') return false;
             var matches = line.match(/^( *)/);
-            return matches && matches[1] ? matches[1] : false;
+            // if there were no matches, whitespace is ''
+            return matches && matches[1] ? matches[1] : '';
         })
         .reject(function (ws) { 
             return ws === false; 
