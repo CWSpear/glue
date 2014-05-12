@@ -1,10 +1,8 @@
-var defaultUser = require('../services/defaultUser');
-
 module.exports = function hasApiKey (req, res, next) {
     var apiKey = req.body.apiKey;
 
     // prefer logged in user over default user's API key
-    if ((req.user || {}).id && apiKey === defaultUser.apiKey) return next();
+    if ((req.user || {}).id && apiKey === DefaultUser.apiKey) return next();
 
     // if we have neither, let's just stop them now
     if (!apiKey || apiKey === 'APIKEYGOESHERE')
