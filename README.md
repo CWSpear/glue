@@ -30,25 +30,25 @@ open http://localhost:1337 # at least in Unix
     // You can either pass in an array of code snippets in `snippets`
     // or a single snippets in `snippet`. If both are present, then
     // `snippet` is preferred over `snippets`.
-    snippet: 'text',
+    snippet: 'text', // either this or snippets is required
     // snippets: 'array',
 
     // If you pass in an *optional* filename, it will use this to help
     // detect syntax highlighting.
-    filename: 'string',
+    filename: 'string', // optional, but helps with syntax highlighting 
 
     // You can pass in the tab size for spaces (tabs are converted to 4
     // spaces automatically). This is *optional* as Glue will try and
     // determine the tab size based on your code.
-    tabSize: 'integer',
+    tabSize: 'integer', // optional, default is to "guess"
 
     // You need an API key to POST snippets programattically. Sign up
     // at http://glue.mavrx.io/#/account/ for an API key.
-    apiKey: 'string',
+    apiKey: 'string', // required
 
     // Some plugins prefer to be redirected to the URL rather than having
     // the snippet model returned. Set this to true for that to happen.
-    redirect: 'boolean',
+    redirect: 'boolean', // optional, default is false
 }
 ```
 
