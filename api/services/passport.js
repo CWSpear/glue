@@ -109,6 +109,7 @@ passport.connect = function (req, query, profile, next) {
       //           authentication provider.
       // Action:   Create a new user and assign them a passport.
       if (!passport) {
+        sails.log.debug('[Passport] Scenario 1');
         User.create(user, function (err, user) {
           if (err) return next(err);
 
@@ -126,6 +127,7 @@ passport.connect = function (req, query, profile, next) {
       //           connected passport.
       // Action:   Get the user associated with the passport.
       else {
+        sails.log.debug('[Passport] Scenario 2');
         // If the tokens have changed since the last session, update them
         if (query.hasOwnProperty('tokens') && query.tokens !== passport.tokens) {
           passport.tokens = query.tokens;
@@ -144,6 +146,7 @@ passport.connect = function (req, query, profile, next) {
       //           passport.
       // Action:   Create and assign a new passport to the user.
       if (!passport) {
+        sails.log.debug('[Passport] Scenario 3');
         query.user = req.user.id;
 
         Passport.create(query, function (err, passport) {
@@ -156,6 +159,7 @@ passport.connect = function (req, query, profile, next) {
       // Scenario: They want to get the info (again) from their other account
       // Action:   Save the new info
       else {
+        sails.log.debug('[Passport] Scenario 4');
         User.findOne(passport.user, function (err, curUser) {
           // If a user wasn't found, bail out
           if (err) return next(err);
