@@ -64,9 +64,9 @@ passport.protocols = require('./protocols');
  * @param {Function} next
  */
 passport.connect = function (req, query, profile, next) {
-  var strategies = sails.config.passport
-    , config     = strategies[profile.provider]
-    , user       = {};
+  var strategies = sails.config.passport;
+  var config     = strategies[profile.provider];
+  var user       = {};
 
   // Set the authentication provider.
   query.provider = req.param('provider');
@@ -99,8 +99,8 @@ passport.connect = function (req, query, profile, next) {
   }
 
   Passport.findOne({
-    provider   : profile.provider
-  , identifier : query.identifier.toString()
+    provider   : profile.provider,
+    identifier : query.identifier.toString(),
   }, function (err, passport) {
     if (err) return next(err);
 
@@ -179,9 +179,9 @@ passport.connect = function (req, query, profile, next) {
  * @param  {Object} res
  */
 passport.endpoint = function (req, res) {
-  var strategies = sails.config.passport
-    , provider   = req.param('provider')
-    , options    = {};
+  var strategies = sails.config.passport;
+  var provider   = req.param('provider');
+  var options    = {};
 
   // If a provider doesn't exist for this endpoint, send the user back to the
   // login page
@@ -214,8 +214,8 @@ passport.endpoint = function (req, res) {
  * @param {Function} next
  */
 passport.callback = function (req, res, next) {
-  var provider = req.param('provider', 'local')
-    , action   = req.param('action');
+  var provider = req.param('provider', 'local');
+  var action   = req.param('action');
 
   // Passport.js wasn't really built for local user registration, but it's nice
   // having it tied into everything else.
@@ -264,8 +264,8 @@ passport.callback = function (req, res, next) {
  * @param {Object} req
  */
 passport.loadStrategies = function (req) {
-  var self       = this
-    , strategies = sails.config.passport;
+  var self       = this;
+  var strategies = sails.config.passport;
 
   Object.keys(strategies).forEach(function (key) {
     var options = { passReqToCallback: true }, Strategy;
@@ -282,8 +282,8 @@ passport.loadStrategies = function (req) {
         self.use(new Strategy(options, self.protocols.local.login));
       }
     } else {
-      var protocol = strategies[key].protocol
-        , callback = strategies[key].callback;
+      var protocol = strategies[key].protocol;
+      var callback = strategies[key].callback;
 
       if (!callback) {
         callback = path.join('auth', key, 'callback');
