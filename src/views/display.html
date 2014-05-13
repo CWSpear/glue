@@ -3,6 +3,7 @@
         <div class="toolbar-left">
             <a class="btn" href="/#/">New</a>
             <a class="btn" ng-click="fork(snippet.snippet, snippet.language)">Fork</a>
+            <a class="btn" ng-show="user.id" ng-href="/#/live/{{ snippet.id }}">Live Edit</a>
         </div>
         <div class="toolbar-right">
             <span class="filename bar-middle">Filename: <strong>{{ snippet.filename }}</strong></span>

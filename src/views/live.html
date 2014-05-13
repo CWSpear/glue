@@ -1,0 +1,18 @@
+<div class="view-wrapper">
+    <header class="header">
+        <div class="toolbar-left">
+            <div class="bar-middle">
+                You are editing <strong>live</strong>.
+                Share this link so people can watch:
+                <input size="40" type="text" value="{{ watchUrl }}" readonly>
+            </div>
+        </div>
+        <div class="toolbar-right">
+
+        </div>
+    </header>
+
+    <div id="editor" ui-ace="aceConfig" readonly="true" ng-model="snippet.snippet"></div>
+
+    <div ng-include="footerPartial"></div>
+</div>
