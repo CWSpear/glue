@@ -1,7 +1,7 @@
-var passport = require('passport')
-  , path     = require('path')
-  , url      = require('url')
-  , _        = require('lodash');
+var passport = require('passport');
+var path     = require('path');
+var url      = require('url');
+var _        = require('lodash');
 
 /**
  * Passport Service
