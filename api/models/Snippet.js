@@ -72,7 +72,7 @@ module.exports = {
             // (this will be replaced by MLearn.js's implementation of detection)
             var language = false;
             if (!values.filename || values.filename === 'false') {
-                language = hljs.highlightAuto(values.snippet).language;
+                language = values.language || hljs.highlightAuto(values.snippet).language;
                 var mode = Modelist.modesByName[language];
                 if (mode) {
                     var ext = mode.extensions.split('|')[0];
@@ -81,6 +81,7 @@ module.exports = {
                     values.filename = 'glue.txt';
                 }
             }
+
 
             if (language) {
                 values.language = language;

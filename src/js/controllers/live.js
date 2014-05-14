@@ -25,8 +25,11 @@ angular.module('glue')
         $scope.snippet.language = $rootScope.aceConfig.mode;
         $scope.snippet.put();
 
-        // snippet = $scope.snippet.plain();
-        // sailsSocket.put(`/api/snippets/${snippet.id}`, snippet);
+        // currently, I can't figure out how to make this actually save the snippet
+        // var snippet = $scope.snippet.plain();
+        // sailsSocket.put(`snippets/${snippet.id}`, snippet, function (err, snippet) {
+        //     console.log(snippet.language);
+        // });
     };
 
     $scope.$watch('snippet.snippet', updateSnippet);

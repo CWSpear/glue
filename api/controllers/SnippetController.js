@@ -28,11 +28,9 @@ module.exports = {
         var snippet = req.body;
         // user = user via API key || auth'd user || default user
         snippet.user = req.user.id;
-        console.log('before', snippet.language);
         Snippet.update(snippet.id, snippet).exec(function (err, snippets) {
             if (err) return next(err);
             snippet = snippets[0];
-            console.log('after', snippet.language);
             Snippet.publishUpdate(snippet.id, snippet);
             return res.send(snippet);
         });
