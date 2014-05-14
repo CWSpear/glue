@@ -1,7 +1,7 @@
 /* jshint esnext: true */
 angular.module('glue')
 
-.controller('DisplayCtrl', ($scope, $rootScope, $routeParams, themelist, Restangular, $location, SNIPPETS_URI, aceHelper, flash) => {
+.controller('DisplayCtrl', ($scope, $rootScope, $routeParams, themelist, sailsSocket, Restangular, $location, SNIPPETS_URI, aceHelper, flash) => {
     Restangular.one('snippets', $routeParams.id).get().then(snippet => {
         $scope.snippet = snippet;
         $rootScope.aceConfig.mode = $scope.snippet.language;
@@ -13,6 +13,19 @@ angular.module('glue')
         }
 
         // TODO: catchall error handling
+    });
+
+    sailsSocket.get(`/snippets/${$routeParams.id}/subscribe`, function (err, response) {
+        if (err) return console.error(err);
+        // console.log(response);
+    });
+
+    sailsSocket.on('snippet', function (err, snippet) {
+        if (err) return console.error(err);
+
+        // console.log($scope.snippet.language);
+        $scope.snippet = snippet;
+        $rootScope.aceConfig.mode = $scope.snippet.language;
     });
 
     $scope.rawCode = (id) => {

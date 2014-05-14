@@ -29,6 +29,8 @@ module.exports.policies = {
         destroy: ['passport', 'apiKey'],
         // need to be fully auth'd to see user info (access via populate)
         populate: false,
+
+        subscribe: true,
     },
 
     UserController: {

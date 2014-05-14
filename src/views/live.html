@@ -8,7 +8,9 @@
             </div>
         </div>
         <div class="toolbar-right">
-
+            <select ng-model="aceConfig.mode" ng-options="m.name as m.caption for m in modes | orderBy:'caption'" class="mode">
+                <option value="">-- Language --</option>
+            </select>
         </div>
     </header>
 

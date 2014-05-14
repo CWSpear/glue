@@ -26,6 +26,11 @@ module.exports.routes = {
         action: 'raw',
     },
 
+    '/snippets/:id/subscribe': {
+        controller: 'snippet',
+        action: 'subscribe',
+    },
+
     // passport routes
     'get /login': 'AuthController.login',
     'get /logout': 'AuthController.logout',

@@ -1,7 +1,7 @@
 /* jshint esnext: true */
 angular.module('glue')
 
-.controller('LiveCtrl', ($scope, $rootScope, $routeParams, $location, Restangular) => {
+.controller('LiveCtrl', ($scope, $rootScope, $routeParams, $location, Restangular, sailsSocket) => {
     $rootScope.ensureUser.then(() => {
         return Restangular.one('snippets', $routeParams.id).get();
     }).then(snippet => {
@@ -20,10 +20,15 @@ angular.module('glue')
         // TODO: catchall error handling
     });
 
-    var updateSnippet = function (snippet, old) {
-        if (!snippet || snippet === old || !$scope.snippet.put) return;
+    var updateSnippet = function (val, old) {
+        if (!angular.isDefined(val) || val === old || !$scope.snippet.put) return;
+        $scope.snippet.language = $rootScope.aceConfig.mode;
         $scope.snippet.put();
+
+        // snippet = $scope.snippet.plain();
+        // sailsSocket.put(`/api/snippets/${snippet.id}`, snippet);
     };
 
     $scope.$watch('snippet.snippet', updateSnippet);
+    $scope.$watch('aceConfig.mode', updateSnippet);
 });
