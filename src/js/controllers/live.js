@@ -23,6 +23,10 @@ angular.module('glue')
     var updateSnippet = function (val, old) {
         if (!angular.isDefined(val) || val === old || !$scope.snippet.put) return;
         $scope.snippet.language = $rootScope.aceConfig.mode;
+        $scope.snippet.session = {
+            cursor: $scope.ace.selection.getCursor()
+        };
+        
         $scope.snippet.put();
 
         // currently, I can't figure out how to make this actually save the snippet

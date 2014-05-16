@@ -28,11 +28,16 @@ module.exports = {
         var snippet = req.body;
         // user = user via API key || auth'd user || default user
         snippet.user = req.user.id;
+        var session = snippet.session;
         Snippet.update(snippet.id, snippet).exec(function (err, snippets) {
             if (err) return next(err);
-            snippet = snippets[0];
-            Snippet.publishUpdate(snippet.id, snippet);
-            return res.send(snippet);
+            var snip = snippets[0];
+
+            var update = _.clone(snip);
+            update.session = session;
+            Snippet.publishUpdate(update.id, update);
+
+            return res.send(snip);
         });
     },
 
