@@ -1,7 +1,7 @@
 # Glue
 > Throw some code into the air and see what sticks.
 
-![Current Version](http://img.shields.io/github/tag/mavrx/glue.svg?style=flat)
+![Current Version](http://img.shields.io/github/tag/Mavrx/glue.svg?style=flat)
 &nbsp;
 ![Build Status](http://img.shields.io/travis/Mavrx/glue.svg?style=flat)
 
