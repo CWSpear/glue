@@ -37,7 +37,6 @@ angular.module('glue')
 
     $scope.jumpToCursor = (cur) => {
         var cursor = cur || session.cursor || {};
-        console.log(cursor);
         $scope.ace.selection.moveCursorTo(cursor.row + 15, cursor.column);
     };
 

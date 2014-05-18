@@ -48,8 +48,8 @@ angular.module('glue')
 
             args.push(function callback(result) {
                 // if (debug) console.log('***', 'raw', result);
-                var err = !result.status ? null : result;
-                var res = result.data || result;
+                var err = result.status ? result : null;
+                var res = err ? null : (result.data || result);
 
                 $rootScope.$apply(function () {
                     cb(err, res);

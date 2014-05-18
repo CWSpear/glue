@@ -27,13 +27,13 @@ angular.module('glue')
             cursor: $scope.ace.selection.getCursor()
         };
         
-        $scope.snippet.put();
+        // $scope.snippet.put();
 
-        // currently, I can't figure out how to make this actually save the snippet
-        // var snippet = $scope.snippet.plain();
-        // sailsSocket.put(`snippets/${snippet.id}`, snippet, function (err, snippet) {
-        //     console.log(snippet.language);
-        // });
+        var snippet = $scope.snippet.plain();
+        sailsSocket.put(`snippets/${snippet.id}`, snippet, function (err, snippet) {
+            if (err) console.error(err);
+            // we don't really care about the response, but we should add better error handling
+        });
     };
 
     $scope.$watch('snippet.snippet', updateSnippet);
