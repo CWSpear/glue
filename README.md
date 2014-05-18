@@ -80,4 +80,5 @@ server {
 * [x] ~~Create a page that issues/manages accounts/API keys.~~
 * [ ] Create lots of plugins that integrate it! (~~Sublime version is all but done and works great for pasting code out of your editor) (I realize this depends on getting the API finished)~~ For example: [Sublime's plugin](https://github.com/surgeforward/glue-sublime-plugin)
 * [ ] Integrate with [MLearn.js](https://github.com/surgeforward/MLearn.js/) to auto-detect the language being used if you can't determine it by other means.
+* [ ] Use sockets to allow for some collaborative coding.
 * [ ] More and/or better testing!
