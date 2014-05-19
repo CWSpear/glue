@@ -1,10 +1,11 @@
 <div class="view-wrapper">
     <header class="header">
         <div class="toolbar-left">
+            <a class="btn" ng-href="/#/s/{{ snippet.id }}">&laquo; Back</a>
             <div class="bar-middle">
                 You are editing <strong>live</strong>.
-                Share this link so people can watch:
-                <input size="40" type="text" value="{{ watchUrl }}" readonly>
+                Share Link:
+                <input size="30" type="text" value="{{ watchUrl }}" readonly>
             </div>
         </div>
         <div class="toolbar-right">

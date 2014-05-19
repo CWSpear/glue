@@ -2,8 +2,10 @@
 @import url('//fonts.googleapis.com/css?family=Droid+Sans+Mono');
 @import "normalize";
 
-$btn-color: #0077aa;
-$mavrx: #2cfacd;
+$brand-color: #a3dbe5;
+$primary-color: #ebecee;
+$secondary-color: #58585a;
+$mavrx-color: #2cfacd;
 $min-width: 600px;
 
 *, *::before, *::after {
@@ -11,18 +13,19 @@ $min-width: 600px;
 }
 
 a {
-    color: $btn-color;
+    color: $brand-color;
     text-decoration: none;
     transition: color 0.3s ease-out;
+    text-shadow: 1px 1px 0 $secondary-color;
 
     &:hover {
-        color: $mavrx;
+        color: $mavrx-color;
     }
 }
 
 ::selection {
-    background: $mavrx !important;
-    color: whitesmoke !important;
+    background: $mavrx-color !important;
+    color: $primary-color !important;
 }
 
 [ng-click] {
@@ -51,7 +54,7 @@ a {
 }
 
 .raw {
-    color: white !important;
+    color: $primary-color !important;
 }
 
 html, body {
@@ -70,11 +73,24 @@ html, body {
     height: 50px;
     padding: 10px 20px;
     width: 100%;
-    // background: $btn-color;
-    background: rgba(white, 0.5);
-    color: #333;
+    // background: $brand-color;
+    background: rgba($primary-color, 0.5);
+    color: $secondary-color;
     z-index: 10;
     box-shadow: 0 0 1px rgba(black, 0.5);
+
+    img {
+        height: 30px;
+        display: inline-block;
+        vertical-align: middle;
+
+        &.logo {
+            height: 36px;
+            position: relative;
+            top: -3px;
+        }
+    }
+
 
     .btn {
         padding-top: 0;
@@ -129,13 +145,15 @@ html, body {
     }
 }
 
-@mixin color-button($color) {
-    background: lighten($color, 10%);
-    box-shadow: 0 3px 0 darken($color, 2%);
+@mixin color-button($bg-color, $text-color: $primary-color) {
+    background: lighten($bg-color, 10%);
+    box-shadow: 0 3px 0 darken($bg-color, 2%);
+    color: $text-color;
 
     &:hover, &:focus {
-        background: lighten($color, 15%);
-        box-shadow: 0 3px 0 lighten($color, 2%);
+        color: $text-color;
+        background: lighten($bg-color, 15%);
+        box-shadow: 0 3px 0 lighten($bg-color, 2%);
     }
 }
 
@@ -143,19 +161,21 @@ html, body {
     border: 0 none;
     display: inline-block;
     padding: 4px 10px;
-    color: white;
+    color: $primary-color;
     text-decoration: none;
     border-radius: 2px;
+    text-shadow: none;
     transform: translateY(-3px);
     transition: background 0.2s ease-out,
                 box-shadow 0.05s ease-out,
                 transform 0.05s ease-out;
 
-    @include color-button($btn-color);
+    @include color-button($secondary-color);
+    &.btn-primary { @include color-button($brand-color, $secondary-color); }
+    &.btn-inverse { @include color-button($primary-color, $secondary-color); }
     &.btn-danger { @include color-button(#b04127); }
 
     &:hover, &:focus {
-        color: white;
         outline: 0;
         text-decoration: none;
     }
@@ -170,6 +190,7 @@ html, body {
         background: lightgrey;
         box-shadow: none;
         cursor: not-allowed;
+        color: $secondary-color;
     }
 }
 
