@@ -222,9 +222,9 @@ describe(chalk.blue('API') + ' -', function () {
         request.put('/api/snippets/' + clone.id).send(clone).expect(403).end(done);
       });
 
-      it('should allow an API key to delete a snippet', function (done) {
-        isDeleted = true;
-        request.delete('/api/snippets/' + testSnippet.id).send({ apiKey: testUser.apiKey }).expect(200).end(done);
+      it('should not allow an API key to delete a snippet', function (done) {
+        // isDeleted = true;
+        request.delete('/api/snippets/' + testSnippet.id).send({ apiKey: testUser.apiKey }).expect(403).end(done);
       });
     }); // API key
 
@@ -255,10 +255,10 @@ describe(chalk.blue('API') + ' -', function () {
         });
       });
 
-      it('should not allow an authorized user to create a snippet', function (done) {
+      it('should allow an authorized user to create a snippet', function (done) {
         var clone = _.clone(testSnippet);
         delete clone.id;
-        request.post('/api/snippets/').send(clone).expect(403).end(done);
+        request.post('/api/snippets/').send({ mockUser: testUser, origBody: clone }).expect(201).end(done);
       });
 
       it('should allow an authorized user to update a snippet', function (done) {
@@ -276,9 +276,9 @@ describe(chalk.blue('API') + ' -', function () {
         request.put('/api/snippets/' + clone.id).send({ mockUser: userClone, origBody: clone }).expect(403).end(done);
       });
 
-      it('should not allow an authorized user to delete a snippet', function (done) {
-        // isDeleted = true;
-        request.delete('/api/snippets/' + testSnippet.id).send({ mockUser: testUser }).expect(403).end(done);
+      it('should allow an authorized user to delete a snippet', function (done) {
+        isDeleted = true;
+        request.delete('/api/snippets/' + testSnippet.id).send({ mockUser: testUser }).expect(200).end(done);
       });
     }); // authorized user
   }); // Snippet Model
