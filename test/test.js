@@ -278,7 +278,7 @@ describe(chalk.blue('API') + ' -', function () {
 
       it('should not allow an authorized user to delete a snippet', function (done) {
         // isDeleted = true;
-        request.delete('/api/snippets/' + testSnippet.id).expect(403).end(done);
+        request.delete('/api/snippets/' + testSnippet.id).send({ mockUser: testUser }).expect(403).end(done);
       });
     }); // authorized user
   }); // Snippet Model

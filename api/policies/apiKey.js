@@ -1,5 +1,5 @@
 module.exports = function hasApiKey (req, res, next) {
-    var apiKey = req.body.apiKey;
+    var apiKey = (req.body || {}).apiKey;
 
     // prefer logged in user over default user's API key
     if ((req.user || {}).id && apiKey === DefaultUser.apiKey) return next();
