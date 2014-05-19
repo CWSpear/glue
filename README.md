@@ -1,4 +1,4 @@
-# Glue
+<img src="src/img/glue-logo.svg" alt="Glue" width="333">
 > Throw some code into the air and see what sticks.
 
 ![Current Version](http://img.shields.io/github/tag/Mavrx/glue.svg?style=flat)
@@ -77,6 +77,7 @@ server {
 
 ## Changelog
 
+- **2014-05-19** Add more tests, add new logo!
 - **2014-05-18** Add ability to watch someone code live.
 
 ## TODO
