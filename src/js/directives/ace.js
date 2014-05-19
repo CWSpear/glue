@@ -110,6 +110,8 @@
          * @type object
          */
         var acee = window.ace.edit(elm[0]);
+        window.acee = acee;
+        if (attrs.ace) scope[attrs.ace] = acee;
 
         /**
          * ACE editor session.
@@ -249,7 +251,16 @@
           });
 
           ngModel.$render = function () {
+            // save the current scroll positions
+            var scrollTop = session.getScrollTop();
+            var scrollLeft = session.getScrollLeft();
+
+            // set the new content (which resets scroll positions)
             session.setValue(ngModel.$viewValue);
+
+            // restore scroll positions
+            session.setScrollTop(scrollTop);
+            session.setScrollLeft(scrollLeft);
           };
         }
 

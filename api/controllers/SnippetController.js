@@ -24,6 +24,32 @@ module.exports = {
         });
     },
 
+    update: function (req, res, next) {
+        var snippet = req.body;
+        // user = user via API key || auth'd user || default user
+        snippet.user = req.user.id;
+        var session = snippet.session;
+        Snippet.update(snippet.id, snippet).exec(function (err, snippets) {
+            if (err) return next(err);
+            var snip = snippets[0];
+
+            var update = _.clone(snip);
+            update.session = session;
+            Snippet.publishUpdate(update.id, update);
+
+            return res.send(snip);
+        });
+    },
+
+    subscribe: function (req, res) {
+        var id = req.param('id');
+        Snippet.findOneById(id).exec(function (err, snippet) {
+            // Subscribe the requesting socket (e.g. req.socket) to all users (e.g. users)
+            Snippet.subscribe(req.socket, snippet, 'update');
+            res.send(snippet);
+        });
+    },
+
     // the only bloody reason we need this function is because
     // Sails is auto populating this with the user info, even
     // tho we don't want it to!!!1!

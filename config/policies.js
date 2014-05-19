@@ -25,10 +25,12 @@ module.exports.policies = {
 
         // both passport and apiKey may change current req.user!
         create:  ['passport', 'apiKey'],
-        update:  ['passport', 'apiKey'],
+        update:  ['passport', 'authSnippetUser'],
         destroy: ['passport', 'apiKey'],
         // need to be fully auth'd to see user info (access via populate)
         populate: false,
+
+        subscribe: true,
     },
 
     UserController: {

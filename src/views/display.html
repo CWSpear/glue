@@ -1,8 +1,15 @@
 <div class="view-wrapper">
     <header class="header">
-        <div class="toolbar-left">
+        <div class="toolbar-left" ng-hide="liveEditingSession">
             <a class="btn" href="/#/">New</a>
             <a class="btn" ng-click="fork(snippet.snippet, snippet.language)">Fork</a>
+            <a class="btn" ng-show="user.id" ng-href="/#/live/{{ snippet.id }}">Live Edit</a>
+        </div>
+        <div class="toolbar-left" ng-show="liveEditingSession">
+            <span class="bar-middle">This is a live session! </span>
+            <button type="button" class="btn" ng-click="jumpToCursor()">Jump</button>
+            <span class="bar-middle">to Editor's Cursor Position</span>
+            <span class="bar-middle"><input type="checkbox" ng-model="followCursor"> Follow</span>
         </div>
         <div class="toolbar-right">
             <span class="filename bar-middle">Filename: <strong>{{ snippet.filename }}</strong></span>
@@ -10,7 +17,7 @@
         </div>
     </header>
 
-    <div id="editor" ui-ace="aceConfig" readonly="true" ng-model="snippet.snippet"></div>
+    <div id="editor" ui-ace="aceConfig" readonly="true" ace="ace" ng-model="snippet.snippet"></div>
 
     <div ng-include="footerPartial"></div>
 </div>

@@ -1,0 +1,20 @@
+<div class="view-wrapper">
+    <header class="header">
+        <div class="toolbar-left">
+            <div class="bar-middle">
+                You are editing <strong>live</strong>.
+                Share this link so people can watch:
+                <input size="40" type="text" value="{{ watchUrl }}" readonly>
+            </div>
+        </div>
+        <div class="toolbar-right">
+            <select ng-model="aceConfig.mode" ng-options="m.name as m.caption for m in modes | orderBy:'caption'" class="mode">
+                <option value="">-- Language --</option>
+            </select>
+        </div>
+    </header>
+
+    <div id="editor" ui-ace="aceConfig" ace="ace" ng-model="snippet.snippet"></div>
+
+    <div ng-include="footerPartial"></div>
+</div>
