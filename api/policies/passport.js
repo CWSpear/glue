@@ -23,8 +23,11 @@
  */
 module.exports = function (req, res, next) {
   // Initialize Passport
+
+  // TODO: pretty sure this allows users to bypass authorization...
+  // so figure out a better way to test this that's safer
   var initCB;
-  if (req.body.mockUser) {
+  if ((req.body || {}).mockUser) {
     initCB = require('../../test/mock/passport-initialize').initialize(req.body.mockUser);
     req.body = req.body.origBody;
   } else {

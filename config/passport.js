@@ -14,11 +14,6 @@
  * http://passportjs.org/guide/providers/
  */
 
-var credentials = require('./local');
-
-if (!credentials) credentials = {};
-if (!credentials.github) credentials.github = {};
-
 module.exports.passport = {
 
   local: {
@@ -30,10 +25,6 @@ module.exports.passport = {
     protocol: 'oauth2',
     strategy: require('passport-github').Strategy,
     usePortInCallback: process.env.NODE_ENV !== 'production',
-    options: {
-      clientID: credentials.github.clientID,
-      clientSecret: credentials.github.clientSecret,
-    }
   },
 
 
