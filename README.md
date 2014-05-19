@@ -75,10 +75,15 @@ server {
 }
 ```
 
+## Changelog
+
+- **2014-05-18** Add ability to watch someone code live.
+
 ## TODO
 * [ ] ~~Lock down the API. Only allow access to people with an API key,~~ limit the number of requests per X time period so that we don't get people abusing the API.
 * [x] ~~Create a page that issues/manages accounts/API keys.~~
 * [ ] Create lots of plugins that integrate it! (~~Sublime version is all but done and works great for pasting code out of your editor) (I realize this depends on getting the API finished)~~ For example: [Sublime's plugin](https://github.com/surgeforward/glue-sublime-plugin)
 * [ ] Integrate with [MLearn.js](https://github.com/surgeforward/MLearn.js/) to auto-detect the language being used if you can't determine it by other means.
-* [ ] Use sockets to allow for some collaborative coding.
+* [x] ~~Use sockets to allow for some collaborative coding.~~
+* [ ] Use sockets for better collaborate coding (2-way)
 * [ ] More and/or better testing!
