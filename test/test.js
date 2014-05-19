@@ -66,6 +66,8 @@ var sails, request;
 before(function(done) {
   // Lift sails and start the server
   console.log(chalk.cyan('Lifting Sails...'));
+  // starting the server can sometimes take a little while
+  this.timeout(10000);
   Sails.lift({
     log: {
       level: 'error'
