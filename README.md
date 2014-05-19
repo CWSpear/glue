@@ -1,4 +1,4 @@
-<img src="src/img/glue-logo.svg" alt="Glue" width="333">
+<img src="src/img/glue-logo.png" alt="Glue" width="333">
 > Throw some code into the air and see what sticks.
 
 ![Current Version](http://img.shields.io/github/tag/Mavrx/glue.svg?style=flat)
