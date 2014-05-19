@@ -315,7 +315,7 @@ passport.loadStrategies = function (req) {
       // Merge the default options with any options defined in the config. All
       // defaults can be overriden, but I don't see a reason why you'd want to
       // do that.
-      _.extend(options, strategies[key].options);
+      _.extend(options, strategies[key].options, sails.config.auth[key] || {});
 
       self.use(new Strategy(options, self.protocols[protocol]));
     }
