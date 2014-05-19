@@ -78,11 +78,12 @@ module.exports = {
   },
 
 
-  // Used to allow users to sign in with GitHub
-
-  github: {
-    clientID: '1234567890abcdef1234',
-    clientSecret: '1234567890abcdef1234567890abcdef12345678',
+  // Used to allow users to sign in with GitHub (overrides config/auth.js)
+  auth: {
+    github: {
+      clientID: '1234567890abcdef1234',
+      clientSecret: '1234567890abcdef1234567890abcdef12345678',
+    },
   },
 
 };

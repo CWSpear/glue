@@ -1,4 +1,12 @@
-module.exports = function hasApiKey (req, res, next) {
+/**
+ * Hybrid Policy: Passport Authentication OR API key
+ */
+
+module.exports = function(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+
     var apiKey = (req.body || {}).apiKey;
 
     // prefer logged in user over default user's API key

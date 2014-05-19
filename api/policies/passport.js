@@ -23,10 +23,21 @@
  */
 module.exports = function (req, res, next) {
   // Initialize Passport
-  passport.initialize()(req, res, function () {
+
+  // TODO: pretty sure this allows users to bypass authorization...
+  // so figure out a better way to test this that's safer
+  var initCB;
+  if ((req.body || {}).mockUser) {
+    initCB = require('../../test/mock/passport-initialize').initialize(req.body.mockUser);
+    req.body = req.body.origBody;
+  } else {
+    initCB = passport.initialize();
+  }
+
+  initCB(req, res, function () {
     // Use the built-in sessions
     passport.session()(req, res, function () {
-      // Make the user available throughout the frontend
+      // Make the user available throughout the frontend (i.e. if using Jade)
       res.locals.user = req.user;
 
       next();

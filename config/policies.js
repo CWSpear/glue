@@ -24,9 +24,9 @@ module.exports.policies = {
         findOne: true,
 
         // both passport and apiKey may change current req.user!
-        create:  ['passport', 'apiKey'],
+        create:  ['passport', 'authOrApiKey'],
         update:  ['passport', 'authSnippetUser'],
-        destroy: ['passport', 'apiKey'],
+        destroy: ['passport', 'authSnippetUser'],
         // need to be fully auth'd to see user info (access via populate)
         populate: false,
 

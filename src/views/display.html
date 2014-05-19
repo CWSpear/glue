@@ -3,7 +3,7 @@
         <div class="toolbar-left" ng-hide="liveEditingSession">
             <a class="btn" href="/#/">New</a>
             <a class="btn" ng-click="fork(snippet.snippet, snippet.language)">Fork</a>
-            <a class="btn" ng-show="user.id" ng-href="/#/live/{{ snippet.id }}">Live Edit</a>
+            <a class="btn btn-primary" ng-show="user.id" ng-href="/#/live/{{ snippet.id }}">Live Edit</a>
         </div>
         <div class="toolbar-left" ng-show="liveEditingSession">
             <span class="bar-middle">This is a live session! </span>
