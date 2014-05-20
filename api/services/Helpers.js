@@ -52,6 +52,10 @@ module.exports = {
 
         var guessLengths = [8, 4, 3, 2];
         var guess = _(lines).map(function (line) {
+            // code blocks can mess up indention guess, so let's
+            // skip any lines that start with a *
+            if (line.trim()[0] == '*') return 0;
+
             var matches = line.match(/^( *)/);
             return matches && matches[1] ? matches[1].length : 0;
         }).reject(function (wsLen) {
