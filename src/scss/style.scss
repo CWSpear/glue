@@ -79,18 +79,14 @@ html, body {
     z-index: 10;
     box-shadow: 0 0 1px rgba(black, 0.5);
 
-    img {
+    .logo {
+        height: 36px;
+        position: relative;
+        top: -3px;
         height: 30px;
         display: inline-block;
         vertical-align: middle;
-
-        &.logo {
-            height: 36px;
-            position: relative;
-            top: -3px;
-        }
     }
-
 
     .btn {
         padding-top: 0;
