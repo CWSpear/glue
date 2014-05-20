@@ -52,6 +52,10 @@ describe('Helpers', function () {
       it('should handle files with no spaces/tabs by returning the fallback default, which is 2', function () {
         assert.equal(Helpers.guessTabSize(fixture('one-liner')), 2, '[#guessTabSize: One Liner]');
       });
+
+      it('should handle files with code blocks that may have lines with non-compliant indentions', function () {
+        assert.equal(Helpers.guessTabSize(fixture('guessTabSize-2tabs4spacesAsterisks')), 4, '[#guessTabSize: Code Blocks]');
+      });
     });
   });
 });
