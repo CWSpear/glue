@@ -29,8 +29,8 @@ module.exports = {
         // user = user via API key || auth'd user || default user
         snippet.user = req.user.id;
         var session = snippet.session;
-        Snippet.update(snippet.id, snippet).exec(function (err, snippets) {
-            if (err) return next(err);
+        snippet.isUpdate = true;
+        Snippet.update(snippet.id, snippet).then(function (snippets) {
             var snip = snippets[0];
 
             var update = _.clone(snip);
@@ -38,15 +38,21 @@ module.exports = {
             Snippet.publishUpdate(update.id, update);
 
             return res.send(snip);
+        }).catch(function (err) {
+            res.serverError(err);
         });
     },
 
-    subscribe: function (req, res) {
+    subscribe: function (req, res, next) {
         var id = req.param('id');
-        Snippet.findOneById(id).exec(function (err, snippet) {
+        Snippet.findOneById(id).then(function (snippet) {
+            if (!snippet) return res.notFound();
+
             // Subscribe the requesting socket (e.g. req.socket) to all users (e.g. users)
             Snippet.subscribe(req.socket, snippet, 'update');
             res.send(snippet);
+        }).catch(function (err) {
+            res.serverError(err);
         });
     },
 

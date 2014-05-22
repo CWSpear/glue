@@ -23,8 +23,8 @@ angular.module('glue')
         snippetsModel.post({
             snippet: $scope.code,
             // snippets: [$scope.code, $scope.code],
-            filename: filename,
-            language: language,
+            filename: !filename || filename === 'false' ? '' : filename,
+            language: !language || language === 'false' ? '' : language,
             // this is the default user's API key
             apiKey: '872f5f4795204718b2377169e8bd1b4a'
         }).then(snippet => {

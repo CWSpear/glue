@@ -23,6 +23,10 @@ if (_.contains(gutil.env._, 'build')) {
   if (!gutil.env.production) gutil.env.production = true;
 }
 
+if (_.contains(gutil.env._, 'test')) {
+  if (!gutil.env.test) gutil.env.test = true;
+}
+
 var scripts = [
   src + 'js/app.js',
   src + 'js/**/*.js',
@@ -218,6 +222,30 @@ gulp.task('default', function () {
       }
     });
   });
+});
+
+var testFiles = ['./test/test.js'], mocha;
+if (gutil.env.test) {
+  var terminalnotifier = require('terminal-notifier');
+  mocha = require('gulp-mocha');
+
+  process.on('exit', function () {
+    console.log('ext');
+  });
+}
+
+gulp.task('mocha', function () {
+  return gulp.src(testFiles, { read: false })
+    .pipe(mocha({ reporter: 'spec', growl: true }))
+    .on('error', function (results) {
+      gutil.beep();
+      gutil.log(results);
+    });
+});
+
+gulp.task('test', function () {
+  gulp.watch(testFiles, ['mocha']);
+  gulp.start('mocha');
 });
 
 gulp.task('run', ['copy', 'styles', 'templates', 'scripts', 'bower', 'usemin', 'ace']);
