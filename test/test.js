@@ -176,6 +176,10 @@ describe(chalk.blue('API') + ' -', function () {
         request.get('/api/snippets/' + testSnippet.id).expect(200).end(done);
       });
 
+      it('should return 404 when trying to retrieve a specific snippet that doesn\'t exist', function (done) {
+        request.get('/api/snippets/123').expect(404).end(done);
+      });
+
       it('should have retrieval of a specific snippet come with no user data', function (done) {
         request.get('/api/snippets/' + testSnippet.id).expect(200).end(function (err, snippet) {
           assert.equal(snippet.user, undefined);
@@ -278,6 +282,12 @@ describe(chalk.blue('API') + ' -', function () {
         var userClone = _.clone(testUser);
         userClone.id = uuid.v4();
         request.put('/api/snippets/' + clone.id).send({ mockUser: userClone, origBody: clone }).expect(403).end(done);
+      });
+
+      it('should not allow another authorized user to delete your snippet', function (done) {
+        var userClone = _.clone(testUser);
+        userClone.id = uuid.v4();
+        request.delete('/api/snippets/' + testSnippet.id).send({ mockUser: userClone }).expect(403).end(done);
       });
 
       it('should allow an authorized user to delete a snippet', function (done) {
