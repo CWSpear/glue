@@ -1,4 +1,5 @@
-var _ = require('lodash');
+var _    = require('lodash');
+var hljs = require('highlight.js');
 
 // Helper Funcions
 // -------------------------
@@ -70,4 +71,40 @@ module.exports = {
         if (!guess || guess === Infinity) return 2;
         return guess;
     },
+
+    getLanguageFromSnippetModel: function (model, useFileName) {
+        if (model.language) return model.language;
+
+        var language = false;
+        if (useFileName !== false && model.filename) {
+            var modeObj = Modelist.getModeForPath(model.filename);
+            language = modeObj.name;
+        }
+
+        return language || hljs.highlightAuto(model.snippet).language;
+    },
+
+    getFileNameFromSnippetModel: function (model, override) {
+        if (model.filename && !override) return model.filename;
+
+        var basename = 'glue.';
+        if (override && model.filename) {
+            var parts = model.filename.split('.');
+            if (parts.length > 1) {
+                parts.pop();
+                basename = parts.join('.') + '.';
+            }
+        }
+
+        var filename = basename + 'txt';
+        var language = model.language;
+
+        var mode = Modelist.modesByName[language];
+        if (mode) {
+            var ext = mode.extensions.split('|')[0];
+            filename = basename + ext;
+        }
+
+        return filename;
+    }
 };

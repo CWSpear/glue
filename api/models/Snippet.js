@@ -4,9 +4,8 @@
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/#!documentation/models
  */
-var uuid     = require('node-uuid');
-var _        = require('lodash');
-var hljs     = require('highlight.js');
+var uuid = require('node-uuid');
+var _    = require('lodash');
 
 module.exports = {
     schema: true,
@@ -37,68 +36,43 @@ module.exports = {
         },
     },
 
-    beforeValidate: function (values, cb) {
-        if (typeof values.snippets === 'string') {
+    beforeValidate: function (model, cb) {
+        if (typeof model.snippets === 'string') {
             try {
-                values.snippets = JSON.parse(values.snippets);
+                model.snippets = JSON.parse(model.snippets);
             } catch (e) {}
         }
 
         // prefer snippet over snippets
-        if (values.snippet && values.snippets) delete values.snippets;
+        if (model.snippet && model.snippets) delete model.snippets;
 
         // if we have an array of one `snippets`, let's treat it as if we just passed a str to `snippet`
-        if (values.snippets && _.isArray(values.snippets) && values.snippets.length === 1) {
-            values.snippet = values.snippets[0];
-            delete values.snippets;
+        if (model.snippets && _.isArray(model.snippets) && model.snippets.length === 1) {
+            model.snippet = model.snippets[0];
+            delete model.snippets;
         }
 
         // if we pass in an array to snippets (of more than 1 snippet), concat them here
-        if (values.snippets && _.isArray(values.snippets)) {
+        if (model.snippets && _.isArray(model.snippets)) {
             var count = 0;
             var code = '';
-            values.snippets.forEach(function (snippet, i) {
+            model.snippets.forEach(function (snippet, i) {
                 snippet = Helpers.undent(snippet);
                 count = i + 1;
                 code += "// Selection " + count + ":\n\n" + snippet + "\n\n\n";
             });
-            values.snippet = code.trim();
+            model.snippet = code.trim();
         } else {
-            values.snippet = Helpers.undent(values.snippet);
+            model.snippet = Helpers.undent(model.snippet);
         }
 
-        try {
-            // if there is no filename, we try and detect the language being used
-            // (this will be replaced by MLearn.js's implementation of detection)
-            var language = false;
-            if (!values.filename || values.filename === 'false') {
-                language = values.language || hljs.highlightAuto(values.snippet).language;
-                var mode = Modelist.modesByName[language];
-                if (mode) {
-                    var ext = mode.extensions.split('|')[0];
-                    values.filename = 'glue.' + ext;
-                } else {
-                    values.filename = 'glue.txt';
-                }
-            }
-
-
-            if (language) {
-                values.language = language;
-            } else {
-                // based on the filename, get the language mode that Ace will use
-                var modeObj = Modelist.getModeForPath(values.filename);
-                values.language = modeObj.name;
-            }
-        } catch (err) {
-            console.error(err);
-            throw err;
-        }
+        model.language = Helpers.getLanguageFromSnippetModel(model, !model.isUpdate);
+        model.filename = Helpers.getFileNameFromSnippetModel(model, model.isUpdate);
 
         // snippet tab length
-        if (!values.tabSize)
-            values.tabSize = Helpers.guessTabSize(values.snippet);
+        if (!model.tabSize)
+            model.tabSize = Helpers.guessTabSize(model.snippet);
 
-        cb(null, values);
+        cb(null, model);
     }
 };
