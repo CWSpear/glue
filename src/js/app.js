@@ -31,28 +31,6 @@ angular.module('glue', ['restangular', 'ngRoute', 'ui.ace'])
         controller: 'AccountCtrl',
         templateUrl: `${VIEWS_URI}account.html`,
     }).otherwise({ redirectTo: '/' });
-
-    // temporarily disable until we figure out what to do with sails.io vs browser-sync
-    if (debug && false) {
-        var loc = window.location, url = loc.protocol + '//' + loc.hostname,
-            socketScript = document.createElement('script'),
-            browserSyncScript = document.createElement('script'),
-            connectScript = document.createElement('script'),
-            body = document.body;
-
-        var ioPort = 8888;
-        var syncPort = 8889;
-        socketScript.src = `${url}:${ioPort}/socket.io/socket.io.js`;
-        connectScript.innerHTML = `var ___socket___ = io.connect('${url}:${ioPort}');`;
-        browserSyncScript.src = `${url}:syncPort/client/browser-sync-client.js`;
-
-        body.insertBefore(socketScript, null);
-
-        socketScript.onload = () => {
-            body.insertBefore(connectScript, null);
-            body.insertBefore(browserSyncScript, null);
-        };
-    }
 })
 
 .run(($rootScope, PARTIALS_URI, Restangular, modelist, themelist, storage) => {
