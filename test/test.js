@@ -60,6 +60,66 @@ describe('Helpers', function () {
         assert.equal(Helpers.guessTabSize(fixture('guessTabSize-2tabs4spacesAsterisks')), 4, '[#guessTabSize: Code Blocks]');
       });
     });
+
+    describe('getLanguageFromSnippetModel', function () {
+      var snippet = {
+        // this snippet will return js if detected by hljs
+        snippet: fixture('hljs-js'),
+        language: 'php',
+        filename: 'test.html',
+      };
+
+      it('should return the language in the model is one is present', function () {
+        assert.equal(Helpers.getLanguageFromSnippetModel(snippet), 'php');
+      });
+
+      it('should use hljs to try and detect the language if a language is not provided', function () {
+        delete snippet.language;
+        assert.equal(Helpers.getLanguageFromSnippetModel(snippet, false), 'javascript');
+      });
+
+      it('should use the filename to try and detect the language: file provided, skip flag not set', function () {
+        assert.equal(Helpers.getLanguageFromSnippetModel(snippet), 'html');
+      });
+    });
+
+    describe('getFileNameFromSnippetModel', function () {
+      var snippet = {
+        language: 'php',
+        filename: 'test.html',
+      };
+
+      it('should return the filename if the override flag is not set', function () {
+        assert.equal(Helpers.getFileNameFromSnippetModel(snippet), 'test.html');
+      });
+
+      it('should return [basename].[ext] detected from the language: override flag, with filename', function () {
+        assert.equal(Helpers.getFileNameFromSnippetModel(snippet, true), 'test.php');
+      });
+
+      it('should default to [basename].txt if there is no language: override flag, with filename', function () {
+        delete snippet.language;
+        assert.equal(Helpers.getFileNameFromSnippetModel(snippet, true), 'test.txt');
+      });
+
+      it('should default to glue.txt if there is no language: no override flag, no filename', function () {
+        delete snippet.filename;
+        assert.equal(Helpers.getFileNameFromSnippetModel(snippet), 'glue.txt');
+      });
+
+      var snippet2 = {
+        language: 'json',
+        filename: 'Snip.pet.js',
+      };
+      it('should keep the basename: override flag, with basename (+ handle dots in names)', function () {
+        assert.equal(Helpers.getFileNameFromSnippetModel(snippet2, true), 'Snip.pet.json');
+      });
+
+      it('should set the basename to "glue": no override flag, no basename', function () {
+        delete snippet2.filename;
+        assert.equal(Helpers.getFileNameFromSnippetModel(snippet2), 'glue.json');
+      });
+    });
   });
 });
 
