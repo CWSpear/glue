@@ -77,6 +77,8 @@ server {
 
 ## Changelog
 
+- **[v0.6.1]** (2014-05-22) - Fix a number of issues with detecting language (still only using HLJS, not MLearn yet) and filename detection. Especially painful on new snippets without a syntax and on Live mode. + tests for all that.
+- **[v0.6.0]** (2014-05-21) - Add User API tests, and with that, I found some issues with the User API that left certain parts vulnerable and I fixed those. And other minor tweaks, of course.
 - **2014-05-19** Add more tests, add new logo!
 - **2014-05-18** Add ability to watch someone code live.
 
