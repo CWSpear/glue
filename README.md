@@ -77,6 +77,7 @@ server {
 
 ## Changelog
 
+- **[v0.6.0]** (2014-05-21) - Add User API tests, and with that, I found some issues with the User API that left certain parts vulnerable and I fixed those. And other minor tweaks, of course.
 - **2014-05-19** Add more tests, add new logo!
 - **2014-05-18** Add ability to watch someone code live.
 
