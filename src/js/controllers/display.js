@@ -16,7 +16,7 @@ angular.module('glue')
     });
 
     // subscribe to a snippet's model's changes
-    sailsSocket.get(`/snippets/${$routeParams.id}/subscribe`, (err, response) => {
+    sailsSocket.get(`snippets/${$routeParams.id}/subscribe`, (err, response) => {
         if (err) return console.error(err);
         // console.log(response);
     });
@@ -32,12 +32,16 @@ angular.module('glue')
         // console.log($scope.snippet.language);
         $scope.snippet = snippet;
         $rootScope.aceConfig.mode = $scope.snippet.language;
-        $timeout(() => $scope.jumpToCursor(snippet.cursor));
+        console.log('language', $scope.snippet.language);
+
+        if ($scope.followCursor)
+            setTimeout(() => $scope.jumpToCursor(snippet.cursor));
     });
 
     $scope.jumpToCursor = (cur) => {
         var cursor = cur || session.cursor || {};
-        $scope.ace.selection.moveCursorTo(cursor.row + 15, cursor.column);
+        $scope.ace.scrollToLine(cursor.row, true, true);
+        // $scope.ace.selection.moveCursorTo(cursor.row + 15, cursor.column);
     };
 
     $scope.rawCode = (id) => {

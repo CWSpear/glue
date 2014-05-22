@@ -26,7 +26,7 @@ module.exports.routes = {
         action: 'raw',
     },
 
-    '/snippets/:id/subscribe': {
+    '/api/snippets/:id/subscribe': {
         controller: 'snippet',
         action: 'subscribe',
     },
