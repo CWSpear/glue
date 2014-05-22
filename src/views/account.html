@@ -27,7 +27,7 @@
         <div ng-hide="true">
             <strong>Snippets</strong>
         </div>
-        <div ng-hide="true" ng-repeat="snippet in snippets">
+        <div ng-hide="true" ng-repeat="snippet in user.snippets">
             <a ng-href="/#/s/{{ snippet.id }}">{{ snippet.filename }}</a>
         </div>
     </div>

@@ -24,12 +24,10 @@
 module.exports = function (req, res, next) {
   // Initialize Passport
 
-  // TODO: pretty sure this allows users to bypass authorization...
-  // so figure out a better way to test this that's safer
-  var initCB;
-  if ((req.body || {}).mockUser) {
-    initCB = require('../../test/mock/passport-initialize').initialize(req.body.mockUser);
-    req.body = req.body.origBody;
+  var initCB, mockUser;
+  if (sails.config.environment === 'test' && (mockUser = ((req.body || req.query || {}).mockUser))) {
+    initCB = require('../../test/mock/passport-initialize').initialize(mockUser);
+    req.body = (req.body || {}).origBody;
   } else {
     initCB = passport.initialize();
   }

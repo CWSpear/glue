@@ -4,8 +4,11 @@ var q      = require('q');
 var _      = require('lodash');
 var chalk  = require('chalk');
 var uuid   = require('node-uuid');
+var qs     = require('qs');
 
 q.longStackSupport = true;
+
+process.env.NODE_ENV = 'test';
 
 var fixture = function (f) {
   return fs.readFileSync('./test/fixtures/' + f + '.js', { encoding: 'utf8' });
@@ -88,25 +91,107 @@ describe(chalk.blue('API') + ' -', function () {
     request = Request('http://localhost:' + sails.config.port);
   });
 
-  // describe('User Model', function () {
-  //   beforeEach(function (done) {
-  //     sails.models.user.create({
-  //       name: 'Test User',
-  //       username: 'TestUser',
-  //       email: 'test@user.com',
-  //     }).exec(done);
-  //   });
+  describe(chalk.yellow('User Model') + ' -', function () {
+    var testUser;
+    before(function () {
+      return sails.models.user.destroy({ email: 'test@user.com' }).then(function () {
+        return sails.models.user.create({
+          name: 'Test User',
+          username: 'TestUser',
+          email: 'test@user.com',
+        });
+      }).then(function (user) {
+        testUser = user;
+      });
+    });
 
-  //   afterEach(function (done) {
-  //     sails.models.user.destroy({ email: 'test@user.com' }).exec(done);
-  //   });
+    after(function () {
+      return sails.models.user.destroy({ email: 'test@user.com' });
+    });
 
-  //   it('should be able to find users by email', function () {
-  //     return sails.models.user.findOne({ email: 'test@user.com' }).then(function (user) {
-  //       assert.equal(user.name, 'Test User');
-  //     });
-  //   });
-  // });
+    describe('access with an anonymous user', function () {
+      afterEach(function () {
+        return sails.models.user.findOneById(testUser.id).then(function (user) {
+          assert.equal(user.name, 'Test User');
+        });
+      });
+
+      it('should not allow anonymous users to retrieve all users', function (done) {
+        request.get('/api/users/').expect(403).end(done);
+      });
+
+      it('should not allow anonymous users to retrieve a specific user', function (done) {
+        request.get('/api/users/' + testUser.id).expect(403).end(done);
+      });
+
+      it('should not allow anonymous users to create a user', function (done) {
+        request.post('/api/users/', testUser).send(testUser).expect(403).end(done);
+      });
+
+      it('should not allow anonymous users to update a user', function (done) {
+        request.put('/api/users/' + testUser.id).send(testUser).expect(403).end(done);
+      });
+
+      it('should not allow anonymous users to delete a user', function (done) {
+        request.delete('/api/users/' + testUser.id).expect(403).end(done);
+      });
+    });
+
+    describe('access with an authenticated user', function () {
+      var isDeleted = false;
+      afterEach(function () {
+        return sails.models.user.findOneById(testUser.id).then(function (user) {
+          if (!isDeleted)
+            assert.equal(user.username, testUser.username);
+          else
+            assert.equal(user, undefined);
+        });
+      });
+
+      it('should allow an authenticated user to retrieve self at "get all (/users)"', function (done) {
+        var clone = _.clone(testUser);
+        delete clone.inspect;
+        var params = qs.stringify({ mockUser: clone });
+        params = params.replace(/^&+/, '');
+        request.get('/api/users?' + params).expect(200).end(function (err, response) {
+          if (err) return done(err);
+
+          var user = response.body;
+          assert.equal(_.isArray(user), false);
+          assert.equal(_.isObject(user), true);
+          assert.equal(user.username, testUser.username);
+          done(err, response);
+        });
+      });
+
+      it('should not allow an authenticated user to retrieve all specific user (even self)', function (done) {
+        request.get('/api/users').expect(403).send({ mockUser: testUser }).end(done);
+      });
+
+      it('should not allow an authenticated user to retrieve a specific user (even self)', function (done) {
+        request.get('/api/users/' + testUser.id).expect(403).send({ mockUser: testUser }).end(done);
+      });
+
+      it('should not allow an authenticated user to create a user', function (done) {
+        var clone = _.clone(testUser);
+        delete clone.id;
+        clone.email =+ '2';
+        clone.apiKey =+ '2';
+        clone.username =+ '2';
+        request.post('/api/users/').expect(403).send({ mockUser: testUser, origBody: clone }).end(done);
+      });
+
+      it('should allow an authenticated user to update self', function (done) {
+        testUser.username = 'BananaMan';
+        request.put('/api/users/' + testUser.id).expect(200).send({ mockUser: testUser, origBody: testUser }).end(done);
+      });
+
+      it('should allow an authenticated user to delete self', function (done) {
+        isDeleted = true;
+        request.delete('/api/users/' + testUser.id).expect(200).send({ mockUser: testUser }).end(done);
+      });
+    });
+  });
 
   describe(chalk.yellow('Snippet Model') + ' -', function () {
     var testUser;
@@ -123,6 +208,7 @@ describe(chalk.blue('API') + ' -', function () {
     });
 
     after(function () {
+      if (testUser.id) sails.models.user.destroy({ user_id: testUser.id });
       sails.models.user.destroy({ email: 'test@user.com' });
     });
 
@@ -181,9 +267,11 @@ describe(chalk.blue('API') + ' -', function () {
       });
 
       it('should have retrieval of a specific snippet come with no user data', function (done) {
-        request.get('/api/snippets/' + testSnippet.id).expect(200).end(function (err, snippet) {
-          assert.equal(snippet.user, undefined);
-          done(err, snippet);
+        request.get('/api/snippets/' + testSnippet.id).expect(200).end(function (err, response) {
+          if (err) return done(err);
+
+          assert.equal(response.body.user, undefined);
+          done(err, response);
         });
       });
     }); // anonymous user

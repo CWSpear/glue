@@ -31,6 +31,11 @@ module.exports.routes = {
         action: 'subscribe',
     },
 
+    'GET /api/users': {
+        controller: 'user',
+        action: 'getSelf',
+    },
+
     // passport routes
     'get /login': 'AuthController.login',
     'get /logout': 'AuthController.logout',

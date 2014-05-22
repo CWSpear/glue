@@ -2,9 +2,7 @@
 angular.module('glue')
 
 .controller('LiveCtrl', ($scope, $rootScope, $routeParams, $location, Restangular, sailsSocket) => {
-    $rootScope.ensureUser.then(() => {
-        return Restangular.one('snippets', $routeParams.id).get();
-    }).then(snippet => {
+    Restangular.one('snippets', $routeParams.id).get().then(snippet => {
         $scope.snippet = snippet;
         $rootScope.aceConfig.mode = $scope.snippet.language;
         $rootScope.aceConfig.tabSize = $scope.snippet.tabSize || 4;
