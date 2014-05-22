@@ -20,24 +20,25 @@ module.exports.policies = {
         '*': false,
 
         raw: true,
-        findAll: false,
         findOne: true,
 
         // both passport and apiKey may change current req.user!
         create:  ['passport', 'authOrApiKey'],
         update:  ['passport', 'authSnippetUser'],
         destroy: ['passport', 'authSnippetUser'],
-        // need to be fully auth'd to see user info (access via populate)
-        populate: false,
 
         subscribe: true,
     },
 
     UserController: {
+        '*': false,
+
         // passport sets req.user!
         // findAll will NEVER return all users (see UserController),
-        // so it's safe to give access to
-        '*': ['passport', 'auth'],
+        // so it's safe to give access to it
+        getSelf: ['passport', 'auth'],
+        update:  ['passport', 'auth'],
+        destroy: ['passport', 'auth'],
     },
 
     AuthController: {

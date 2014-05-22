@@ -8,24 +8,26 @@
 var passport = require('passport');
 
 module.exports = {
-    find: function (req, res) {
-        User.findOne(req.user.id).populate('snippets').exec(function (err, user) {
+    getSelf: function (req, res) {
+        User.findOne(req.user.id).populate('snippets').then(function (user) {
             return res.send(user);
+        }).catch(function (err) {
+            throw err;
         });
     },
 
-    // TODO: optimize this with some async love
     destroy: function (req, res) {
+        var userId = req.user.id;
+
         // delete all their snippets and passports, too
-        User.destroy(req.user.id).exec(function (err) {
-            if (err) throw err;
-            Snippet.destroy({ user: req.user.id }, function (err) {
-                if (err) throw err;
-                Passport.destroy({ user: req.user.id }, function (err) {
-                    if (err) throw err;
-                    return res.ok();
-                });
-            });
+        User.destroy(userId).then(function () {
+            return Snippet.destroy({ user: userId });
+        }).then(function () {
+            return Passport.destroy({ user: userId });
+        }).then(function () {
+            return res.ok();
+        }).catch(function (err) {
+            throw err;
         });
     },
 };

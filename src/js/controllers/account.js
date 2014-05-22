@@ -2,10 +2,6 @@
 angular.module('glue')
 
 .controller('AccountCtrl', ($scope, $rootScope, request, $location, Restangular) => {
-    $rootScope.ensureUser.then(() => {
-        $rootScope.user.getList('snippets').then((snippets) => $scope.snippets = snippets);
-    });
-
     $scope.regenerateApiKey = () => {
         var oldKey = $rootScope.user.apiKey;
         // update in UI "NOW" for "faster UI"
@@ -29,6 +25,7 @@ angular.module('glue')
 
     $scope.deleteAccount = () => {
         $rootScope.user.remove().then(() => {
+            $rootScope.user = {};
             $location.path('/');
             // TODO: success message
         }, () => {

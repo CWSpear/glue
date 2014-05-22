@@ -15,13 +15,12 @@ var dest = '.tmp/public/';
 var src = 'src/';
 
 var destAbsPath = path.resolve(dest);
+var srcAbsPath = path.resolve(src);
 
 var npmConfig = require('./package.json');
-var includeBrowserSync = true;
 
 if (_.contains(gutil.env._, 'build')) {
   if (!gutil.env.production) gutil.env.production = true;
-  includeBrowserSync = false;
 }
 
 var scripts = [
@@ -57,7 +56,7 @@ gulp.task('styles', function () {
       }
     }) : gutil.noop())
     .pipe(gutil.env.production ? gulp.dest(dest) : gutil.noop())
-    .pipe(browsersync.reload({ stream:true }));
+    .pipe(gutil.env.production ? gutil.noop() : livereload());
 });
 
 gulp.task('copy', function () {
@@ -67,7 +66,7 @@ gulp.task('copy', function () {
 
   gulp.src(src + 'img/**/*.{png,svg,gif,jpg}')
     .pipe(gulp.dest(dest + 'img/'))
-    .pipe(browsersync.reload({ stream:true }));
+    .pipe(gutil.env.production ? gutil.noop() : livereload());
 });
 
 // these files are require'd, so don't need to be linked, but do need to be copied
@@ -87,7 +86,7 @@ gulp.task('ace', ['usemin'], function () {
 gulp.task('templates', function () {
   return gulp.src([src + 'views/**/*.html'])
     .pipe(gulp.dest(dest + 'views/'))
-    .pipe(browsersync.reload({ stream:true }));
+    .pipe(gutil.env.production ? gutil.noop() : livereload());
 });
 
 gulp.task('scripts', _.union(['index', 'bower'], gutil.env.production ? ['styles'] : []), function () {
@@ -105,7 +104,7 @@ gulp.task('scripts', _.union(['index', 'bower'], gutil.env.production ? ['styles
       }
     }))
     .pipe(gulp.dest(dest))
-    .pipe(browsersync.reload({ stream:true }));
+    .pipe(gutil.env.production ? gutil.noop() : livereload());
 });
 
 gulp.task('bower', _.union(['index'], gutil.env.production ? ['styles'] : []), function () {
@@ -204,29 +203,19 @@ gulp.task('default', function () {
       if (isWatching) return;
       isWatching = true;
 
-      gulp.watch(src + 'scss/**/*.scss', ['styles']);
-      gulp.watch(src + 'js/**/*.js', ['scripts']);
-      gulp.watch(src + 'views/**/*.html', ['templates']);
+      gulp.watch(src + 'scss/**/*.scss', ['styles']).on('change', announceChange);
+      gulp.watch(src + 'js/**/*.js', ['scripts']).on('change', announceChange);
+      gulp.watch(src + 'views/**/*.html', ['templates']).on('change', announceChange);
       gulp.watch([
         src + 'copy/**/*',
         src + 'img/**/*.{png,svg,gif,jpg}'
-      ], { dot: true }, ['copy']);
+      ], { dot: true }, ['copy']).on('change', announceChange);
 
-      gulp.watch(src + 'index.html', ['index', 'scripts', 'bower']);
+      gulp.watch(src + 'index.html', ['index', 'scripts', 'bower']).on('change', announceChange);
 
-      var bs = browsersync.init(null, {
-        ports: { min: 8888, max: 8890 },
-        ghostMode: {
-          clicks: false,
-          links: false,
-          forms: false,
-          scroll: false,
-        }
-      });
-
-      bs.events.on("file:changed", function (file) {
-        terminalnotifier(file.path.replace(destAbsPath, ''), { title: 'File Changed' });
-      });
+      function announceChange (file) {
+        terminalnotifier(file.path.replace(srcAbsPath, ''), { title: 'File Changed' });
+      }
     });
   });
 });
