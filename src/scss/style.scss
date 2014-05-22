@@ -41,18 +41,6 @@ a {
     bottom: 0;
 }
 
-#editor {
-    position: fixed;
-    min-width: $min-width;
-    top: 50px;
-    bottom: 50px;
-    left: 0;
-    right: 0;
-    font-family: 'Droid Sans Mono' monospace;
-    font-size: 14px;
-    margin: 0;
-}
-
 .raw {
     color: $primary-color !important;
 }
@@ -95,10 +83,16 @@ html, body {
     }
 
     select {
-        line-height: 26px;
-        height: 26px;
+        line-height: 30px;
+        height: 30px;
         border: 1px solid #ccc;
         padding: 0;
+        outline: 0 none;
+        border-radius: 2px;
+
+        &:focus {
+            box-shadow: 0 0 3px $brand-color;
+        }
     }
 
     .bar-middle {
@@ -212,3 +206,27 @@ html, body {
         margin: 10px 0;
     }
 }
+
+
+// Ace Editor
+// -------------------------
+#editor {
+    position: fixed;
+    min-width: $min-width;
+    top: 50px;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    font-family: 'Droid Sans Mono' monospace;
+    font-size: 14px;
+    margin: 0;
+}
+
+// #editor {
+//     top: 0;
+//     bottom: 0;
+// }
+
+// .ace_gutter, .ace_scroller {
+//     padding: 50px 0;
+// }
