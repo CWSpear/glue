@@ -22,34 +22,30 @@ angular.module('glue')
     });
 
     // once subscribed, we will get notifications of updates
-    sailsSocket.on('snippet', (err, payload) => {
+    sailsSocket.on('snippet', (err, { deltas, settings }) => {
         if (err) return console.error(err);
 
         $scope.liveEditingSession = true;
 
-        if (payload.deltas) {
-            $scope.ace.session.getDocument().applyDeltas(payload.deltas);
-            cursor = _.last(payload.deltas).end;
+        if (deltas) {
+            $scope.ace.session.getDocument().applyDeltas(deltas);
+            cursor = (_.last(deltas).range || {}).end;
             if ($scope.followCursor)
                 setTimeout(() => $scope.jumpToCursor());
-        } else if (payload.settings) {
-            $timeout(() => {
-                $rootScope.aceConfig.mode = payload.settings.language;
-            });
+        } else if (settings) {
+            $timeout(() => $rootScope.aceConfig.mode = settings.language);
         } else {
-            console.err(payload);
+            console.err(deltas, settings);
         }
     });
 
     var cursor;
     $scope.jumpToCursor = () => {
-        $scope.ace.scrollToLine(cursor, true, true);
+        $scope.ace.scrollToLine(cursor.row, true, true);
         $scope.ace.selection.moveCursorToPosition(cursor);
     };
 
-    $scope.rawCode = (id) => {
-        window.location.href = `${SNIPPETS_URI}${id}/raw`;
-    };
+    $scope.rawCode = (id) => window.location.href = `${SNIPPETS_URI}${id}/raw`;
 
     $scope.fork = (code, mode) => {
         flash('code', code);
