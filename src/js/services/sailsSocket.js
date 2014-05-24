@@ -13,22 +13,20 @@ angular.module('glue')
     var deferred = $q.defer();
     socket.on('connect', () => deferred.resolve());
 
-    (function(debug) {
-        if (!debug) return;
-
+    if (debug) {
         console.log('***', 'logging all socket interactions');
 
         var emit = socket.emit;
-        socket.emit = function() {
+        socket.emit = () => {
             console.log('***', 'emit', _.toArray(arguments));
             emit.apply(socket, arguments);
         };
         var $emit = socket.$emit;
-        socket.$emit = function() {
+        socket.$emit = () => {
             console.log('***', 'on', _.toArray(arguments));
             $emit.apply(socket, arguments);
         };
-    })(debug);
+    }
 
     return {
         connect  : deferred.promise,
@@ -59,9 +57,7 @@ angular.module('glue')
                 var err = result.status ? result : null;
                 var res = err ? null : (result.data || result);
 
-                $rootScope.$apply(function () {
-                    cb(err, res);
-                });
+                $rootScope.$apply(() => cb(err, res));
             });
 
             fn.apply(context, args);

@@ -6,7 +6,7 @@ angular.module('glue')
         $scope.snippet = snippet;
         $rootScope.aceConfig.mode = $scope.snippet.language;
         $rootScope.aceConfig.tabSize = $scope.snippet.tabSize || 4;
-    }).catch(function (err) {
+    }).catch((err) => {
         if (err.status == 404) {
             // TODO: better 404 handling
             $scope.snippet = { snippet: 'Snippet not found.' };
