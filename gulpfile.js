@@ -226,7 +226,7 @@ gulp.task('default', function () {
 
 var testFiles = ['./test/test.js'], mocha;
 if (gutil.env.test) {
-  var terminalnotifier = require('terminal-notifier');
+  global.terminalnotifier = require('terminal-notifier');
   mocha = require('gulp-mocha');
 
   process.on('exit', function () {

@@ -18,22 +18,45 @@ angular.module('glue')
         // TODO: catchall error handling
     });
 
-    var updateSnippet = function (val, old) {
-        if (!angular.isDefined(val) || val === old || !$scope.snippet.put) return;
+    var updateSnippet = _.throttle(() => {
+        if (!($scope.snippet || {}).put) return;
         $scope.snippet.language = $rootScope.aceConfig.mode;
-        $scope.snippet.session = {
-            cursor: $scope.ace.selection.getCursor()
-        };
-        
-        // $scope.snippet.put();
+        $scope.snippet.put();
+    }, 500);
 
-        var snippet = $scope.snippet.plain();
-        sailsSocket.put(`snippets/${snippet.id}`, snippet, function (err, snippet) {
-            if (err) console.error(err);
-            // we don't really care about the response, but we should add better error handling
+    $rootScope.aceConfig.onLoad = _.once(() => {
+        $scope.ace.on('change', (event) => {
+            sendPayload({
+                // mmm, real magic
+                deltas: [event.data]
+            });
         });
+    });
+
+    // queue deltas until we are connected to sockets
+    var queuedPayload = { deltas: [] };
+    var sendPayload = (payload) => {
+        if (payload.settings) 
+            queuedPayload.settings = payload.settings;
+        if (payload.deltas)
+            queuedPayload.deltas.concat(payload.deltas);
     };
 
+    sailsSocket.connect.then(() => {
+        // once we're connected to sockets, change function and send queued payload
+        sendPayload = (payload) => {
+            sailsSocket.post(`snippets/${$scope.snippet.id}/notify`, payload, function (err, payload) {
+                if (err) console.error(err);
+                // we don't really care about the response, but we should add better error handling
+            });
+        };
+
+        sendPayload(queuedPayload);
+    });
+
     $scope.$watch('snippet.snippet', updateSnippet);
-    $scope.$watch('aceConfig.mode', updateSnippet);
+    $scope.$watch('aceConfig.mode', (language) => {
+        sendPayload({ settings: { language } });
+        updateSnippet();
+    });
 });

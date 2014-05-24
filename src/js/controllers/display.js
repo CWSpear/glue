@@ -22,26 +22,29 @@ angular.module('glue')
     });
 
     // once subscribed, we will get notifications of updates
-    var session;
-    sailsSocket.on('snippet', (err, snippet) => {
+    sailsSocket.on('snippet', (err, payload) => {
         if (err) return console.error(err);
 
         $scope.liveEditingSession = true;
-        session = (snippet || {}).session || {};
 
-        // console.log($scope.snippet.language);
-        $scope.snippet = snippet;
-        $rootScope.aceConfig.mode = $scope.snippet.language;
-        console.log('language', $scope.snippet.language);
-
-        if ($scope.followCursor)
-            setTimeout(() => $scope.jumpToCursor(snippet.cursor));
+        if (payload.deltas) {
+            $scope.ace.session.getDocument().applyDeltas(payload.deltas);
+            cursor = _.last(payload.deltas).end;
+            if ($scope.followCursor)
+                setTimeout(() => $scope.jumpToCursor());
+        } else if (payload.settings) {
+            $timeout(() => {
+                $rootScope.aceConfig.mode = payload.settings.language;
+            });
+        } else {
+            console.err(payload);
+        }
     });
 
-    $scope.jumpToCursor = (cur) => {
-        var cursor = cur || session.cursor || {};
-        $scope.ace.scrollToLine(cursor.row, true, true);
-        // $scope.ace.selection.moveCursorTo(cursor.row + 15, cursor.column);
+    var cursor;
+    $scope.jumpToCursor = () => {
+        $scope.ace.scrollToLine(cursor, true, true);
+        $scope.ace.selection.moveCursorToPosition(cursor);
     };
 
     $scope.rawCode = (id) => {

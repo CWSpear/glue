@@ -10,6 +10,9 @@ angular.module('glue')
 .factory('sailsSocket', ($window, $rootScope, $q, debug, API_PREFIX) => {
     var socket = $window.io.socket;
 
+    var deferred = $q.defer();
+    socket.on('connect', () => deferred.resolve());
+
     (function(debug) {
         if (!debug) return;
 
@@ -28,6 +31,7 @@ angular.module('glue')
     })(debug);
 
     return {
+        connect  : deferred.promise,
         on       : desocketify(socket.on,        socket),
         emit     : desocketify(socket.emit,      socket),
         get      : desocketify(socket.get,       socket, true),
@@ -46,7 +50,11 @@ angular.module('glue')
             if (adjustUrl && (args[0] || {})[0] !== '/')
                 args[0] = API_PREFIX + args[0];
 
+            if (debug) console.log('***', args[0]);
+
             args.push(function callback(result) {
+                if (debug) console.log('***', result);
+
                 // if (debug) console.log('***', 'raw', result);
                 var err = result.status ? result : null;
                 var res = err ? null : (result.data || result);

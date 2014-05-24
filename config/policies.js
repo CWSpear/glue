@@ -28,6 +28,7 @@ module.exports.policies = {
         destroy: ['passport', 'authSnippetUser'],
 
         subscribe: true,
+        notify: ['passport', 'authSnippetUser'],
     },
 
     UserController: {
