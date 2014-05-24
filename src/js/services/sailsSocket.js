@@ -17,12 +17,12 @@ angular.module('glue')
         console.log('***', 'logging all socket interactions');
 
         var emit = socket.emit;
-        socket.emit = () => {
+        socket.emit = function () {
             console.log('***', 'emit', _.toArray(arguments));
             emit.apply(socket, arguments);
         };
         var $emit = socket.$emit;
-        socket.$emit = () => {
+        socket.$emit = function () {
             console.log('***', 'on', _.toArray(arguments));
             $emit.apply(socket, arguments);
         };
