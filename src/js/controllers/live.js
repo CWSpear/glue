@@ -1,7 +1,8 @@
 /* jshint esnext: true */
 angular.module('glue')
 
-.controller('LiveCtrl', ($scope, $rootScope, $routeParams, $location, Restangular, sailsSocket) => {
+.controller('LiveCtrl', ($scope, $rootScope, $routeParams, $location, Restangular, sailsSocket, debug) => {
+    $scope.snippet = { id: $routeParams.id };
     Restangular.one('snippets', $routeParams.id).get().then(snippet => {
         $scope.snippet = snippet;
         $rootScope.aceConfig.mode = $scope.snippet.language;
@@ -25,24 +26,25 @@ angular.module('glue')
     }, 500);
 
     $rootScope.aceConfig.onLoad = _.once(() => {
-        $scope.ace.on('change', (event) => {
+        $scope.ace.on('change', ({ data: delta }) => {
             sendPayload({
                 // mmm, real magic
-                deltas: [event.data]
+                deltas: [delta]
             });
         });
     });
 
     // queue deltas until we are connected to sockets
     var queuedPayload = { deltas: [] };
-    var sendPayload = (payload) => {
-        if (payload.settings) 
-            queuedPayload.settings = payload.settings;
-        if (payload.deltas)
-            queuedPayload.deltas.concat(payload.deltas);
+    var sendPayload = ({ settings, deltas }) => {
+        if (settings) 
+            queuedPayload.settings = settings;
+        if (deltas)
+            queuedPayload.deltas.concat(deltas);
     };
 
     sailsSocket.connect.then(() => {
+        if (debug) console.log('connected');
         // once we're connected to sockets, change function and send queued payload
         sendPayload = (payload) => {
             sailsSocket.post(`snippets/${$scope.snippet.id}/notify`, payload, function (err, payload) {

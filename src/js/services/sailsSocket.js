@@ -17,14 +17,14 @@ angular.module('glue')
         console.log('***', 'logging all socket interactions');
 
         var emit = socket.emit;
-        socket.emit = function () {
-            console.log('***', 'emit', _.toArray(arguments));
-            emit.apply(socket, arguments);
+        socket.emit = (...args) => {
+            console.log('***', 'emit', args);
+            emit.apply(socket, args);
         };
         var $emit = socket.$emit;
-        socket.$emit = function () {
-            console.log('***', 'on', _.toArray(arguments));
-            $emit.apply(socket, arguments);
+        socket.$emit = (...args) => {
+            console.log('***', 'on', args);
+            $emit.apply(socket, args);
         };
     }
 
@@ -39,10 +39,8 @@ angular.module('glue')
     };
 
     function desocketify (fn, context, adjustUrl) {
-        return function desocketifiedFn() {
-            // TODO: passing arguments prevents optimization?
-            // https://github.com/petkaantonov/bluebird/wiki/Optimization-killers#3-managing-arguments
-            var args = _.toArray(arguments);
+        return function desocketifiedFn(...args) {
+
             var cb = args.splice(-1)[0];
 
             if (adjustUrl && (args[0] || {})[0] !== '/')
@@ -65,10 +63,7 @@ angular.module('glue')
     }
 
     function denodeify (fn, context) {
-        return function denodeifiedFn() {
-            // TODO: passing arguments prevents optimization?
-            // https://github.com/petkaantonov/bluebird/wiki/Optimization-killers#3-managing-arguments
-            var args = _.toArray(arguments);
+        return function denodeifiedFn(...args) {
             var deferred = $q.defer();
 
             args.push(function callback(err, result) {
