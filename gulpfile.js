@@ -98,13 +98,10 @@ gulp.task('scripts', _.union(['index', 'bower'], gutil.env.production ? ['styles
     .pipe(gutil.env.production ? uglify() : gutil.noop())
     .pipe(gulp.dest(dest + 'js/lib/'));
 
-  return mergestream(
-      gulp.src(scripts)
-        .pipe(plumber(onError))
-        .pipe(traceur())
-        .pipe(gutil.env.production ? ngmin() : gutil.noop()),
-      gulp.src(src + 'js/lib/*.js')
-    )
+  return gulp.src(scripts)
+    .pipe(plumber(onError))
+    .pipe(traceur())
+    .pipe(gutil.env.production ? ngmin() : gutil.noop())
     .pipe(gutil.env.production ? concat('script.js') : gutil.noop())
     .pipe(gutil.env.production ? uglify() : gutil.noop())
     .pipe(rev())

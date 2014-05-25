@@ -87,7 +87,9 @@
         acee.setTheme('ace/theme/' + opts.theme);
       }
       if (angular.isString(opts.mode)) {
-        session.setMode('ace/mode/' + opts.mode);
+        if (opts.mode && opts.mode !== 'mode') {
+          session.setMode('ace/mode/' + opts.mode);
+        }
       }
       if (angular.isDefined(opts.tabSize)) {
         session.setTabSize(opts.tabSize);
@@ -118,7 +120,9 @@
         window.acee = acee;
 
         // TODO: maybe make this configurable?
-        acee.setOption('enableEmmet', true);
+        acee.setOptions({
+          enableEmmet: true,
+        });
 
         if (attrs.ace) scope[attrs.ace] = acee;
 
