@@ -77,12 +77,7 @@ gulp.task('copy', function () {
 
 // these files are require'd, so don't need to be linked, but do need to be copied
 gulp.task('ace', ['usemin'], function () {
-  return gulp.src([
-      'mode-*',
-      'theme-*',
-      'worker-*',
-      'ext-*',
-    ], {
+  return gulp.src(['**/*'], {
       // note: NO src/
       cwd: 'bower_components/ace-builds/src' + 
             (gutil.env.production ? '-min' : '') + 

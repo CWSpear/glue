@@ -82,9 +82,6 @@
         acee.setTheme('ace/theme/' + opts.theme);
       }
       if (angular.isString(opts.mode)) {
-        if (opts.mode == 'html') {
-          acee.setOption('enableEmmet', true);
-        }
         session.setMode('ace/mode/' + opts.mode);
       }
       if (angular.isDefined(opts.tabSize)) {
@@ -114,6 +111,13 @@
          */
         var acee = window.ace.edit(elm[0]);
         window.acee = acee;
+
+        // whaaa?
+        ace.require('ace/lib/net').loadScript('http://nightwing.github.io/emmet-core/emmet.js', function () {
+          ace.require('ace/ext/emmet').setCore(window.emmet);
+          acee.setOption("enableEmmet", true);
+        });
+
         if (attrs.ace) scope[attrs.ace] = acee;
 
         /**
