@@ -82,6 +82,9 @@
         acee.setTheme('ace/theme/' + opts.theme);
       }
       if (angular.isString(opts.mode)) {
+        if (opts.mode == 'html') {
+          acee.setOption('enableEmmet', true);
+        }
         session.setMode('ace/mode/' + opts.mode);
       }
       if (angular.isDefined(opts.tabSize)) {
