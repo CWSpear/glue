@@ -64,7 +64,6 @@ gulp.task('styles', function () {
 });
 
 gulp.task('copy', function () {
-  // apparently gulp ignores dotfiles with globs
   gulp.src([src + 'copy/**/*', src + 'favicon.ico'], { dot: true })
     .pipe(gulp.dest(dest));
 
@@ -96,7 +95,7 @@ gulp.task('templates', function () {
 gulp.task('scripts', _.union(['index', 'bower'], gutil.env.production ? ['styles'] : []), function () {
   return gulp.src(scripts)
     .pipe(plumber(onError))
-    .pipe(traceur({ sourceMap: false })) // !gutil.env.production }))
+    .pipe(traceur())
     .pipe(gutil.env.production ? ngmin() : gutil.noop())
     .pipe(gutil.env.production ? concat('script.js') : gutil.noop())
     .pipe(gutil.env.production ? uglify() : gutil.noop())

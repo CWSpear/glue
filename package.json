@@ -50,7 +50,6 @@
     "gulp-mocha": "^0.4.1",
     "gulp-ngmin": "^0.3.0",
     "gulp-plumber": "^0.6.1",
-    "gulp-rename": "^1.2.0",
     "gulp-replace": "^0.3.0",
     "gulp-rev": "^0.4.0",
     "gulp-sass": "^0.7.1",
