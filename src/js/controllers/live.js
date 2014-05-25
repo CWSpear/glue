@@ -56,6 +56,30 @@ angular.module('glue')
         sendPayload(queuedPayload);
     });
 
+    // subscribe to a snippet's model's changes
+    sailsSocket.get(`snippets/${$routeParams.id}/subscribe`, (err, response) => {
+        if (err) return console.error(err);
+        // console.log(response);
+    });
+
+    // once subscribed, we will get notifications of updates
+    sailsSocket.on('snippet', (err, { deltas, settings }) => {
+        if (err) return console.error(err);
+
+        $scope.liveEditingSession = true;
+
+        if (deltas) {
+            $scope.ace.session.getDocument().applyDeltas(deltas);
+            cursor = (_.last(deltas).range || {}).end;
+            if ($scope.followCursor)
+                setTimeout(() => $scope.jumpToCursor());
+        } else if (settings) {
+            $timeout(() => $rootScope.aceConfig.mode = settings.language);
+        } else {
+            console.err(deltas, settings);
+        }
+    });
+
     $scope.$watch('snippet.snippet', updateSnippet);
     $scope.$watch('aceConfig.mode', (language) => {
         sendPayload({ settings: { language } });
