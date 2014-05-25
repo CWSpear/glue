@@ -16,11 +16,11 @@
     "passport-google": "^0.3.0",
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.2",
-    "rc": "^0.3.5",
+    "rc": "^0.4.0",
     "sails": "^0.10.0-rc7",
     "sails-generate-auth": "^0.1.4",
     "sails-mongo": "^0.10.0-rc5",
-    "sails-mysql": "^0.10.0-rc6",
+    "sails-mysql": "^0.10.0-rc7",
     "validator": "^3.12.0"
   },
   "scripts": {
@@ -49,7 +49,7 @@
     "gulp-livereload": "^1.5.0",
     "gulp-mocha": "^0.4.1",
     "gulp-ngmin": "^0.3.0",
-    "gulp-plumber": "^0.6.1",
+    "gulp-plumber": "^0.6.2",
     "gulp-replace": "^0.3.0",
     "gulp-rev": "^0.4.0",
     "gulp-sass": "^0.7.1",
@@ -60,11 +60,11 @@
     "lodash": "^2.4.1",
     "merge-stream": "^0.1.1",
     "mocha": "^1.19.0",
-    "npm": "^1.4.10",
+    "npm": "^1.4.13",
     "q": "^1.0.1",
     "qs": "^0.6.6",
     "rimraf": "^2.2.8",
-    "supertest": "^0.12.1",
+    "supertest": "^0.13.0",
     "terminal-notifier": "^0.1.2",
     "wiredep": "^1.7.0"
   }
