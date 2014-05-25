@@ -80,8 +80,10 @@ gulp.task('ace', ['usemin'], function () {
       'worker-*',
       'ext-*',
     ], {
-      // note: NO src
-      cwd: 'bower_components/ace-builds/src-min/'
+      // note: NO src/
+      cwd: 'bower_components/ace-builds/src' + 
+            (gutil.env.production ? '-min' : '') + 
+            '/'
     })
     .pipe(gulp.dest(dest + 'js/ace/'));
 });
