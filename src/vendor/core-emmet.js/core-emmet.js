@@ -1,3 +1,6 @@
+// Modified (removed underscore and disabled define module detection) copy of
+// https://github.com/sergeche/emmet-sublime/blob/2165ce447e4fcdee123eb599d2bc5dfaaeeead45/emmet/emmet-app.js
+
 /**
  * Core Emmet object, available in global scope
  */

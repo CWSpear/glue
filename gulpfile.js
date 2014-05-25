@@ -64,6 +64,9 @@ gulp.task('styles', function () {
 });
 
 gulp.task('copy', function () {
+  // gulp.src([src + 'js/vendor/**/*'], { dot: true })
+  //   .pipe(gulp.dest('bower_components/'));
+
   gulp.src([src + 'copy/**/*', src + 'favicon.ico'], { dot: true })
     .pipe(gulp.dest(dest));
 
