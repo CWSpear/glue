@@ -30,7 +30,7 @@ if (_.contains(gutil.env._, 'test')) {
 var scripts = [
   src + 'js/app.js',
   src + 'js/**/*.js',
-  '!' + src + 'js/dependencies/*.js',
+  '!' + src + 'js/lib/*.js',
 ];
 
 // end config
@@ -64,6 +64,9 @@ gulp.task('styles', function () {
 });
 
 gulp.task('copy', function () {
+  // gulp.src([src + 'js/vendor/**/*'], { dot: true })
+  //   .pipe(gulp.dest('bower_components/'));
+
   gulp.src([src + 'copy/**/*', src + 'favicon.ico'], { dot: true })
     .pipe(gulp.dest(dest));
 
@@ -74,12 +77,7 @@ gulp.task('copy', function () {
 
 // these files are require'd, so don't need to be linked, but do need to be copied
 gulp.task('ace', ['usemin'], function () {
-  return gulp.src([
-      'mode-*',
-      'theme-*',
-      'worker-*',
-      'ext-*',
-    ], {
+  return gulp.src(['**/*'], {
       // note: NO src/
       cwd: 'bower_components/ace-builds/src' + 
             (gutil.env.production ? '-min' : '') + 
@@ -95,10 +93,13 @@ gulp.task('templates', function () {
 });
 
 gulp.task('scripts', _.union(['index', 'bower'], gutil.env.production ? ['styles'] : []), function () {
-  return gulp.src(scripts)
-    .pipe(plumber(onError))
-    .pipe(traceur())
-    .pipe(gutil.env.production ? ngmin() : gutil.noop())
+  return mergestream(
+      gulp.src(scripts)
+        .pipe(plumber(onError))
+        .pipe(traceur())
+        .pipe(gutil.env.production ? ngmin() : gutil.noop()),
+      gulp.src(src + 'js/lib/*.js')
+    )
     .pipe(gutil.env.production ? concat('script.js') : gutil.noop())
     .pipe(gutil.env.production ? uglify() : gutil.noop())
     .pipe(rev())
