@@ -27,9 +27,9 @@
   "overrides": {
     "ace-builds": {
       "main": [
-        "src-min/ace.js",
-        "src-min/ext-modelist.js",
-        "src-min/ext-themelist.js"
+        "src/ace.js",
+        "src/ext-modelist.js",
+        "src/ext-themelist.js"
       ]
     },
     "node-uuid": {
