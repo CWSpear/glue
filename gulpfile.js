@@ -93,6 +93,11 @@ gulp.task('templates', function () {
 });
 
 gulp.task('scripts', _.union(['index', 'bower'], gutil.env.production ? ['styles'] : []), function () {
+  // will be "net'd" in by ace
+  gulp.src(src + 'js/lib/*.js')
+    .pipe(gutil.env.production ? uglify() : gutil.noop())
+    .pipe(gulp.dest(dest + 'js/lib/'));
+
   return mergestream(
       gulp.src(scripts)
         .pipe(plumber(onError))

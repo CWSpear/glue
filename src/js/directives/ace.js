@@ -19,6 +19,11 @@
     window.ace.config.set('workerPath', '/js/ace/');
     window.ace.config.set('basePath',   '/js/ace/');
 
+    // whaaa?
+    ace.require('ace/lib/net').loadScript('/js/lib/emmet-core.js', function () {
+      ace.require('ace/ext/emmet').setCore(window.emmet);
+    });
+
     /**
      * Sets editor options such as the wrapping mode or the syntax checker.
      *
@@ -112,11 +117,8 @@
         var acee = window.ace.edit(elm[0]);
         window.acee = acee;
 
-        // whaaa?
-        ace.require('ace/lib/net').loadScript('http://nightwing.github.io/emmet-core/emmet.js', function () {
-          ace.require('ace/ext/emmet').setCore(window.emmet);
-          acee.setOption("enableEmmet", true);
-        });
+        // TODO: maybe make this configurable?
+        acee.setOption('enableEmmet', true);
 
         if (attrs.ace) scope[attrs.ace] = acee;
 

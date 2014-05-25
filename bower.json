@@ -29,8 +29,7 @@
       "main": [
         "src/ace.js",
         "src/ext-modelist.js",
-        "src/ext-themelist.js",
-        "src/ext-emmet.js"
+        "src/ext-themelist.js"
       ]
     },
     "node-uuid": {
