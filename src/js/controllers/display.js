@@ -6,7 +6,7 @@ angular.module('glue')
         $scope.snippet = snippet;
         $rootScope.aceConfig.mode = $scope.snippet.language;
         $rootScope.aceConfig.tabSize = $scope.snippet.tabSize || 4;
-    }).catch(function (err) {
+    }).catch((err) => {
         if (err.status == 404) {
             // TODO: better 404 handling
             $scope.snippet = { snippet: 'Snippet not found.' };
@@ -22,31 +22,30 @@ angular.module('glue')
     });
 
     // once subscribed, we will get notifications of updates
-    var session;
-    sailsSocket.on('snippet', (err, snippet) => {
+    sailsSocket.on('snippet', (err, { deltas, settings }) => {
         if (err) return console.error(err);
 
         $scope.liveEditingSession = true;
-        session = (snippet || {}).session || {};
 
-        // console.log($scope.snippet.language);
-        $scope.snippet = snippet;
-        $rootScope.aceConfig.mode = $scope.snippet.language;
-        console.log('language', $scope.snippet.language);
-
-        if ($scope.followCursor)
-            setTimeout(() => $scope.jumpToCursor(snippet.cursor));
+        if (deltas) {
+            $scope.ace.session.getDocument().applyDeltas(deltas);
+            cursor = (_.last(deltas).range || {}).end;
+            if ($scope.followCursor)
+                setTimeout(() => $scope.jumpToCursor());
+        } else if (settings) {
+            $timeout(() => $rootScope.aceConfig.mode = settings.language);
+        } else {
+            console.err(deltas, settings);
+        }
     });
 
-    $scope.jumpToCursor = (cur) => {
-        var cursor = cur || session.cursor || {};
+    var cursor;
+    $scope.jumpToCursor = () => {
         $scope.ace.scrollToLine(cursor.row, true, true);
-        // $scope.ace.selection.moveCursorTo(cursor.row + 15, cursor.column);
+        $scope.ace.selection.moveCursorToPosition(cursor);
     };
 
-    $scope.rawCode = (id) => {
-        window.location.href = `${SNIPPETS_URI}${id}/raw`;
-    };
+    $scope.rawCode = (id) => window.location.href = `${SNIPPETS_URI}${id}/raw`;
 
     $scope.fork = (code, mode) => {
         flash('code', code);

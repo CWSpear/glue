@@ -19,6 +19,11 @@
     window.ace.config.set('workerPath', '/js/ace/');
     window.ace.config.set('basePath',   '/js/ace/');
 
+    // whaaa?
+    ace.require('ace/lib/net').loadScript('/js/lib/emmet-core.js', function () {
+      ace.require('ace/ext/emmet').setCore(window.emmet);
+    });
+
     /**
      * Sets editor options such as the wrapping mode or the syntax checker.
      *
@@ -82,7 +87,9 @@
         acee.setTheme('ace/theme/' + opts.theme);
       }
       if (angular.isString(opts.mode)) {
-        session.setMode('ace/mode/' + opts.mode);
+        if (opts.mode && opts.mode !== 'mode') {
+          session.setMode('ace/mode/' + opts.mode);
+        }
       }
       if (angular.isDefined(opts.tabSize)) {
         session.setTabSize(opts.tabSize);
@@ -111,6 +118,12 @@
          */
         var acee = window.ace.edit(elm[0]);
         window.acee = acee;
+
+        // TODO: maybe make this configurable?
+        acee.setOptions({
+          enableEmmet: true,
+        });
+
         if (attrs.ace) scope[attrs.ace] = acee;
 
         /**

@@ -30,7 +30,7 @@ if (_.contains(gutil.env._, 'test')) {
 var scripts = [
   src + 'js/app.js',
   src + 'js/**/*.js',
-  '!' + src + 'js/dependencies/*.js',
+  '!' + src + 'js/lib/*.js',
 ];
 
 // end config
@@ -64,7 +64,9 @@ gulp.task('styles', function () {
 });
 
 gulp.task('copy', function () {
-  // apparently gulp ignores dotfiles with globs
+  // gulp.src([src + 'js/vendor/**/*'], { dot: true })
+  //   .pipe(gulp.dest('bower_components/'));
+
   gulp.src([src + 'copy/**/*', src + 'favicon.ico'], { dot: true })
     .pipe(gulp.dest(dest));
 
@@ -75,14 +77,11 @@ gulp.task('copy', function () {
 
 // these files are require'd, so don't need to be linked, but do need to be copied
 gulp.task('ace', ['usemin'], function () {
-  return gulp.src([
-      'mode-*',
-      'theme-*',
-      'worker-*',
-      'ext-*',
-    ], {
-      // note: NO src
-      cwd: 'bower_components/ace-builds/src-min/'
+  return gulp.src(['**/*'], {
+      // note: NO src/
+      cwd: 'bower_components/ace-builds/src' + 
+            (gutil.env.production ? '-min' : '') + 
+            '/'
     })
     .pipe(gulp.dest(dest + 'js/ace/'));
 });
@@ -94,9 +93,14 @@ gulp.task('templates', function () {
 });
 
 gulp.task('scripts', _.union(['index', 'bower'], gutil.env.production ? ['styles'] : []), function () {
+  // will be "net'd" in by ace
+  gulp.src(src + 'js/lib/*.js')
+    .pipe(gutil.env.production ? uglify() : gutil.noop())
+    .pipe(gulp.dest(dest + 'js/lib/'));
+
   return gulp.src(scripts)
     .pipe(plumber(onError))
-    .pipe(traceur({ sourceMap: false })) // !gutil.env.production }))
+    .pipe(traceur())
     .pipe(gutil.env.production ? ngmin() : gutil.noop())
     .pipe(gutil.env.production ? concat('script.js') : gutil.noop())
     .pipe(gutil.env.production ? uglify() : gutil.noop())
@@ -226,7 +230,7 @@ gulp.task('default', function () {
 
 var testFiles = ['./test/test.js'], mocha;
 if (gutil.env.test) {
-  var terminalnotifier = require('terminal-notifier');
+  global.terminalnotifier = require('terminal-notifier');
   mocha = require('gulp-mocha');
 
   process.on('exit', function () {

@@ -1,13 +1,14 @@
 /* jshint esnext: true */
 angular.module('glue')
 
-.controller('LiveCtrl', ($scope, $rootScope, $routeParams, $location, Restangular, sailsSocket) => {
+.controller('LiveCtrl', ($scope, $rootScope, $routeParams, $location, Restangular, sailsSocket, debug) => {
+    $scope.snippet = { id: $routeParams.id };
     Restangular.one('snippets', $routeParams.id).get().then(snippet => {
         $scope.snippet = snippet;
         $rootScope.aceConfig.mode = $scope.snippet.language;
         $rootScope.aceConfig.tabSize = $scope.snippet.tabSize || 4;
         $scope.watchUrl = $location.absUrl().replace('live', 's');
-    }).catch(function (err) {
+    }).catch((err) => {
         if (err.status == 404) {
             // TODO: better 404 handling
             $scope.snippet = { snippet: 'Snippet not found.' };
@@ -18,22 +19,46 @@ angular.module('glue')
         // TODO: catchall error handling
     });
 
-    var updateSnippet = function (val, old) {
-        if (!angular.isDefined(val) || val === old || !$scope.snippet.put) return;
+    var updateSnippet = _.throttle(() => {
+        if (!($scope.snippet || {}).put) return;
         $scope.snippet.language = $rootScope.aceConfig.mode;
-        $scope.snippet.session = {
-            cursor: $scope.ace.selection.getCursor()
-        };
-        
-        // $scope.snippet.put();
+        $scope.snippet.put();
+    }, 500);
 
-        var snippet = $scope.snippet.plain();
-        sailsSocket.put(`snippets/${snippet.id}`, snippet, function (err, snippet) {
-            if (err) console.error(err);
-            // we don't really care about the response, but we should add better error handling
+    $rootScope.aceConfig.onLoad = _.once(() => {
+        $scope.ace.on('change', ({ data: delta }) => {
+            sendPayload({
+                // mmm, real magic
+                deltas: [delta]
+            });
         });
+    });
+
+    // queue deltas until we are connected to sockets
+    var queuedPayload = { deltas: [] };
+    var sendPayload = ({ settings, deltas }) => {
+        if (settings) 
+            queuedPayload.settings = settings;
+        if (deltas)
+            queuedPayload.deltas.concat(deltas);
     };
 
+    sailsSocket.connect.then(() => {
+        if (debug) console.log('connected');
+        // once we're connected to sockets, change function and send queued payload
+        sendPayload = (payload) => {
+            sailsSocket.post(`snippets/${$scope.snippet.id}/notify`, payload, function (err, payload) {
+                if (err) console.error(err);
+                // we don't really care about the response, but we should add better error handling
+            });
+        };
+
+        sendPayload(queuedPayload);
+    });
+
     $scope.$watch('snippet.snippet', updateSnippet);
-    $scope.$watch('aceConfig.mode', updateSnippet);
+    $scope.$watch('aceConfig.mode', (language) => {
+        sendPayload({ settings: { language } });
+        updateSnippet();
+    });
 });

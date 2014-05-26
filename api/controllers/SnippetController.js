@@ -28,15 +28,9 @@ module.exports = {
         var snippet = req.body;
         // user = user via API key || auth'd user || default user
         snippet.user = req.user.id;
-        var session = snippet.session;
         snippet.isUpdate = true;
         Snippet.update(snippet.id, snippet).then(function (snippets) {
             var snip = snippets[0];
-
-            var update = _.clone(snip);
-            update.session = session;
-            Snippet.publishUpdate(update.id, update);
-
             return res.send(snip);
         }).catch(function (err) {
             res.serverError(err);
@@ -54,6 +48,14 @@ module.exports = {
         }).catch(function (err) {
             res.serverError(err);
         });
+    },
+
+    notify: function (req, res, next) {
+        var id = req.param('id');
+        var payload = req.body;
+        if (payload.language) payload.filename = Helpers.getFileNameFromSnippetModel(payload, true);
+        Snippet.publishUpdate(id, payload);
+        res.ok();
     },
 
     // the only bloody reason we need this function is because

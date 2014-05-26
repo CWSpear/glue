@@ -21,14 +21,19 @@
 
 module.exports.routes = {
 
-    '/s/:id/raw': {
+    'GET /s/:id/raw': {
         controller: 'snippet',
         action: 'raw',
     },
 
-    '/api/snippets/:id/subscribe': {
+    'GET /api/snippets/:id/subscribe': {
         controller: 'snippet',
         action: 'subscribe',
+    },
+
+    'POST /api/snippets/:id/notify': {
+        controller: 'snippet',
+        action: 'notify',
     },
 
     'GET /api/users': {

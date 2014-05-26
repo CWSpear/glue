@@ -10,24 +10,26 @@ angular.module('glue')
 .factory('sailsSocket', ($window, $rootScope, $q, debug, API_PREFIX) => {
     var socket = $window.io.socket;
 
-    (function(debug) {
-        if (!debug) return;
+    var deferred = $q.defer();
+    socket.on('connect', () => deferred.resolve());
 
+    if (debug) {
         console.log('***', 'logging all socket interactions');
 
         var emit = socket.emit;
-        socket.emit = function() {
-            console.log('***', 'emit', _.toArray(arguments));
-            emit.apply(socket, arguments);
+        socket.emit = (...args) => {
+            console.log('***', 'emit', args);
+            emit.apply(socket, args);
         };
         var $emit = socket.$emit;
-        socket.$emit = function() {
-            console.log('***', 'on', _.toArray(arguments));
-            $emit.apply(socket, arguments);
+        socket.$emit = (...args) => {
+            console.log('***', 'on', args);
+            $emit.apply(socket, args);
         };
-    })(debug);
+    }
 
     return {
+        connect  : deferred.promise,
         on       : desocketify(socket.on,        socket),
         emit     : desocketify(socket.emit,      socket),
         get      : desocketify(socket.get,       socket, true),
@@ -37,23 +39,23 @@ angular.module('glue')
     };
 
     function desocketify (fn, context, adjustUrl) {
-        return function desocketifiedFn() {
-            // TODO: passing arguments prevents optimization?
-            // https://github.com/petkaantonov/bluebird/wiki/Optimization-killers#3-managing-arguments
-            var args = _.toArray(arguments);
+        return function desocketifiedFn(...args) {
+
             var cb = args.splice(-1)[0];
 
             if (adjustUrl && (args[0] || {})[0] !== '/')
                 args[0] = API_PREFIX + args[0];
 
+            if (debug) console.log('***', args[0]);
+
             args.push(function callback(result) {
+                if (debug) console.log('***', result);
+
                 // if (debug) console.log('***', 'raw', result);
                 var err = result.status ? result : null;
                 var res = err ? null : (result.data || result);
 
-                $rootScope.$apply(function () {
-                    cb(err, res);
-                });
+                $rootScope.$apply(() => cb(err, res));
             });
 
             fn.apply(context, args);
@@ -61,10 +63,7 @@ angular.module('glue')
     }
 
     function denodeify (fn, context) {
-        return function denodeifiedFn() {
-            // TODO: passing arguments prevents optimization?
-            // https://github.com/petkaantonov/bluebird/wiki/Optimization-killers#3-managing-arguments
-            var args = _.toArray(arguments);
+        return function denodeifiedFn(...args) {
             var deferred = $q.defer();
 
             args.push(function callback(err, result) {
