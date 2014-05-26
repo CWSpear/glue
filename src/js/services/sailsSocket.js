@@ -49,9 +49,7 @@ angular.module('glue')
             if (debug) console.log('***', args[0]);
 
             args.push(function callback(result) {
-                if (debug) console.log('***', result);
-
-                // if (debug) console.log('***', 'raw', result);
+                if (debug) console.log('***', 'raw', result);
                 var err = result.status ? result : null;
                 var res = err ? null : (result.data || result);
 

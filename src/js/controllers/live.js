@@ -1,7 +1,7 @@
 /* jshint esnext: true */
 angular.module('glue')
 
-.controller('LiveCtrl', ($scope, $rootScope, $routeParams, $location, Restangular, sailsSocket, debug) => {
+.controller('LiveCtrl', ($scope, $rootScope, $routeParams, $location, Restangular, sailsSocket, debug, $timeout) => {
     $scope.snippet = { id: $routeParams.id };
     Restangular.one('snippets', $routeParams.id).get().then(snippet => {
         $scope.snippet = snippet;
@@ -25,8 +25,14 @@ angular.module('glue')
         $scope.snippet.put();
     }, 500);
 
+    var disableOnChange = false;
     $rootScope.aceConfig.onLoad = _.once(() => {
         $scope.ace.on('change', ({ data: delta }) => {
+            if (disableOnChange)  {
+                disableOnChange = false;
+                return;
+            }
+
             sendPayload({
                 // mmm, real magic
                 deltas: [delta]
@@ -56,6 +62,8 @@ angular.module('glue')
         sendPayload(queuedPayload);
     });
 
+    var cursor;
+
     // subscribe to a snippet's model's changes
     sailsSocket.get(`snippets/${$routeParams.id}/subscribe`, (err, response) => {
         if (err) return console.error(err);
@@ -63,16 +71,14 @@ angular.module('glue')
     });
 
     // once subscribed, we will get notifications of updates
-    sailsSocket.on('snippet', (err, { deltas, settings }) => {
+    sailsSocket.on('snippet', (err, { deltas, settings, socketId }) => {
         if (err) return console.error(err);
 
         $scope.liveEditingSession = true;
 
         if (deltas) {
+            disableOnChange = true;
             $scope.ace.session.getDocument().applyDeltas(deltas);
-            cursor = (_.last(deltas).range || {}).end;
-            if ($scope.followCursor)
-                setTimeout(() => $scope.jumpToCursor());
         } else if (settings) {
             $timeout(() => $rootScope.aceConfig.mode = settings.language);
         } else {

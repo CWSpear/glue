@@ -4,12 +4,16 @@ angular.module('glue')
 .controller('EditCtrl', ($rootScope, $scope, modelist, Restangular, $location, SNIPPETS_URI, aceHelper, flash, storage) => {
     var snippetsModel = Restangular.all('snippets');
 
-    $scope.code = flash('code') || storage('code') || '';
+    // restore from flash (one and done) or storage
+    $scope.code               = flash('code') || storage('code') || '';
     $rootScope.aceConfig.mode = flash('mode') || storage('mode');
-    $scope.$watch('code', code => storage('code', code));
+    
+    // watch for when this stuff changes and save it back to storage
+    $scope.$watch('code',           code => storage('code', code));
     $scope.$watch('aceConfig.mode', mode => storage('mode', mode));
 
-    // TODO make this configurable
+    // TODO make this configurable... maybe. screw other people
+    // who have other opinions than my own!
     $rootScope.aceConfig.tabSize = 4;
 
     $scope.save = () => {
@@ -40,6 +44,6 @@ angular.module('glue')
 
     $scope.clear = () => {
         $rootScope.aceConfig.mode = '';
-        $scope.code = '';
+        $scope.code               = '';
     };
 });
