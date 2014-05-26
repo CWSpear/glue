@@ -41,6 +41,11 @@ module.exports.routes = {
         action: 'getSelf',
     },
 
+    'GET /api/ping': {
+        controller: 'snippet',
+        action: 'ping',
+    },
+
     // passport routes
     'get /login': 'AuthController.login',
     'get /logout': 'AuthController.logout',

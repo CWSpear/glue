@@ -42,7 +42,8 @@ module.exports = {
         Snippet.findOneById(id).then(function (snippet) {
             if (!snippet) return res.notFound('No Snippet found with ID ' + id);
 
-            // Subscribe the requesting socket (e.g. req.socket) to all users (e.g. users)
+            // Subscribe the requesting socket (e.g. req.socket) 
+            // to all updates that are done to this snippet
             Snippet.subscribe(req.socket, snippet, 'update');
             res.send(snippet);
         }).catch(function (err) {
@@ -58,6 +59,11 @@ module.exports = {
             payload.filename = Helpers.getFileNameFromSnippetModel(payload, true);
         Snippet.publishUpdate(id, payload, req);
         res.ok();
+    },
+
+    ping: function (req, res, next) {
+        var timestamp = new Date().getTime();
+        res.send({ timestamp: timestamp });
     },
 
     // the only bloody reason we need this function is because

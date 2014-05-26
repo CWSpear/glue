@@ -18,12 +18,12 @@ angular.module('glue')
 
         var emit = socket.emit;
         socket.emit = (...args) => {
-            console.log('***', 'emit', args);
+            if ((args[1] || {}).url !== '/api/ping') console.log('***', 'emit', args);
             emit.apply(socket, args);
         };
         var $emit = socket.$emit;
         socket.$emit = (...args) => {
-            console.log('***', 'on', args);
+            if ((args[1] || {}).url !== '/api/ping') console.log('***', 'on', args);
             $emit.apply(socket, args);
         };
     }
@@ -46,10 +46,10 @@ angular.module('glue')
             if (adjustUrl && (args[0] || {})[0] !== '/')
                 args[0] = API_PREFIX + args[0];
 
-            if (debug) console.log('***', args[0]);
+            if (debug && args[0] !== '/api/ping') console.log('***', args[0]);
 
             args.push(function callback(result) {
-                if (debug) console.log('***', 'raw', result);
+                if (debug && args[0] !== '/api/ping') console.log('***', 'raw', result);
                 var err = result.status ? result : null;
                 var res = err ? null : (result.data || result);
 

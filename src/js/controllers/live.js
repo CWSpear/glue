@@ -51,6 +51,7 @@ angular.module('glue')
 
     sailsSocket.connect.then(() => {
         if (debug) console.log('connected');
+        if (debug) getPing();
         // once we're connected to sockets, change function and send queued payload
         sendPayload = (payload) => {
             sailsSocket.post(`snippets/${$scope.snippet.id}/notify`, payload, function (err, payload) {
@@ -69,6 +70,21 @@ angular.module('glue')
         if (err) return console.error(err);
         // console.log(response);
     });
+
+    $scope.ping = false;
+    var lastPing, pings = [];
+    function getPing() {
+        sailsSocket.get('ping', (err, ping) => {
+            getPing();
+            if (lastPing) {
+                pings.push(ping.timestamp - lastPing);
+                pings = pings.slice(0, 1000);
+                $scope.ping = Math.ceil(pings.reduce((sum, num) => sum + num, 0) / pings.length);
+                // console.log($scope.ping);
+            }                
+            lastPing = ping.timestamp;
+        });
+    }
 
     // once subscribed, we will get notifications of updates
     sailsSocket.on('snippet', (err, { deltas, settings, socketId }) => {

@@ -8,7 +8,8 @@
         </div>
     </div>
     <div class="toolbar-right">
-        <span class="bar-middle">Theme:</span>
+        <span ng-show="ping" class="bar-middle"><strong>Ping:</strong> {{ ping }}ms</span>
+        <span class="bar-middle"><strong>Theme:</strong></span>
         <select ng-model="aceConfig.theme" ng-options="t.name as t.caption for t in themes | orderBy:'caption'" class="theme"></select>
         <img ng-show="user.id" ng-src="{{ user.avatar }}" alt="{{ user.name }}" class="mini-avatar">
         <a ng-show="user.id" href="/#/account/" class="btn">Account</a>

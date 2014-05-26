@@ -29,6 +29,7 @@ module.exports.policies = {
 
         subscribe: true,
         notify: ['passport', 'authSnippetUser'],
+        ping: true,
     },
 
     UserController: {
