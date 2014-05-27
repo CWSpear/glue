@@ -26,9 +26,6 @@ module.exports.policies = {
         create:  ['passport', 'authOrApiKey'],
         update:  ['passport', 'authSnippetUser'],
         destroy: ['passport', 'authSnippetUser'],
-
-        subscribe: true,
-        notify: ['passport', 'authSnippetUser'],
     },
 
     UserController: {

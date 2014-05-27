@@ -24,9 +24,6 @@ angular.module('glue', ['restangular', 'ngRoute', 'ui.ace'])
     }).when('/s/:id', {
         controller: 'DisplayCtrl',
         templateUrl: `${VIEWS_URI}display.html`,
-    }).when('/live/:id', {
-        controller: 'LiveCtrl',
-        templateUrl: `${VIEWS_URI}live.html`,
     }).when('/account/', {
         controller: 'AccountCtrl',
         templateUrl: `${VIEWS_URI}account.html`,

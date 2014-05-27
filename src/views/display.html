@@ -1,15 +1,8 @@
 <div class="view-wrapper">
     <header class="header">
-        <div class="toolbar-left" ng-hide="liveEditingSession">
+        <div class="toolbar-left">
             <a class="btn" href="/#/">New</a>
             <a class="btn" ng-click="fork(snippet.snippet, snippet.language)">Fork</a>
-            <a class="btn btn-primary" ng-show="user.id" ng-href="/#/live/{{ snippet.id }}">Live Edit</a>
-        </div>
-        <div class="toolbar-left" ng-show="liveEditingSession">
-            <span class="bar-middle">This is a live session! </span>
-            <button type="button" class="btn" ng-click="jumpToCursor()">Jump</button>
-            <span class="bar-middle">to Editor's Cursor Position</span>
-            <span class="bar-middle"><input type="checkbox" ng-model="followCursor"> Follow</span>
         </div>
         <div class="toolbar-right">
             <span class="filename bar-middle">Filename: <strong>{{ snippet.filename }}</strong></span>

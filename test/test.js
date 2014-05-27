@@ -432,21 +432,6 @@ describe(chalk.blue('API') + ' -', function () {
         request.put('/api/snippets/' + clone.id).send({ mockUser: userClone, origBody: clone }).expect(403).end(done);
       });
 
-      it('should allow an authorized user to notify of changes', function (done) {
-        var clone = _.clone(testSnippet);
-        clone.snippet = 'apple';
-        isApple = true;
-        request.post('/api/snippets/' + clone.id + '/notify').send({ mockUser: testUser, origBody: clone }).expect(200).end(done);
-      });
-
-      it('should not allow another authorized user to notify of changes', function (done) {
-        var clone = _.clone(testSnippet);
-        clone.snippet = 'apple';
-        var userClone = _.clone(testUser);
-        userClone.id = uuid.v4();
-        request.post('/api/snippets/' + clone.id + '/notify').send({ mockUser: userClone, origBody: clone }).expect(403).end(done);
-      });
-
       it('should not allow another authorized user to delete your snippet', function (done) {
         var userClone = _.clone(testUser);
         userClone.id = uuid.v4();

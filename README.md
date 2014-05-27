@@ -7,8 +7,6 @@ Glue is an open-source and self-hosted MEAN application for pasting and sharing 
 
 There is also a we-hosted version that is available as a demo and for public use: http://glue.mavrx.io/. Feel free to use it and start sharing snippets today.
 
-I may add more features. Who knows? Definitely going to clean stuff up and continue to make UI/UX improvements, etc. See [TODO](#todo) for more.
-
 ## Technologies
 This is a [SailsJS](http://sailsjs.org/) app built on top of the MEAN stack. You can use any database that Sails' ORM&mdash;[Waterline](https://github.com/balderdashy/waterline)&mdash;supports. The Mavrx Glue site is using MongoDB for the database with Redis for the session store (though it previously used MongoDB for the sessions, too).
 
@@ -75,6 +73,7 @@ server {
 
 ## Changelog
 
+- **[v0.8.0]** (2014-05-27) - Remove "Live" mode. This will be re-released in a separate plugin/module/entire application.
 - **[v0.7.0]** (2014-05-26) - Live mode improvements (smaller payloads; more direct. Should be faster overall). Add Emmet support (tricky stuff) and other minor tweaks.
 - **[v0.6.1]** (2014-05-22) - Fix a number of issues with detecting language (still only using HLJS, not MLearn yet) and filename detection. Especially painful on new snippets without a syntax and on Live mode. + tests for all that.
 - **[v0.6.0]** (2014-05-21) - Add User API tests, and with that, I found some issues with the User API that left certain parts vulnerable and I fixed those. And other minor tweaks, of course.
@@ -84,8 +83,7 @@ server {
 ## TODO
 * [ ] ~~Lock down the API. Only allow access to people with an API key,~~ limit the number of requests per X time period so that we don't get people abusing the API.
 * [x] ~~Create a page that issues/manages accounts/API keys.~~
-* [ ] Create lots of plugins that integrate it! (~~Sublime version is all but done and works great for pasting code out of your editor) (I realize this depends on getting the API finished)~~ For example: [Sublime's plugin](https://github.com/surgeforward/glue-sublime-plugin)
+* [ ] Create lots of plugins that integrate it! ~~(Sublime version is all but done and works great for pasting code out of your editor) (I realize this depends on getting the API finished)~~ For example: [Sublime's plugin](https://github.com/surgeforward/glue-sublime-plugin)
 * [ ] Integrate with [MLearn.js](https://github.com/surgeforward/MLearn.js/) to auto-detect the language being used if you can't determine it by other means.
-* [x] ~~Use sockets to allow for some collaborative coding.~~
-* [ ] Use sockets for better collaborate coding (2-way)
+* [ ] Allow you to search and start past snippets you created.
 * [ ] More and/or better testing!

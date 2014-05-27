@@ -37,27 +37,6 @@ module.exports = {
         });
     },
 
-    subscribe: function (req, res, next) {
-        var id = req.param('id');
-        Snippet.findOneById(id).then(function (snippet) {
-            if (!snippet) return res.notFound();
-
-            // Subscribe the requesting socket (e.g. req.socket) to all users (e.g. users)
-            Snippet.subscribe(req.socket, snippet, 'update');
-            res.send(snippet);
-        }).catch(function (err) {
-            res.serverError(err);
-        });
-    },
-
-    notify: function (req, res, next) {
-        var id = req.param('id');
-        var payload = req.body;
-        if (payload.language) payload.filename = Helpers.getFileNameFromSnippetModel(payload, true);
-        Snippet.publishUpdate(id, payload);
-        res.ok();
-    },
-
     // the only bloody reason we need this function is because
     // Sails is auto populating this with the user info, even
     // tho we don't want it to!!!1!
