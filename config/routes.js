@@ -26,16 +26,6 @@ module.exports.routes = {
         action: 'raw',
     },
 
-    'GET /api/snippets/:id/subscribe': {
-        controller: 'snippet',
-        action: 'subscribe',
-    },
-
-    'POST /api/snippets/:id/notify': {
-        controller: 'snippet',
-        action: 'notify',
-    },
-
     'GET /api/users': {
         controller: 'user',
         action: 'getSelf',
