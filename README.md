@@ -1,9 +1,7 @@
 <img src="src/img/glue-logo.png" alt="Glue" width="333">
 > Throw some code into the air and see what sticks.
 
-![Current Version](http://img.shields.io/github/tag/Mavrx/glue.svg?style=flat)
-&nbsp;
-![Build Status](http://img.shields.io/travis/Mavrx/glue.svg?style=flat)
+![Current Version](http://img.shields.io/github/tag/Mavrx/glue.svg?style=flat) &nbsp;![Build Status](http://img.shields.io/travis/Mavrx/glue.svg?style=flat)
 
 Glue is an open-source and self-hosted MEAN application for pasting and sharing snippets.
 
