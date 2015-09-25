@@ -1,6 +1,6 @@
 FROM node:latest
 
-EXPOSE 8888
+EXPOSE 3000
 COPY . /src
 
 WORKDIR /src
