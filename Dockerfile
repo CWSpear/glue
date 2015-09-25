@@ -5,7 +5,6 @@ COPY . /src
 
 WORKDIR /src
 
-RUN npm install -g gulp
 RUN npm install
 
 
