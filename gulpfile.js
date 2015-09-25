@@ -1,10 +1,10 @@
-var gulp     = require('gulp'),
-    mocha    = require('gulp-mocha'),
-    babel    = require('babel'),
-    plumber  = require('gulp-plumber'),
-    istanbul = require('gulp-istanbul'),
-    eslint   = require('gulp-eslint'),
-    cache    = require('gulp-cached');
+var babel    = require('babel');
+var gulp     = require('gulp');
+var mocha    = require('gulp-mocha');
+var plumber  = require('gulp-plumber');
+var istanbul = require('gulp-istanbul');
+var eslint   = require('gulp-eslint');
+var cache    = require('gulp-cached');
 
 require('babel/register')({
     nonStandard: true
