@@ -6,7 +6,9 @@ var gulp     = require('gulp'),
     eslint   = require('gulp-eslint'),
     cache    = require('gulp-cached');
 
-require('babel/register')
+require('babel/register')({
+    nonStandard: true
+});
 
 gulp.task('test', function () {
   return gulp.src('src/**/*.js', {read:false})
@@ -24,7 +26,7 @@ gulp.task('test', function () {
 });
 
 gulp.task('lint', function () {
-  return gulp.src('src/**/*.js')
+  return gulp.src(['server/**/*.js', 'client/**/*.js'])
     .pipe(plumber())
     .pipe(cache('linting'))
     .pipe(eslint())

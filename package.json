@@ -2,9 +2,9 @@
   "name": "glue",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "echo started",
+    "start": "node app.js",
     "test": "gulp ci"
   },
   "repository": {
@@ -17,11 +17,22 @@
     "url": "https://github.com/cohesivelabs/glue/issues"
   },
   "homepage": "https://github.com/cohesivelabs/glue#readme",
-  "devDependencies": {
+  "dependencies": {
     "babel": "^5.8.23",
+    "compression": "^1.0.3",
+    "cors": "^2.5.2",
+    "loopback": "^2.22.0",
+    "loopback-boot": "^2.6.5",
+    "loopback-component-explorer": "^2.1.0",
+    "loopback-datasource-juggler": "^2.39.0",
+    "serve-favicon": "^2.0.1"
+  },
+  "devDependencies": {
     "chai": "^3.3.0",
     "chai-as-promised": "^5.1.0",
+    "eslint-config-volox": "^1.0.2",
     "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.1",
     "gulp-cached": "^1.1.0",
     "gulp-eslint": "^1.0.0",
     "gulp-istanbul": "^0.10.0",
