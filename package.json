@@ -1,0 +1,20 @@
+{
+  "name": "glue",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "echo started"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cohesivelabs/glue.git"
+  },
+  "author": "Cohesive Labs LLC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cohesivelabs/glue/issues"
+  },
+  "homepage": "https://github.com/cohesivelabs/glue#readme"
+}

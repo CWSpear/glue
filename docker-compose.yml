@@ -1,0 +1,13 @@
+web:
+  build: .
+  ports:
+    - "8888:8888"
+  volumes:
+    - .:/src
+  links:
+    - redis
+    - postgres
+redis:
+  image: redis:latest
+postgres:
+  image: postgres:latest
