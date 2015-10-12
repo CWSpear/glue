@@ -1,9 +1,8 @@
-var gulp     = require('gulp');
-var mocha    = require('gulp-mocha');
-var plumber  = require('gulp-plumber');
-var istanbul = require('gulp-istanbul');
-var eslint   = require('gulp-eslint');
-var cache    = require('gulp-cached');
+var gulp      = require('gulp');
+var mocha     = require('gulp-mocha');
+var plumber   = require('gulp-plumber');
+var eslint    = require('gulp-eslint');
+var cache     = require('gulp-cached');
 
 require('babel/register')({
     nonStandard: true
@@ -11,19 +10,16 @@ require('babel/register')({
 
 var jsPaths = ['client/**/*.js', 'server/**/*.js'];
 
-gulp.task('test', function () {
-    return gulp.src(jsPaths, {read:false})
+gulp.task('integration-test', function () {
+    return gulp.src(jsPaths, { read: false })
         .pipe(plumber())
-        .pipe(istanbul())
-        .pipe(istanbul.hookRequire())
-        .pipe(runTests());
+        .pipe(mocha({reporter: 'nyan', grep: 'INTEGRATION-TESTS'}));
+});
 
-    function runTests() {
-        return gulp.src('tests/**/*.test.js')
-            .pipe(mocha({reporter: 'nyan'}))
-            .pipe(istanbul.writeReports())
-            .pipe(istanbul.enforceThresholds({ thresholds: { global: 80 } }));
-    }
+gulp.task('test', function () {
+    return gulp.src(jsPaths, { read: false })
+        .pipe(plumber())
+        .pipe(mocha({reporter: 'nyan', grep: 'UNIT-TESTS'}));
 });
 
 gulp.task('lint', function () {
@@ -35,4 +31,4 @@ gulp.task('lint', function () {
         .pipe(eslint.failAfterError());
 });
 
-gulp.task('ci', ['lint', 'test']);
+gulp.task('ci', ['lint', 'test', 'integration-test']);

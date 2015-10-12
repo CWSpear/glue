@@ -1,28 +1,14 @@
-'use strict';
-
-var request = require('supertest');
-var server = require('../../server');
+import request from 'supertest';
+import server from '../../server';
 
 var app;
 
-describe('server tests', function () {
-    beforeEach(function () {
-        app = server.start();
-    });
+describe('INTEGRATION-TESTS::Server tests', () => {
+    beforeEach(() => app = server.start());
 
-    afterEach(function (done) {
-        app.close(done);
-    });
+    afterEach((done) => app.close(done));
 
-    it('should return 200 for default route', function (done) {
-        request(server)
-            .get('/')
-            .expect(200, done);
-    });
+    it('should return 200 for default route', (done) => request(server).get('/').expect(200, done));
 
-    it('should return 404 for invalid uris', function (done) {
-        request(server)
-            .get('/not/valid')
-            .expect(404, done);
-    });
+    it('should return 404 for invalid uris', (done) => request(server).get('/not/valid').expect(404, done));
 });
