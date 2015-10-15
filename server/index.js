@@ -1,27 +1,32 @@
-'use strict';
+import loopback from 'loopback';
+import boot from 'loopback-boot';
 
-var loopback = require('loopback');
-var boot = require('loopback-boot');
-var debug = require('debug')('server');
+var app = loopback();
 
-var server = loopback();
-
-server.start = () => {
+app.start = function() {
     // start the web server
-    return server.listen(() => {
-        debug('started');
-        server.emit('started');
+    return app.listen(function() {
+        app.emit('started');
+        var baseUrl = app.get('url').replace(/\/$/, '');
+        console.log('Web server listening at: %s', baseUrl);
+        if (app.get('loopback-component-explorer')) {
+            var explorerPath = app.get('loopback-component-explorer').mountPath;
+            console.log('Browse your REST API at %s%s', baseUrl, explorerPath);
+        }
     });
 };
 
-// Bootstrap loopback
-boot(server, __dirname, (err) => {
-    if (err) throw err;
-    debug('loopback bootstraped');
-    // start the server if `$ node server.js`
+// Bootstrap the application, configure models, datasources and middleware.
+// Sub-apps like REST API are mounted via boot scripts.
+boot(app, __dirname, function(err) {
+    if (err) {
+        throw err;
+    }
+
+  // start the server if `$ node server.js`
     if (require.main === module) {
-        server.start();
+        app.start();
     }
 });
 
-export default server;
+export default app;

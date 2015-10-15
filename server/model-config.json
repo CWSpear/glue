@@ -31,5 +31,9 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "paste": {
+    "dataSource": "db",
+    "public": true
   }
 }

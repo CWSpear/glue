@@ -1,8 +1,9 @@
-'use strict';
+import registerBabel from 'babel/register';
+import server from './server';
 
 // enable babel on the fly compilation
-require('babel/register')({
+registerBabel({
     nonStandard: true
 });
 
-require('./server').start();
+server.start();
