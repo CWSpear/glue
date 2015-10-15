@@ -3,6 +3,7 @@ var mocha     = require('gulp-mocha');
 var plumber   = require('gulp-plumber');
 var eslint    = require('gulp-eslint');
 var cache     = require('gulp-cached');
+var istanbul  = require('gulp-istanbul');
 
 require('babel/register')({
     nonStandard: true
@@ -10,13 +11,28 @@ require('babel/register')({
 
 var jsPaths = ['client/**/*.js', 'server/**/*.js'];
 
+gulp.task('test', function () {
+    return gulp.src(jsPaths, {read: false})
+        .pipe(plumber())
+        .pipe(istanbul())
+        .pipe(istanbul.hookRequire())
+        .pipe(runTests());
+
+    function runTests() {
+        return gulp.src('tests/**/*.test.js')
+            .pipe(mocha({reporter: 'nyan'}))
+            .pipe(istanbul.writeReports())
+            .pipe(istanbul.enforceThresholds({thresholds: {global: 80}}));
+    }
+});
+
 gulp.task('integration-test', function () {
     return gulp.src(jsPaths, { read: false })
         .pipe(plumber())
         .pipe(mocha({reporter: 'nyan', grep: 'INTEGRATION-TESTS'}));
 });
 
-gulp.task('test', function () {
+gulp.task('unit-test', function () {
     return gulp.src(jsPaths, { read: false })
         .pipe(plumber())
         .pipe(mocha({reporter: 'nyan', grep: 'UNIT-TESTS'}));
@@ -31,4 +47,4 @@ gulp.task('lint', function () {
         .pipe(eslint.failAfterError());
 });
 
-gulp.task('ci', ['lint', 'test', 'integration-test']);
+gulp.task('ci', ['lint', 'test']);

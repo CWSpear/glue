@@ -23,6 +23,7 @@
     "compression": "^1.0.3",
     "cors": "^2.5.2",
     "debug": "^2.2.0",
+    "es6-module-loader": "^0.17.8",
     "lodash": "^3.10.1",
     "loopback": "^2.22.0",
     "loopback-boot": "^2.6.5",
@@ -33,6 +34,7 @@
   "devDependencies": {
     "chai": "^3.3.0",
     "chai-as-promised": "^5.1.0",
+    "chai-datetime": "^1.4.0",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.2.1",
     "gulp-cached": "^1.1.0",
@@ -42,7 +44,8 @@
     "gulp-plumber": "^1.0.1",
     "gulp-streamify": "^1.0.2",
     "sinon": "^1.17.0",
-    "supertest": "^1.1.0"
+    "supertest": "^1.1.0",
+    "supertest-as-promised": "^2.0.2"
   },
   "eslintConfig": {
     "ecmaFeatures": {
