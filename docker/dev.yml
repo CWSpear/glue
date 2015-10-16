@@ -1,14 +1,14 @@
 web:
-    build: .
-    ports:
-        - "3000:3000"
     volumes:
         - .:/src
+    entrypoint: /bin/bash
+    tty: true
+    extends:
+        file: common.yml
+        service: web
     links:
         - redis
         - postgres
-    entrypoint: /bin/bash
-    tty: true
 redis:
   image: redis:latest
 postgres:

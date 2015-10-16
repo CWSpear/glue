@@ -1,0 +1,13 @@
+web:
+    entrypoint: npm
+    command: 'test'
+    extends:
+        file: common.yml
+        service: web
+    links:
+        - redis
+        - postgres
+redis:
+  image: redis:latest
+postgres:
+  image: postgres:latest
