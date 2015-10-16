@@ -1,9 +1,6 @@
-import registerBabel from 'babel/register';
-import server from './server';
-
 // enable babel on the fly compilation
-registerBabel({
+require('babel/register')({
     nonStandard: true
 });
 
-server.start();
+require('./server').start();

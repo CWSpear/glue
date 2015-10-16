@@ -11,7 +11,7 @@
       "type": "string",
       "required": true
     },
-    "userId": {
+    "createdById": {
       "type": "number",
       "required": true
     },
@@ -24,6 +24,7 @@
       "required": true
     }
   },
+  "hidden": ["lastModified"],
   "validations": [],
   "relations": {},
   "acls": [],
