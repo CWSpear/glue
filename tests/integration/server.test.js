@@ -1,4 +1,4 @@
-import request from 'supertest';
+import request from 'supertest-as-promised';
 import server from '../../server';
 
 var app;
@@ -6,9 +6,9 @@ var app;
 describe('INTEGRATION-TESTS::Server tests', () => {
     beforeEach(() => app = server.start());
 
-    afterEach((done) => app.close(done));
+    afterEach(done => app.close(done));
 
-    it('should return 200 for default route', (done) => request(server).get('/').expect(200, done));
+    it('should return 200 for default route', () => request(server).get('/').expect(200));
 
-    it('should return 404 for invalid uris', (done) => request(server).get('/not/valid').expect(404, done));
+    it('should return 404 for invalid uris', () => request(server).get('/not/valid').expect(404));
 });

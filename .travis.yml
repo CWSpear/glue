@@ -7,4 +7,4 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
 before_scripts:
   - ./scripts/test.sh
-sudo: false
+sudo: true

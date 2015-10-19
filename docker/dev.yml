@@ -1,6 +1,6 @@
 web:
     volumes:
-        - .:/src
+        - ../.:/src
     entrypoint: /bin/bash
     tty: true
     extends:
@@ -9,7 +9,13 @@ web:
     links:
         - redis
         - postgres
+    ports:
+        - "5858:5858"
 redis:
-  image: redis:latest
+    extends:
+      file: common.yml
+      service: redis
 postgres:
-  image: postgres:latest
+    extends:
+      file: common.yml
+      service: postgres

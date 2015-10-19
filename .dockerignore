@@ -1,1 +1,7 @@
 .git/
+scripts/
+docker/
+.travis.yml
+.yo-rc.json
+Dockerfile
+.editorconfig

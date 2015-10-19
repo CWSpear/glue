@@ -1,6 +1,6 @@
 {
-  "pg": {
-    "name": "pg",
+  "pg-glue": {
+    "name": "pg-glue",
     "connector": "postgresql",
     "host": "postgres",
     "database": "glue",
