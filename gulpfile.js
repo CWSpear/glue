@@ -13,7 +13,7 @@ require('babel/register')({
 var jsPaths = ['client/**/*.js', 'server/**/*.js'];
 
 gulp.task('test', function () {
-    return gulp.src(jsPaths, {read: false})
+    return gulp.src(jsPaths, { read: false })
         .pipe(plumber())
         .pipe(streamify(istanbul()))
         .pipe(streamify(istanbul.hookRequire()))
@@ -21,9 +21,9 @@ gulp.task('test', function () {
 
     function runTests() {
         return gulp.src('tests/**/*.test.js')
-            .pipe(streamify(mocha({reporter: 'nyan'})))
+            .pipe(streamify(mocha({ reporter: 'nyan' })))
             .pipe(streamify(istanbul.writeReports()))
-            .pipe(streamify(istanbul.enforceThresholds({thresholds: {global: 80}})));
+            .pipe(streamify(istanbul.enforceThresholds({ thresholds: { global: 80 } })));
     }
 });
 

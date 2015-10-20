@@ -7,5 +7,3 @@ cat ./scripts/bootstrap-postgres.sh | docker exec -i glue_postgres sh -c 'cat > 
 
 docker exec -ti glue_postgres chmod 755 /bootstrap-postgres.sh
 docker exec -ti glue_postgres /bootstrap-postgres.sh
-
-docker exec -ti glue_web npm test
