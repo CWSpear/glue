@@ -1,0 +1,17 @@
+web:
+    entrypoint: /bin/bash
+    tty: true
+    extends:
+        file: common.yml
+        service: web
+    links:
+        - redis
+        - postgres
+redis:
+    extends:
+      file: common.yml
+      service: redis
+postgres:
+    extends:
+      file: common.yml
+      service: postgres

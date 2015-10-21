@@ -1,0 +1,32 @@
+{
+  "name": "paste",
+  "plural": "pastes",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "body": {
+      "type": "string",
+      "required": true
+    },
+    "createdById": {
+      "type": "number",
+      "required": true
+    },
+    "slug": {
+      "type": "string",
+      "required": true
+    },
+    "lastModified": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "hidden": ["lastModified"],
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

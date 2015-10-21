@@ -1,0 +1,11 @@
+web:
+    container_name: glue_web
+    build: ../.
+    ports:
+        - "3000:3000"
+redis:
+    container_name: glue_redis
+    image: redis:latest
+postgres:
+    container_name: glue_postgres
+    image: postgres:latest

@@ -7,7 +7,6 @@ WORKDIR /src
 
 RUN npm install
 
-
 ENTRYPOINT ["npm"]
 
 CMD ["start"]

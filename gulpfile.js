@@ -1,9 +1,10 @@
-var gulp     = require('gulp');
-var mocha    = require('gulp-mocha');
-var plumber  = require('gulp-plumber');
-var istanbul = require('gulp-istanbul');
-var eslint   = require('gulp-eslint');
-var cache    = require('gulp-cached');
+var gulp      = require('gulp');
+var mocha     = require('gulp-mocha');
+var plumber   = require('gulp-plumber');
+var eslint    = require('gulp-eslint');
+var cache     = require('gulp-cached');
+var istanbul  = require('gulp-istanbul');
+var streamify = require('gulp-streamify');
 
 require('babel/register')({
     nonStandard: true
@@ -12,18 +13,30 @@ require('babel/register')({
 var jsPaths = ['client/**/*.js', 'server/**/*.js'];
 
 gulp.task('test', function () {
-    return gulp.src(jsPaths, {read:false})
+    return gulp.src(jsPaths, { read: false })
         .pipe(plumber())
-        .pipe(istanbul())
-        .pipe(istanbul.hookRequire())
+        .pipe(streamify(istanbul()))
+        .pipe(streamify(istanbul.hookRequire()))
         .pipe(runTests());
 
     function runTests() {
         return gulp.src('tests/**/*.test.js')
-            .pipe(mocha({reporter: 'nyan'}))
-            .pipe(istanbul.writeReports())
-            .pipe(istanbul.enforceThresholds({ thresholds: { global: 80 } }));
+            .pipe(streamify(mocha({ reporter: 'nyan' })))
+            .pipe(streamify(istanbul.writeReports()))
+            .pipe(streamify(istanbul.enforceThresholds({ thresholds: { global: 80 } })));
     }
+});
+
+gulp.task('integration-test', function () {
+    return gulp.src(jsPaths, { read: false })
+        .pipe(plumber())
+        .pipe(mocha({reporter: 'nyan', grep: 'INTEGRATION-TESTS'}));
+});
+
+gulp.task('unit-test', function () {
+    return gulp.src(jsPaths, { read: false })
+        .pipe(plumber())
+        .pipe(mocha({reporter: 'nyan', grep: 'UNIT-TESTS'}));
 });
 
 gulp.task('lint', function () {

@@ -1,0 +1,21 @@
+web:
+    volumes:
+        - ../.:/src
+    entrypoint: /bin/bash
+    tty: true
+    extends:
+        file: common.yml
+        service: web
+    links:
+        - redis
+        - postgres
+    ports:
+        - "5858:5858"
+redis:
+    extends:
+      file: common.yml
+      service: redis
+postgres:
+    extends:
+      file: common.yml
+      service: postgres

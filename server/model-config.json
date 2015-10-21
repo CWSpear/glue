@@ -14,22 +14,26 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "pg-glue"
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "pg-glue",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "pg-glue",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "pg-glue",
     "public": false
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "pg-glue",
     "public": false
+  },
+  "paste": {
+    "dataSource": "pg-glue",
+    "public": true
   }
 }
